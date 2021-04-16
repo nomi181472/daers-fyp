@@ -61,7 +61,7 @@ def doTest():
     dataset.load_custom(CUSTOM_DIR, "val/")
     # Must call before using the dataset
     dataset.prepare()
-    print("Images: {}\nClasses: {}".format(len(dataset.image_ids), dataset.class_names))
+    #print("Images: {}\nClasses: {}".format(len(dataset.image_ids), dataset.class_names))
     #LOAD MODEL
     # Create model in inference mode
     with tf.device(DEVICE):
@@ -90,7 +90,7 @@ def doTest():
     log("gt_bbox", gt_bbox)
     log("gt_mask", gt_mask)
     # This is for predicting images which are not present in dataset
-    path_to_new_image = "contents/datasets/u1.jpg"
+    path_to_new_image = "contents/datasets/y.jpg"
     image1 = mpimg.imread(path_to_new_image)
     # Run object detection
     print(len([image1]))

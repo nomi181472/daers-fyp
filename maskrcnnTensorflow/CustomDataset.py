@@ -5,7 +5,7 @@ import os
 from contents.mrcnn import utils
 class CustomDataset(utils.Dataset):
 
-    def load_custom(self, dataset_dir, subset):
+    def load_custom(self, dataset_dir, subset) -> object:
         """Load a subset of the Horse-Man dataset.
         dataset_dir: Root directory of the dataset.
         subset: Subset to load: train or val

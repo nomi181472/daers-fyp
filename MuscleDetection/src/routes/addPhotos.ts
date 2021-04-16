@@ -14,7 +14,9 @@ router.post(
     const  userId = req.currentUser!.id;
     const muscle = await m.addPhotos(photos,userId);
     new ScheduleCreatedPublisher(natsWrapper.client).publish({
-    work:"start your processing"
+      event: "predict",
+      userId: req.currentUser!.id,
+      
     })
     res.status(200).send({ muscle });
   }
