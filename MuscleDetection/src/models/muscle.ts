@@ -3,10 +3,11 @@ import { MuscleAttrs, muscleModel } from "./muscle-repo/muscle-repo";
 export class Muscle{
   constructor() {}
   public async addPhotos(photos: any, userId: any) {
-    const is_muscle =await  muscleModel.findOne({ userId: userId });
+    const is_muscle = await muscleModel.findOne({ userId: userId });
+    
     if (is_muscle != null) {
       is_muscle.photos.frontPose =photos.frontPose
-        is_muscle.photos.sidePose =photos.sidePose
+      console.log(photos)
       is_muscle.photos.backPose = photos.backPose
       await is_muscle.save();
       return is_muscle;

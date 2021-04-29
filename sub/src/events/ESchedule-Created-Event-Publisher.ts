@@ -6,6 +6,6 @@ import { Subjects } from "./subject";
 
 
 export class EScheduleCreatedPublisher extends Publisher<EScheduleCreatedEvent>{
-  subject: Subjects.ExerciseScheduleCreated=Subjects.ExerciseScheduleCreated;
+  subject: Subjects.UserCreated=Subjects.UserCreated;
   
 }

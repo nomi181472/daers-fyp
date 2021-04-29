@@ -1,9 +1,12 @@
 import { Subjects } from "./subject";
 export interface EScheduleCreatedEvent{
-  subject: Subjects.ExerciseScheduleCreated;
+  subject: Subjects.UserCreated;
   data: {
-    event: string
-    userId: string
- 
+    age: number;
+    bmi: number;
+  weight: number;
+    height: number;
+    userId: string;
+  
   }
 } 

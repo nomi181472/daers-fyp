@@ -25,7 +25,7 @@ const muscleSchema = new mongoose.Schema(
     },
     photos: {
       frontPose: String,
-      sidePose: String,
+     
       backPose:String
       
     },
@@ -71,7 +71,7 @@ interface MuscleAttrs {
 
   photos: {
     frontPose: String;
-    sidePose: String;
+    
     backPose: String;
     
   };
@@ -101,7 +101,7 @@ interface MuscleDocument extends mongoose.Document {
   };
   photos: {
     frontPose: String;
-    sidePose: String;
+    
     backPose: String;
     
   };

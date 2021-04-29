@@ -13,6 +13,9 @@ import random
 import tensorflow as tf
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
+import cv2
+import PIL
+import numpy as np
 try:
     copytree(src="wastedata-Mask_RCNN-multiple-classes/main/Mask_RCNN", dst="contents")
 except FileExistsError as e:
@@ -98,6 +101,21 @@ def doTest():
     # Display results
     ax = get_ax(1)
     r1 = results1[0]
+
+    y1, x1, y2, x2 = r1['rois'][1]
+    var= r['class_ids']
+
+
+    x=int(x1)
+    y=int(y1)
+    w=int(x2 - x1)
+    h=int( y2 - y1)
+    crop_img = image1[y:y + h ,x:x + w]
+    crop_img=cv2.resize(crop_img, (229, 229))
+    cv2.imshow("cropped", crop_img)
+    cv2.waitKey(0)
+
+
     visualize.display_instances(image1, r1['rois'], r1['masks'], r1['class_ids'],
     dataset.class_names, r1['scores'], ax=ax, title="Predictions1")
     plt.show()

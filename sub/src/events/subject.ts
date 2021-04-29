@@ -1,5 +1,5 @@
 export enum Subjects{
-  ExerciseScheduleCreated = "eschedule:created",
+  UserCreated = "eschedule:created",
   ExerciseScheduleUpdated="eschedule:updated"
 }
 const printSubject = (subject: Subjects) => {

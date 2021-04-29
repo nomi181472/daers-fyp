@@ -1,11 +1,17 @@
 import { Message } from "node-nats-streaming";
-import { EScheduleCreatedEvent } from '../../../../sub/src/events/ESchedule-Created-Event';
-import { Subjects } from '../../../../sub/src/events/subject';
-import { Listener } from '../../../../sub/src/events/base-listener';
-export class ScheduleCreatedListener extends Listener<EScheduleCreatedEvent>{
+
+import { Listener } from "../base-file/base-listener";
+import { Subjects } from "../base-file/subject";
+import { UserCreatedEvent } from "../base-file/User-Created-Event";
+export class ScheduleCreatedListener extends Listener<UserCreatedEvent>{
   queueGroupName = "user-management-service";
-  subject: Subjects.ExerciseScheduleCreated = Subjects.ExerciseScheduleCreated;
-  onMessage(data: EScheduleCreatedEvent["data"], msg: Message) {
-    
+  subject: Subjects.UserCreated = Subjects.UserCreated;
+  onMessage(data: UserCreatedEvent["data"], msg: Message) {
+    console.log(data);
+    msg.ack();
+    for(var i=0;i<10;i++)
+    {
+      console.log(i)
+    }
   }
 }
