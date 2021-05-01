@@ -4,7 +4,7 @@ export class Muscle{
   constructor() {}
   public async addPhotos(photos: any, userId: any) {
     const is_muscle = await muscleModel.findOne({ userId: userId });
-    
+    console.log(is_muscle)
     if (is_muscle != null) {
       is_muscle.photos.frontPose =photos.frontPose
       console.log(photos)

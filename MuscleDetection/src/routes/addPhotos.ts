@@ -10,14 +10,17 @@ router.post(
   requireAuth,
   async (req: Request, res: Response) => {
     const m = new Muscle();
-    const {  photos } = req.body;
-    const userId = req.currentUser!.id;
     
+    const {  photos } = req.body;
+    
+    const userId = req.currentUser!.id;
+    console.log("hit")
     const muscle = await m.addPhotos(photos,userId);
-    // new ScheduleCreatedPublisher(natsWrapper.client).publish({
-    //   event: "predict",
-    //   userId: req.currentUser!.id,
-    // })
+    
+    new ScheduleCreatedPublisher(natsWrapper.client).publish({
+      event: "predict",
+      userId: req.currentUser!.id,
+    })
     res.status(200).send({ muscle });
   }
 );

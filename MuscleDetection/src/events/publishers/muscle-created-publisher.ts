@@ -4,7 +4,7 @@ import { Subjects } from '../../../../sub/src/events/subject';
 
 
 export class ScheduleCreatedPublisher extends Publisher<EScheduleCreatedEvent>{
-  subject: Subjects.ExerciseScheduleCreated=Subjects.ExerciseScheduleCreated;
+  subject: Subjects.UserCreated =Subjects.UserCreated;
 
 }
 

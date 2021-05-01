@@ -10,3 +10,4 @@ cython
 h5py==2.10.0
 imgaug
 IPython[all]
+cloudinary
