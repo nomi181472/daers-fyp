@@ -1,6 +1,6 @@
 export enum Subjects{
-  ExerciseScheduleCreated = "eschedule:created",
-  ExerciseScheduleUpdated="eschedule:updated"
+  UserPhotoAppear = "muscle-detection:created",
+  
 }
 const printSubject = (subject: Subjects) => {
    

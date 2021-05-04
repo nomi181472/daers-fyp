@@ -1,10 +1,10 @@
-import { Publisher } from '../../../../sub/src/events/base-publisher';
-import { EScheduleCreatedEvent } from '../../../../sub/src/events/ESchedule-Created-Event';
-import { Subjects } from '../../../../sub/src/events/subject';
+import { Publisher } from "../base-file/base-publisher";
+import { MuscleCreatedEvents } from "../base-file/Muscle-Created-Event";
+import { Subjects } from "../base-file/subject";
 
 
-export class ScheduleCreatedPublisher extends Publisher<EScheduleCreatedEvent>{
-  subject: Subjects.UserCreated =Subjects.UserCreated;
+export class ScheduleCreatedPublisher extends Publisher<MuscleCreatedEvents>{
+  subject: Subjects.UserPhotoAppear =Subjects.UserPhotoAppear;
 
 }
 

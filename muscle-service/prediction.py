@@ -80,7 +80,7 @@ def predictLevel(boxes,image1,class_names,class_ids):
         crop_img = image1[y:y + h, x:x + w]
         crop_img = cv2.resize(crop_img, (229, 229))
         plt.imsave("Cropped.png", cv2.cvtColor(crop_img, cv2.COLOR_BGR2RGB))
-        print(class_names[class_ids[i]])
+        print(class_ids[i])
         levels[class_names[class_ids[i]]]=detect(crop_img)
     return  levels
 
@@ -99,7 +99,7 @@ def predict(model,class_names,images):
 
         ax = get_ax(1)
         r1 = results1[0]
-        levels=predictLevel(r1["rois"],class_names,r1["class_ids"],image1)
+        levels=predictLevel(r1["rois"],image1,class_names,r1['class_ids'])
         print(levels)
 
 

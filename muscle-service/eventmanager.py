@@ -8,7 +8,7 @@ import json
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-def uploadOnCloudinary(n):
+def uploadOnCloudinary(n,mycol,userId):
     cloudinary.config(
         cloud_name="daers",
         api_key="699873113773439",
@@ -17,7 +17,11 @@ def uploadOnCloudinary(n):
     public_urls=[]
     for i in range(n):
         filename="Maskpredicted"+str(i)+".png"
-        url=cloudinary.uploader.upload(filename, folder="Daers/DetectedImages/",public_id="Muscle",overwrite=True,resource_type="image")
+        #url=cloudinary.uploader.upload(filename, folder="Daers/DetectedImages/",public_id="Muscle",overwrite=True,resource_type="image")
+        url={"url":"updated"}
+        where={"userId":userId}
+        update={"$set":{"photos.backPose":url["url"]}}
+        a=mycol.update_one(where,update)
         print(url["url"])
 
     return True;
@@ -39,10 +43,10 @@ def eventmanage(userId,model,class_name,mycol):
         frontPose=x["photos"]["frontPose"]
         imagerray=url_to_image(frontPose)
         print(imagerray.shape)
-        images=[imagerray,imagerray]
+        images=[imagerray]
         iss=predict(model,class_name,images)
         print(iss)
-        publicurls=uploadOnCloudinary(len(images))
+        publicurls=uploadOnCloudinary(len(images),mycol,userId)
         print(publicurls)
     except Exception as E:
         print(E)

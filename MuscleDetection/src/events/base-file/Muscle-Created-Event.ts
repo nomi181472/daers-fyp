@@ -1,9 +1,8 @@
 import { Subjects } from "./subject";
-export interface EScheduleCreatedEvent{
-  subject: Subjects.ExerciseScheduleCreated;
+export interface MuscleCreatedEvents{
+  subject: Subjects.UserPhotoAppear;
   data: {
-    id: string;
-    title: string;
-    price: number;
+    event:string,
+    userId:string
   }
 } 

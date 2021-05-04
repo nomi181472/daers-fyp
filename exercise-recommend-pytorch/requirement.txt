@@ -1,0 +1,9 @@
+torch
+torchtext==0.4
+torchvision
+tensorboard
+spacy
+pandas
+matplotlib
+scikit-image
+opencv-python

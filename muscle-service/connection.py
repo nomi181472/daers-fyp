@@ -9,27 +9,19 @@ async def run(loop,model,class_name,mycol):
     sc = STAN()
     await nc.connect(io_loop=loop)
     await sc.connect("daers", "client-123", nats=nc)
+    subject = "muscle-detection:created"
     async def cb(msg):
-        print("Received a message (seq={}): {}".format(msg.seq, msg.data))
-        my_json = msg.data.decode('utf8').replace("'", '"')
-        data = json.loads(my_json)
-        eventmanage(data["userId"],model,class_name,mycol)
+        nonlocal  sc
 
+        print("Subject:"+subject+"Received a message (seq={}): {}".format(msg.seq, msg.data))
+        try:
+            my_json = msg.data.decode('utf8').replace("'", '"')
+            data = json.loads(my_json)
 
-
-
-
-    # Decode UTF-8 bytes to Unicode, and convert single quotes
-    # to double quotes to make it valid JSON
-
-
-
-
-    # Load the JSON to a Python list & dump it back out as formatted JSON
-
-
-
-
+            eventmanage(data["userId"],model,class_name,mycol)
+        except Exception as e:
+            print(e)
 
     # Subscribe to get all messages from the beginning.
-    await sc.subscribe("eschedule:created", durable_name="durable", queue="", cb=cb)
+
+    await sc.subscribe(subject, durable_name="durable", queue="", cb=cb)
