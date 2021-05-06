@@ -7,6 +7,7 @@ import { BadRequestError } from "../errors/bad-request-error";
 import { UserSchema } from "../models/user-repo/user-repo";
 import { UserCreatedPublisher } from "../events/publishers/user-created-publisher";
 import { natsWrapper } from "../nats-wrapper";
+import { UserWeightPublisher } from "../events/publishers/user-weight-publisher";
 
 const router = express.Router();
 router.post(
@@ -58,9 +59,22 @@ router.post(
       "noman"
     );
     const userId = createdUser.id;
-    req.session!.jwt = userJWT;
     
-    //new UserCreatedPublisher(natsWrapper.client).publish({age,bmi,weight,height,userId})
+    req.session!.jwt = userJWT;
+    try {
+      new UserCreatedPublisher(natsWrapper.client).publish({ age, bmi, userId, })
+    }
+    catch (Exception) {
+      console.log("UserCreatedPublisher Exception: "+Exception)
+    }
+    try {
+      new UserWeightPublisher(natsWrapper.client).publish({ weight ,userId, })
+    }
+    catch (Exception) {
+      console.log("UserCreatedPublisher Exception: "+Exception)
+    }
+
+
     console.log("Returned");
     res.status(201).send({ createdUser });
   }

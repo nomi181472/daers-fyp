@@ -4,9 +4,10 @@ export class ExerciseTrack{
   constructor() {
   
   }
-  public async makeObject(userId: string) {
+  public async makeObject(userId: string,currentWeight:number=0) {
     var obj = {
-      userId: userId
+      userId: userId,
+      currentWeight: currentWeight
     }
     const et = await exerciseTrackModel.build(obj);
     await et.save();
@@ -33,16 +34,10 @@ export class ExerciseTrack{
 
 
   }
-  public async getweight(headers:any) {
-    // const url: string = "localhost:3010/api-gateway/current-user/weightAndHeight";
-    // console.log("run");
-    // const res = await axios.get(url, { headers: {cookie:headers.cookie} , withCredentials: true });
-    // console.log("run");
-    // console.log(res);
-  }
+  
   public async addWeightCapacity(addWeightCapacity:any,userId:any,headers:any) {
     const et = await exerciseTrackModel.find({ userId: userId });
-   await  this.getweight(headers);
+  
     try {
       if (!et.length) {
         await this.makeObject(userId);

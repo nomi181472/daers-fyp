@@ -5,7 +5,10 @@ const exerciseTrackSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    
+    currentWeight: {
+      type: String,
+     
+    },
     weightCapacity:[{
       exerciseName: String,
       reps:[Number],
@@ -34,6 +37,7 @@ const exerciseTrackSchema = new mongoose.Schema(
 );
 interface ExerciseTrackAttrs {
   userId: string;
+  currentWeight: number;
   weightCapacity?: {
     
     exerciseName: string,
@@ -54,7 +58,7 @@ interface ExerciseTrackAttrs {
 interface ExerciseTrackDocument extends mongoose.Document {
  
   userId: string;
-  
+  currentWeight: number;
   weightCapacity:{
     exerciseName: string,
     weight: number[]

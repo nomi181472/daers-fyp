@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import {UserDocument} from "./user-repo"
+import {UserAttrs, UserDocument} from "./user-repo"
 const exerciseScheduleSchema = new mongoose.Schema(
   {
     userId: {
@@ -23,6 +23,10 @@ const exerciseScheduleSchema = new mongoose.Schema(
         ],
       },
     ],
+    // userDetails: {
+    //   type: mongoose.Schema.Types.ObjectId, ref: 'userexerciseschedule',
+    //   required: true
+    // },
 
     createAt: Date,
     updateAt: Date,
@@ -52,6 +56,7 @@ interface ExerciseScheduleAttrs {
       };
     }[];
   }[];
+  // userDetails?:UserDocument
   createAt?: Date;
   updateAt?: Date;
 
@@ -59,6 +64,7 @@ interface ExerciseScheduleAttrs {
 interface ExerciseScheduleDocument extends mongoose.Document {
   userId: string;
   document: {
+
     sameDay: string;
     day: {
       sameExercise: String;
@@ -71,6 +77,7 @@ interface ExerciseScheduleDocument extends mongoose.Document {
       };
     }[];
   }[];
+  // userDetails?:UserDocument
  
  
 }

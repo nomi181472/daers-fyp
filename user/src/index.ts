@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 import { app } from "./app";
-import { ScheduleCreatedListener } from "./events/listeners/schedule-created-listeners";
+import { UserCreatedListener } from "./events/listeners/user-created-listener";
 import { natsWrapper } from "./nats-wrapper";
 const start = async () => {
   try {
@@ -13,7 +13,7 @@ const start = async () => {
     process.on("SIGNINT", () => natsWrapper.client.close());
   
   process.on("SIGTERM", () => natsWrapper.client.close());
-    new ScheduleCreatedListener(natsWrapper.client).listen()
+    new UserCreatedListener(natsWrapper.client).listen()
     await mongoose.connect("mongodb://localhost:27017/User", {
       useNewUrlParser: true,
       useUnifiedTopology: true,

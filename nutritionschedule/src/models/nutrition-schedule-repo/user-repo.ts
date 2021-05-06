@@ -62,6 +62,6 @@ interface UserDocument extends mongoose.Document {
 userSchema.statics.build = (user: UserAttrs) => {
   return new UserSchema(user);
 };
-const UserSchema = mongoose.model<UserDocument, UserModel>("userexerciseschedule", userSchema);
+const UserSchema = mongoose.model<UserDocument, UserModel>("usernutritionschedule", userSchema);
 
 export { UserSchema, UserAttrs, UserDocument };

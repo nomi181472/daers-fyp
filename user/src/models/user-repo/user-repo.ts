@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
 import { Password } from "./password";
-import mongoosePaginate from 'mongoose-paginate-v2';
 const userSchema = new mongoose.Schema(
   {
     email: {

@@ -40,7 +40,7 @@ router.post(
     if (!result) {
       throw new BadRequestError("unAble to create schedule");
     }
-    console.log("i am here 43 line")
+    
     // new ScheduleCreatedPublisher(natsWrapper.client).publish({
     //   age:23,
     //   bmi: 23,
@@ -48,7 +48,7 @@ router.post(
     //   height: 23,
     //   userId: "23",
     // })
-    console.log("Returned");
+   
     res.status(201).send({ result });
 
   }
