@@ -19,8 +19,9 @@ async def run(loop,model,class_name,mycol):
             data = json.loads(my_json)
 
             eventmanage(data["userId"],model,class_name,mycol)
-            #sc.ack(msg)
+
         except Exception as e:
+
             print(e)
 
     # Subscribe to get all messages from the beginning.
