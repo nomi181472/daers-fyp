@@ -8,7 +8,7 @@ async def run(loop,model,class_name,mycol):
     nc = NATS()
     sc = STAN()
     await nc.connect(io_loop=loop)
-    await sc.connect("daers", "client-123", nats=nc)
+    await sc.connect("daers", "muscle-detection-srv", nats=nc)
     subject = "muscle-detection:created"
     async def cb(msg):
         nonlocal  sc
@@ -19,6 +19,7 @@ async def run(loop,model,class_name,mycol):
             data = json.loads(my_json)
 
             eventmanage(data["userId"],model,class_name,mycol)
+            #sc.ack(msg)
         except Exception as e:
             print(e)
 

@@ -20,6 +20,10 @@ export class Muscle{
           isValid: false,
           level: 0
         },
+        abs: {
+          isValid: false,
+          level: 0
+        },
         back: {
           isValid: false,
           level: 0

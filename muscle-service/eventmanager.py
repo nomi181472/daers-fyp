@@ -4,11 +4,18 @@ import cloudinary
 import cv2
 import numpy as np
 import urllib.request
-import json
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
+from datetime import date
 
-def uploadOnCloudinary(n,mycol,userId):
+today = date.today()
+def update_levels(key,levels,where,mycol):
+    update = {
+        "$set": {f'{key}.isValid': True, f'{key}.level': levels[key]}
+    }
+    a=mycol.update_one(where, update)
+
+
+
+def uploadOnCloudinary(n,mycol,userId,levels):
     cloudinary.config(
         cloud_name="daers",
         api_key="699873113773439",
@@ -17,14 +24,20 @@ def uploadOnCloudinary(n,mycol,userId):
     public_urls=[]
     for i in range(n):
         filename="Maskpredicted"+str(i)+".png"
-        #url=cloudinary.uploader.upload(filename, folder="Daers/DetectedImages/",public_id="Muscle",overwrite=True,resource_type="image")
-        url={"url":"updated"}
+        #filename=""
+        #url=cloudinary.uploader.upload(filename, folder="Daers/DetectedImages/",public_id="Muscle"+userId,resource_type="image")
+        url={"url":"updated"} #avoiding space
         where={"userId":userId}
         update={"$set":{"photos.backPose":url["url"]}}
         a=mycol.update_one(where,update)
-        print(url["url"])
+        if ("chest" in levels):
+            update_levels("chest", levels, where, mycol)
+        if ("abs" in levels):
+            update_levels("abs", levels, where, mycol)
 
-    return True;
+
+        print(url["url"])
+    return True
 def url_to_image(url):
   with urllib.request.urlopen(url) as resp:
     image = np.asarray(bytearray(resp.read()), dtype="uint8")
@@ -39,14 +52,12 @@ def url_to_image(url):
 def eventmanage(userId,model,class_name,mycol):
     try:
         x = mycol.find_one({"userId": userId}, {"photos": 1})
-        backPose=x["photos"]["backPose"]
+        #backPose=x["photos"]["backPose"]
         frontPose=x["photos"]["frontPose"]
         imagerray=url_to_image(frontPose)
-        print(imagerray.shape)
         images=[imagerray]
-        iss=predict(model,class_name,images)
-        print(iss)
-        publicurls=uploadOnCloudinary(len(images),mycol,userId)
+        levels=predict(model,class_name,images)
+        publicurls=uploadOnCloudinary(len(images),mycol,userId,levels)
         print(publicurls)
     except Exception as E:
         print(E)

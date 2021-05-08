@@ -13,6 +13,7 @@ import cv2
 import random
 import tensorflow as tf
 import matplotlib.pyplot as plt
+from levelprediction import testabs,testchest
 import matplotlib.image as mpimg
 try:
     copytree(src="wastedata-Mask_RCNN-multiple-classes/main/Mask_RCNN", dst="contents")
@@ -43,7 +44,7 @@ def setModel():
     with tf.device(DEVICE):
         model = modellib.MaskRCNN(mode="inference", model_dir=MODEL_DIR, config=config)
     # Load COCO weights Or, load the last model you trained
-    WEIGHTS_PATH = "weights/mask_rcnn_object_0010 .h5"
+    WEIGHTS_PATH = "weights/mask_rcnn_object_0060.h5"
     weights_path = WEIGHTS_PATH
     # Load weights
     print("Loading weights ", weights_path)
@@ -67,9 +68,8 @@ def setModel():
     # log("gt_mask", gt_mask)
     # This is for predicting images which are not present in dataset
     return model, dataset.class_names
-def detect(crop_imag):
-    return 1
-def predictLevel(boxes,image1,class_names,class_ids):
+
+def predictLevel(boxes,image,class_names,class_ids):
     levels={}
     for i in range(len(boxes)):
         y1, x1, y2, x2=boxes[i]
@@ -77,35 +77,33 @@ def predictLevel(boxes,image1,class_names,class_ids):
         y = int(y1)
         w = int(x2 - x1)
         h = int(y2 - y1)
-        crop_img = image1[y:y + h, x:x + w]
+        crop_img = image[y:y + h, x:x + w]
         crop_img = cv2.resize(crop_img, (229, 229))
+
         plt.imsave("Cropped.png", cv2.cvtColor(crop_img, cv2.COLOR_BGR2RGB))
-        print(class_ids[i])
-        levels[class_names[class_ids[i]]]=detect(crop_img)
+        if class_names[class_ids[i]] =="abs":
+            levels[class_names[class_ids[i]]]=int(testabs("Cropped.png",crop_img))
+        elif class_names[class_ids[i]] =="chest":
+            levels[class_names[class_ids[i]]] = int(testchest("Cropped.png",crop_img))
     return  levels
-
-
-
-
-    return 1;
 def predict(model,class_names,images):
-    path_to_new_image = "contents/datasets/y.jpg"
-    #image1 = mpimg.imread(path_to_new_image)
+
+
     # Run object detection
     for i in range(len(images)):
-        image1=images[i]
-        results1 = model.detect([image1], verbose=1)
+
+        results1 = model.detect([images[i]], verbose=1)
         # Display results
 
         ax = get_ax(1)
         r1 = results1[0]
-        levels=predictLevel(r1["rois"],image1,class_names,r1['class_ids'])
+        levels=predictLevel(r1["rois"],images[i],class_names,r1['class_ids'])
         print(levels)
 
 
-        visualize.display_instances(image1, r1['rois'], r1['masks'], r1['class_ids'],
+        visualize.display_instances(images[i], r1['rois'], r1['masks'], r1['class_ids'],
                                 class_names, r1['scores'], ax=ax, title="Predictions1",level=levels)
-        print(class_names)
+
         filename="Maskpredicted"+str(i)+".png"
         plt.savefig(filename,pad_inches=1)
-    return True,levels
+    return levels

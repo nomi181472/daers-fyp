@@ -15,6 +15,10 @@ const muscleSchema = new mongoose.Schema(
       isValid: Boolean,
       level:Number,
     },
+    abs: {
+      isValid: Boolean,
+      level:Number,
+    },
     thighs: {
       isValid: Boolean,
       level:Number,
@@ -60,6 +64,10 @@ interface MuscleAttrs {
     isValid: Boolean;
     level: Number;
   };
+  abs: {
+    isValid: Boolean;
+    level: Number;
+  };
   thighs: {
     isValid: Boolean;
     level: Number;
@@ -88,6 +96,10 @@ interface MuscleDocument extends mongoose.Document {
     level: Number;
   };
   back: {
+    isValid: Boolean;
+    level: Number;
+  };
+  abs: {
     isValid: Boolean;
     level: Number;
   };
