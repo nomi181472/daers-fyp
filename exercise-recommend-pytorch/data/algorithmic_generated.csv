@@ -1,0 +1,649 @@
+,source,target
+0, te 1 1 p a, en 9  en 34  en 20  en 6 
+1, te 1 1 p t, en 238  en 252  en 266  en 263 
+2, te 1 1 p b, en 73  en 64  en 97  en 93 
+3, te 1 1 p s, en 225  en 224  en 212  en 209 
+4, te 1 1 p c, en 147  en 130  en 113  en 136 
+5, te 1 1 p l, en 184  en 182  en 199  en 158 
+6, te 1 1 p bk, en 59  en 61  en 46  en 40 
+7, te 1 1 p cl, en 104  en 109  en 103  en 102 
+8, te 1 2 p a, en 33  en 23  en 35  en 26 
+9, te 1 2 p t, en 266  en 260  en 234  en 265 
+10, te 1 2 p b, en 97  en 82  en 66  en 78 
+11, te 1 2 p s, en 214  en 225  en 231  en 222 
+12, te 1 2 p c, en 140  en 130  en 116  en 136 
+13, te 1 2 p l, en 156  en 181  en 183  en 174 
+14, te 1 2 p bk, en 36  en 201  en 39  en 202 
+15, te 1 2 p cl, en 102  en 104  en 103  en 109 
+16, te 1 3 p a, en 30  en 35  en 26  en 15  en 14 
+17, te 1 3 p t, en 268  en 268  en 253  en 260 
+18, te 1 3 p b, en 73  en 64  en 94  en 93 
+19, te 1 3 p s, en 222  en 225  en 209  en 212 
+20, te 1 3 p c, en 136  en 140  en 147  en 116 
+21, te 1 3 p l, en 182  en 154  en 184  en 175 
+22, te 1 3 p bk, en 205  en 204  en 203  en 52 
+23, te 1 3 p cl, en 102  en 105  en 109  en 103 
+24, te 2 1 p a, en 30  en 9  en 34  en 27 
+25, te 2 1 p t, en 258  en 238  en 269  en 260 
+26, te 2 1 p b, en 64  en 96  en 65  en 63 
+27, te 2 1 p s, en 221  en 209  en 226  en 214 
+28, te 2 1 p c, en 136  en 133  en 119  en 134 
+29, te 2 1 p l, en 186  en 174  en 158  en 183 
+30, te 2 1 p bk, en 56  en 61  en 37  en 48 
+31, te 2 1 p cl, en 104  en 105  en 103  en 109 
+32, te 2 2 p a, en 30  en 19  en 35  en 17 
+33, te 2 2 p t, en 254  en 263  en 238  en 255 
+34, te 2 2 p b, en 64  en 96  en 73  en 97 
+35, te 2 2 p s, en 224  en 221  en 231  en 226 
+36, te 2 2 p c, en 116  en 133  en 111  en 145 
+37, te 2 2 p l, en 180  en 177  en 199  en 156 
+38, te 2 2 p bk, en 39  en 202  en 57  en 201 
+39, te 2 2 p cl, en 103  en 104  en 105  en 102 
+40, te 2 3 p a, en 27  en 19  en 23  en 3  en 7 
+41, te 2 3 p t, en 253  en 265  en 268  en 245 
+42, te 2 3 p b, en 97  en 78  en 73  en 95 
+43, te 2 3 p s, en 208  en 209  en 225  en 221 
+44, te 2 3 p c, en 147  en 111  en 119  en 145 
+45, te 2 3 p l, en 154  en 196  en 184  en 158 
+46, te 2 3 p bk, en 53  en 204  en 52  en 46 
+47, te 2 3 p cl, en 109  en 104  en 103  en 102 
+48, te 3 1 p a, en 30  en 6  en 4  en 9 
+49, te 3 1 p t, en 260  en 265  en 268  en 238 
+50, te 3 1 p b, en 78  en 73  en 96  en 65 
+51, te 3 1 p s, en 229  en 209  en 226  en 212 
+52, te 3 1 p c, en 129  en 133  en 119  en 131  en 127 
+53, te 3 1 p l, en 186  en 181  en 175  en 170 
+54, te 3 1 p bk, en 203  en 61  en 40  en 37 
+55, te 3 1 p cl, en 103  en 109  en 105  en 102 
+56, te 3 2 p a, en 28  en 35  en 26  en 19 
+57, te 3 2 p t, en 268  en 255  en 243  en 263 
+58, te 3 2 p b, en 82  en 63  en 73  en 94 
+59, te 3 2 p s, en 212  en 208  en 221  en 226 
+60, te 3 2 p c, en 132  en 134  en 133  en 139  en 127 
+61, te 3 2 p l, en 199  en 181  en 151  en 182 
+62, te 3 2 p bk, en 204  en 202  en 47  en 57 
+63, te 3 2 p cl, en 103  en 102  en 104  en 109 
+64, te 3 3 p a, en 28  en 19  en 17  en 10  en 24 
+65, te 3 3 p t, en 243  en 269  en 266  en 245 
+66, te 3 3 p b, en 66  en 97  en 65  en 94 
+67, te 3 3 p s, en 225  en 229  en 231  en 212 
+68, te 3 3 p c, en 128  en 111  en 119  en 114  en 118 
+69, te 3 3 p l, en 196  en 165  en 184  en 170 
+70, te 3 3 p bk, en 59  en 39  en 203  en 201 
+71, te 3 3 p cl, en 109  en 104  en 103  en 102 
+72, ad 1 1 p a, en 28  en 30  en 34  en 27 
+73, ad 1 1 p t, en 238  en 269  en 260  en 265 
+74, ad 1 1 p b, en 99  en 63  en 66  en 71 
+75, ad 1 1 p s, en 222  en 214  en 209  en 208 
+76, ad 1 1 p c, en 146  en 113  en 129  en 132 
+77, ad 1 1 p l, en 184  en 170  en 154  en 199 
+78, ad 1 1 p bk, en 203  en 36  en 61  en 39 
+79, ad 1 1 p cl, en 103  en 104  en 105  en 102 
+80, ad 1 2 p a, en 34  en 17  en 23  en 19 
+81, ad 1 2 p t, en 243  en 255  en 269  en 258 
+82, ad 1 2 p b, en 78  en 66  en 99  en 73 
+83, ad 1 2 p s, en 214  en 224  en 208  en 212 
+84, ad 1 2 p c, en 146  en 130  en 129  en 147 
+85, ad 1 2 p l, en 182  en 186  en 181  en 180 
+86, ad 1 2 p bk, en 53  en 56  en 36  en 204 
+87, ad 1 2 p cl, en 109  en 103  en 104  en 102 
+88, ad 1 3 p a, en 20  en 23  en 19  en 5  en 10 
+89, ad 1 3 p t, en 253  en 268  en 245  en 268 
+90, ad 1 3 p b, en 97  en 96  en 94  en 66 
+91, ad 1 3 p s, en 226  en 229  en 222  en 225 
+92, ad 1 3 p c, en 128  en 117  en 113  en 146 
+93, ad 1 3 p l, en 174  en 158  en 151  en 182 
+94, ad 1 3 p bk, en 52  en 36  en 44  en 59 
+95, ad 1 3 p cl, en 105  en 102  en 104  en 109 
+96, ad 2 1 p a, en 30  en 6  en 30  en 28 
+97, ad 2 1 p t, en 252  en 260  en 234  en 243 
+98, ad 2 1 p b, en 97  en 93  en 78  en 64 
+99, ad 2 1 p s, en 212  en 224  en 214  en 231 
+100, ad 2 1 p c, en 135  en 145  en 134  en 112 
+101, ad 2 1 p l, en 165  en 175  en 196  en 170 
+102, ad 2 1 p bk, en 203  en 48  en 204  en 202 
+103, ad 2 1 p cl, en 104  en 103  en 109  en 105 
+104, ad 2 2 p a, en 28  en 19  en 35  en 17 
+105, ad 2 2 p t, en 234  en 265  en 266  en 268 
+106, ad 2 2 p b, en 99  en 64  en 94  en 82 
+107, ad 2 2 p s, en 224  en 229  en 225  en 209 
+108, ad 2 2 p c, en 136  en 134  en 145  en 111 
+109, ad 2 2 p l, en 184  en 180  en 174  en 154 
+110, ad 2 2 p bk, en 57  en 46  en 203  en 202 
+111, ad 2 2 p cl, en 105  en 102  en 103  en 104 
+112, ad 2 3 p a, en 33  en 23  en 35  en 15  en 22 
+113, ad 2 3 p t, en 265  en 268  en 245  en 258 
+114, ad 2 3 p b, en 93  en 66  en 78  en 73 
+115, ad 2 3 p s, en 231  en 225  en 226  en 221 
+116, ad 2 3 p c, en 146  en 119  en 134  en 133 
+117, ad 2 3 p l, en 154  en 186  en 177  en 184 
+118, ad 2 3 p bk, en 59  en 201  en 53  en 203 
+119, ad 2 3 p cl, en 109  en 102  en 104  en 103 
+120, ad 3 1 p a, en 28  en 20  en 9  en 33 
+121, ad 3 1 p t, en 254  en 234  en 243  en 255 
+122, ad 3 1 p b, en 95  en 78  en 96  en 71 
+123, ad 3 1 p s, en 224  en 231  en 221  en 209 
+124, ad 3 1 p c, en 128  en 112  en 133  en 118  en 144 
+125, ad 3 1 p l, en 182  en 170  en 185  en 177 
+126, ad 3 1 p bk, en 37  en 204  en 53  en 57 
+127, ad 3 1 p cl, en 105  en 104  en 102  en 109 
+128, ad 3 2 p a, en 16  en 23  en 35  en 26 
+129, ad 3 2 p t, en 234  en 260  en 255  en 263 
+130, ad 3 2 p b, en 94  en 99  en 95  en 96 
+131, ad 3 2 p s, en 208  en 229  en 226  en 214 
+132, ad 3 2 p c, en 135  en 112  en 134  en 120  en 138 
+133, ad 3 2 p l, en 170  en 183  en 180  en 165 
+134, ad 3 2 p bk, en 57  en 202  en 61  en 39 
+135, ad 3 2 p cl, en 109  en 104  en 103  en 105 
+136, ad 3 3 p a, en 34  en 35  en 17  en 3  en 31 
+137, ad 3 3 p t, en 265  en 238  en 252  en 260 
+138, ad 3 3 p b, en 73  en 66  en 93  en 71 
+139, ad 3 3 p s, en 222  en 226  en 221  en 208 
+140, ad 3 3 p c, en 130  en 133  en 145  en 131  en 137 
+141, ad 3 3 p l, en 170  en 165  en 154  en 182 
+142, ad 3 3 p bk, en 201  en 37  en 39  en 61 
+143, ad 3 3 p cl, en 104  en 102  en 105  en 103 
+144, o 1 1 p a, en 6  en 30  en 9  en 30 
+145, o 1 1 p t, en 254  en 243  en 265  en 245 
+146, o 1 1 p b, en 97  en 95  en 99  en 71 
+147, o 1 1 p s, en 208  en 222  en 231  en 226 
+148, o 1 1 p c, en 130  en 116  en 129  en 136 
+149, o 1 1 p l, en 181  en 156  en 184  en 158 
+150, o 1 1 p bk, en 205  en 39  en 37  en 202 
+151, o 1 1 p cl, en 109  en 105  en 103  en 102 
+152, o 1 2 p a, en 4  en 19  en 26  en 35 
+153, o 1 2 p t, en 254  en 253  en 245  en 266 
+154, o 1 2 p b, en 65  en 66  en 95  en 82 
+155, o 1 2 p s, en 225  en 208  en 222  en 229 
+156, o 1 2 p c, en 129  en 113  en 146  en 130 
+157, o 1 2 p l, en 175  en 196  en 186  en 170 
+158, o 1 2 p bk, en 202  en 39  en 46  en 53 
+159, o 1 2 p cl, en 102  en 109  en 105  en 103 
+160, o 1 3 p a, en 34  en 19  en 26  en 31  en 2 
+161, o 1 3 p t, en 255  en 243  en 268  en 268 
+162, o 1 3 p b, en 71  en 66  en 63  en 93 
+163, o 1 3 p s, en 222  en 212  en 224  en 214 
+164, o 1 3 p c, en 147  en 135  en 146  en 136 
+165, o 1 3 p l, en 156  en 180  en 177  en 174 
+166, o 1 3 p bk, en 52  en 201  en 47  en 39 
+167, o 1 3 p cl, en 105  en 102  en 104  en 109 
+168, o 2 1 p a, en 33  en 20  en 27  en 4 
+169, o 2 1 p t, en 255  en 263  en 254  en 253 
+170, o 2 1 p b, en 78  en 71  en 65  en 82 
+171, o 2 1 p s, en 229  en 209  en 224  en 225 
+172, o 2 1 p c, en 132  en 145  en 133  en 112 
+173, o 2 1 p l, en 185  en 174  en 182  en 180 
+174, o 2 1 p bk, en 39  en 56  en 205  en 46 
+175, o 2 1 p cl, en 105  en 109  en 103  en 104 
+176, o 2 2 p a, en 27  en 19  en 35  en 26 
+177, o 2 2 p t, en 238  en 265  en 254  en 245 
+178, o 2 2 p b, en 66  en 64  en 71  en 99 
+179, o 2 2 p s, en 224  en 231  en 225  en 226 
+180, o 2 2 p c, en 128  en 134  en 133  en 111 
+181, o 2 2 p l, en 165  en 177  en 174  en 196 
+182, o 2 2 p bk, en 48  en 61  en 204  en 202 
+183, o 2 2 p cl, en 102  en 104  en 103  en 105 
+184, o 2 3 p a, en 4  en 26  en 23  en 21  en 31 
+185, o 2 3 p t, en 253  en 263  en 238  en 269 
+186, o 2 3 p b, en 65  en 97  en 94  en 99 
+187, o 2 3 p s, en 214  en 231  en 221  en 212 
+188, o 2 3 p c, en 140  en 133  en 145  en 111 
+189, o 2 3 p l, en 199  en 174  en 185  en 180 
+190, o 2 3 p bk, en 39  en 44  en 52  en 203 
+191, o 2 3 p cl, en 105  en 102  en 109  en 104 
+192, o 3 1 p a, en 16  en 27  en 33  en 28 
+193, o 3 1 p t, en 260  en 253  en 268  en 269 
+194, o 3 1 p b, en 96  en 95  en 63  en 65 
+195, o 3 1 p s, en 209  en 222  en 208  en 221 
+196, o 3 1 p c, en 136  en 145  en 112  en 126  en 143 
+197, o 3 1 p l, en 151  en 180  en 182  en 175 
+198, o 3 1 p bk, en 36  en 59  en 52  en 57 
+199, o 3 1 p cl, en 109  en 103  en 102  en 105 
+200, o 3 2 p a, en 27  en 35  en 17  en 19 
+201, o 3 2 p t, en 268  en 234  en 253  en 266 
+202, o 3 2 p b, en 94  en 63  en 71  en 82 
+203, o 3 2 p s, en 208  en 209  en 214  en 229 
+204, o 3 2 p c, en 132  en 134  en 119  en 142  en 144 
+205, o 3 2 p l, en 185  en 199  en 183  en 175 
+206, o 3 2 p bk, en 59  en 202  en 56  en 39 
+207, o 3 2 p cl, en 109  en 102  en 104  en 103 
+208, o 3 3 p a, en 4  en 26  en 17  en 12  en 31 
+209, o 3 3 p t, en 265  en 243  en 260  en 252 
+210, o 3 3 p b, en 64  en 73  en 66  en 96 
+211, o 3 3 p s, en 231  en 208  en 209  en 221 
+212, o 3 3 p c, en 128  en 133  en 134  en 142  en 114 
+213, o 3 3 p l, en 196  en 185  en 177  en 174 
+214, o 3 3 p bk, en 56  en 44  en 52  en 53 
+215, o 3 3 p cl, en 102  en 109  en 105  en 104 
+216, te 1 1 n a, en 6  en 30  en 33  en 28 
+217, te 1 1 n t, en 258  en 237  en 250  en 259 
+218, te 1 1 n b, en 94  en 69  en 72  en 79 
+219, te 1 1 n s, en 214  en 211  en 206  en 213 
+220, te 1 1 n c, en 146  en 140  en 135  en 128 
+221, te 1 1 n l, en 165  en 197  en 192  en 194 
+222, te 1 1 n bk, en 39  en 49  en 41  en 55 
+223, te 1 1 n cl, en 103  en 110  en 108  en 108 
+224, te 1 2 n a, en 25  en 35  en 17  en 23 
+225, te 1 2 n t, en 252  en 259  en 233  en 257 
+226, te 1 2 n b, en 73  en 80  en 89  en 79 
+227, te 1 2 n s, en 221  en 211  en 213  en 230 
+228, te 1 2 n c, en 136  en 116  en 129  en 135 
+229, te 1 2 n l, en 151  en 172  en 161  en 198 
+230, te 1 2 n bk, en 47  en 62  en 45  en 55 
+231, te 1 2 n cl, en 105  en 108  en 110  en 108 
+232, te 1 3 n a, en 20  en 17  en 35  en 31  en 8 
+233, te 1 3 n t, en 268  en 262  en 237  en 236 
+234, te 1 3 n b, en 78  en 87  en 69  en 72 
+235, te 1 3 n s, en 229  en 227  en 206  en 216 
+236, te 1 3 n c, en 129  en 113  en 135  en 140 
+237, te 1 3 n l, en 196  en 168  en 157  en 149 
+238, te 1 3 n bk, en 44  en 62  en 49  en 60 
+239, te 1 3 n cl, en 104  en 110  en 108  en 108 
+240, te 2 1 n a, en 4  en 6  en 34  en 27 
+241, te 2 1 n t, en 265  en 264  en 236  en 250 
+242, te 2 1 n b, en 78  en 89  en 79  en 80 
+243, te 2 1 n s, en 214  en 213  en 227  en 220 
+244, te 2 1 n c, en 132  en 145  en 112  en 133 
+245, te 2 1 n l, en 165  en 161  en 162  en 194 
+246, te 2 1 n bk, en 44  en 62  en 41  en 45 
+247, te 2 1 n cl, en 103  en 108  en 110  en 108 
+248, te 2 2 n a, en 25  en 19  en 17  en 26 
+249, te 2 2 n t, en 269  en 262  en 236  en 237 
+250, te 2 2 n b, en 99  en 69  en 90  en 87 
+251, te 2 2 n s, en 229  en 210  en 211  en 230 
+252, te 2 2 n c, en 135  en 133  en 111  en 112 
+253, te 2 2 n l, en 158  en 149  en 192  en 163 
+254, te 2 2 n bk, en 204  en 58  en 49  en 45 
+255, te 2 2 n cl, en 104  en 108  en 110  en 108 
+256, te 2 3 n a, en 9  en 23  en 35  en 10  en 12 
+257, te 2 3 n t, en 243  en 235  en 249  en 259 
+258, te 2 3 n b, en 63  en 90  en 79  en 98 
+259, te 2 3 n s, en 231  en 230  en 210  en 219 
+260, te 2 3 n c, en 116  en 134  en 145  en 112 
+261, te 2 3 n l, en 165  en 188  en 168  en 194 
+262, te 2 3 n bk, en 40  en 62  en 55  en 41 
+263, te 2 3 n cl, en 109  en 110  en 108  en 108 
+264, te 3 1 n a, en 16  en 9  en 25  en 33 
+265, te 3 1 n t, en 252  en 233  en 237  en 247 
+266, te 3 1 n b, en 97  en 87  en 90  en 79 
+267, te 3 1 n s, en 221  en 213  en 227  en 220 
+268, te 3 1 n c, en 129  en 112  en 145  en 126  en 114 
+269, te 3 1 n l, en 177  en 192  en 157  en 163 
+270, te 3 1 n bk, en 56  en 60  en 41  en 58 
+271, te 3 1 n cl, en 105  en 108  en 110  en 108 
+272, te 3 2 n a, en 28  en 35  en 19  en 17 
+273, te 3 2 n t, en 238  en 235  en 246  en 247 
+274, te 3 2 n b, en 66  en 92  en 68  en 87 
+275, te 3 2 n s, en 212  en 206  en 219  en 230 
+276, te 3 2 n c, en 128  en 119  en 145  en 142  en 120 
+277, te 3 2 n l, en 184  en 161  en 200  en 193 
+278, te 3 2 n bk, en 53  en 55  en 62  en 41 
+279, te 3 2 n cl, en 102  en 108  en 110  en 108 
+280, te 3 3 n a, en 34  en 19  en 26  en 2  en 12 
+281, te 3 3 n t, en 234  en 249  en 246  en 257 
+282, te 3 3 n b, en 65  en 72  en 68  en 79 
+283, te 3 3 n s, en 224  en 220  en 213  en 216 
+284, te 3 3 n c, en 130  en 111  en 145  en 114  en 125 
+285, te 3 3 n l, en 182  en 198  en 193  en 157 
+286, te 3 3 n bk, en 39  en 58  en 55  en 45 
+287, te 3 3 n cl, en 103  en 108  en 110  en 108 
+288, ad 1 1 n a, en 25  en 20  en 6  en 4 
+289, ad 1 1 n t, en 266  en 250  en 247  en 264 
+290, ad 1 1 n b, en 64  en 89  en 98  en 90 
+291, ad 1 1 n s, en 222  en 211  en 218  en 216 
+292, ad 1 1 n c, en 146  en 136  en 147  en 128 
+293, ad 1 1 n l, en 186  en 168  en 157  en 171 
+294, ad 1 1 n bk, en 36  en 58  en 41  en 55 
+295, ad 1 1 n cl, en 102  en 110  en 108  en 108 
+296, ad 1 2 n a, en 30  en 35  en 23  en 26 
+297, ad 1 2 n t, en 263  en 248  en 250  en 257 
+298, ad 1 2 n b, en 71  en 68  en 79  en 98 
+299, ad 1 2 n s, en 209  en 213  en 216  en 218 
+300, ad 1 2 n c, en 140  en 113  en 147  en 129 
+301, ad 1 2 n l, en 183  en 152  en 163  en 172 
+302, ad 1 2 n bk, en 57  en 58  en 60  en 41 
+303, ad 1 2 n cl, en 105  en 108  en 110  en 108 
+304, ad 1 3 n a, en 9  en 26  en 19  en 1  en 3 
+305, ad 1 3 n t, en 269  en 264  en 249  en 248 
+306, ad 1 3 n b, en 78  en 80  en 68  en 98 
+307, ad 1 3 n s, en 209  en 219  en 230  en 211 
+308, ad 1 3 n c, en 130  en 136  en 113  en 147 
+309, ad 1 3 n l, en 170  en 157  en 193  en 168 
+310, ad 1 3 n bk, en 56  en 60  en 55  en 58 
+311, ad 1 3 n cl, en 105  en 110  en 108  en 108 
+312, ad 2 1 n a, en 20  en 6  en 30  en 28 
+313, ad 2 1 n t, en 260  en 257  en 264  en 249 
+314, ad 2 1 n b, en 94  en 87  en 80  en 89 
+315, ad 2 1 n s, en 212  en 218  en 227  en 213 
+316, ad 2 1 n c, en 147  en 119  en 133  en 111 
+317, ad 2 1 n l, en 174  en 192  en 188  en 171 
+318, ad 2 1 n bk, en 44  en 62  en 41  en 55 
+319, ad 2 1 n cl, en 102  en 110  en 108  en 108 
+320, ad 2 2 n a, en 27  en 26  en 23  en 35 
+321, ad 2 2 n t, en 238  en 257  en 259  en 247 
+322, ad 2 2 n b, en 96  en 80  en 69  en 92 
+323, ad 2 2 n s, en 221  en 230  en 213  en 227 
+324, ad 2 2 n c, en 146  en 133  en 111  en 134 
+325, ad 2 2 n l, en 151  en 172  en 178  en 149 
+326, ad 2 2 n bk, en 46  en 62  en 41  en 58 
+327, ad 2 2 n cl, en 109  en 108  en 110  en 108 
+328, ad 2 3 n a, en 27  en 19  en 26  en 11  en 5 
+329, ad 2 3 n t, en 268  en 259  en 264  en 233 
+330, ad 2 3 n b, en 65  en 79  en 89  en 90 
+331, ad 2 3 n s, en 208  en 218  en 220  en 227 
+332, ad 2 3 n c, en 147  en 134  en 111  en 133 
+333, ad 2 3 n l, en 170  en 197  en 192  en 168 
+334, ad 2 3 n bk, en 202  en 41  en 45  en 55 
+335, ad 2 3 n cl, en 109  en 108  en 110  en 108 
+336, ad 3 1 n a, en 27  en 28  en 34  en 30 
+337, ad 3 1 n t, en 268  en 249  en 250  en 246 
+338, ad 3 1 n b, en 97  en 90  en 69  en 80 
+339, ad 3 1 n s, en 229  en 220  en 206  en 218 
+340, ad 3 1 n c, en 130  en 145  en 111  en 137  en 131 
+341, ad 3 1 n l, en 151  en 168  en 198  en 152 
+342, ad 3 1 n bk, en 48  en 58  en 45  en 55 
+343, ad 3 1 n cl, en 103  en 108  en 110  en 108 
+344, ad 3 2 n a, en 16  en 19  en 17  en 23 
+345, ad 3 2 n t, en 234  en 248  en 264  en 249 
+346, ad 3 2 n b, en 66  en 72  en 80  en 79 
+347, ad 3 2 n s, en 212  en 218  en 213  en 220 
+348, ad 3 2 n c, en 146  en 133  en 145  en 115  en 114 
+349, ad 3 2 n l, en 186  en 171  en 193  en 149 
+350, ad 3 2 n bk, en 44  en 58  en 55  en 45 
+351, ad 3 2 n cl, en 105  en 110  en 108  en 108 
+352, ad 3 3 n a, en 20  en 19  en 17  en 2  en 14 
+353, ad 3 3 n t, en 258  en 235  en 262  en 247 
+354, ad 3 3 n b, en 66  en 92  en 68  en 98 
+355, ad 3 3 n s, en 209  en 211  en 213  en 230 
+356, ad 3 3 n c, en 128  en 134  en 111  en 120  en 139 
+357, ad 3 3 n l, en 181  en 197  en 162  en 149 
+358, ad 3 3 n bk, en 201  en 45  en 60  en 55 
+359, ad 3 3 n cl, en 103  en 110  en 108  en 108 
+360, o 1 1 n a, en 28  en 6  en 25  en 30 
+361, o 1 1 n t, en 258  en 249  en 247  en 246 
+362, o 1 1 n b, en 94  en 69  en 90  en 98 
+363, o 1 1 n s, en 208  en 213  en 227  en 220 
+364, o 1 1 n c, en 132  en 140  en 128  en 117 
+365, o 1 1 n l, en 199  en 171  en 178  en 197 
+366, o 1 1 n bk, en 204  en 41  en 49  en 45 
+367, o 1 1 n cl, en 105  en 110  en 108  en 108 
+368, o 1 2 n a, en 33  en 17  en 23  en 26 
+369, o 1 2 n t, en 268  en 264  en 262  en 250 
+370, o 1 2 n b, en 73  en 87  en 80  en 90 
+371, o 1 2 n s, en 221  en 206  en 219  en 230 
+372, o 1 2 n c, en 135  en 116  en 117  en 113 
+373, o 1 2 n l, en 165  en 157  en 162  en 200 
+374, o 1 2 n bk, en 201  en 60  en 49  en 41 
+375, o 1 2 n cl, en 102  en 110  en 108  en 108 
+376, o 1 3 n a, en 33  en 19  en 17  en 3  en 11 
+377, o 1 3 n t, en 254  en 250  en 249  en 247 
+378, o 1 3 n b, en 78  en 68  en 98  en 87 
+379, o 1 3 n s, en 224  en 230  en 219  en 227 
+380, o 1 3 n c, en 113  en 140  en 130  en 132 
+381, o 1 3 n l, en 182  en 155  en 163  en 168 
+382, o 1 3 n bk, en 37  en 58  en 62  en 45 
+383, o 1 3 n cl, en 105  en 108  en 110  en 108 
+384, o 2 1 n a, en 28  en 20  en 34  en 6 
+385, o 2 1 n t, en 258  en 264  en 257  en 250 
+386, o 2 1 n b, en 93  en 89  en 72  en 69 
+387, o 2 1 n s, en 222  en 210  en 227  en 213 
+388, o 2 1 n c, en 146  en 111  en 145  en 112 
+389, o 2 1 n l, en 177  en 172  en 200  en 149 
+390, o 2 1 n bk, en 40  en 62  en 60  en 55 
+391, o 2 1 n cl, en 102  en 110  en 108  en 108 
+392, o 2 2 n a, en 9  en 23  en 26  en 19 
+393, o 2 2 n t, en 243  en 246  en 262  en 259 
+394, o 2 2 n b, en 82  en 68  en 92  en 69 
+395, o 2 2 n s, en 226  en 227  en 218  en 216 
+396, o 2 2 n c, en 128  en 145  en 133  en 119 
+397, o 2 2 n l, en 175  en 198  en 197  en 161 
+398, o 2 2 n bk, en 204  en 58  en 62  en 45 
+399, o 2 2 n cl, en 105  en 108  en 110  en 108 
+400, o 2 3 n a, en 28  en 17  en 35  en 5  en 11 
+401, o 2 3 n t, en 258  en 237  en 246  en 233 
+402, o 2 3 n b, en 78  en 89  en 98  en 87 
+403, o 2 3 n s, en 214  en 206  en 219  en 230 
+404, o 2 3 n c, en 117  en 112  en 145  en 134 
+405, o 2 3 n l, en 165  en 194  en 172  en 193 
+406, o 2 3 n bk, en 59  en 62  en 45  en 58 
+407, o 2 3 n cl, en 105  en 110  en 108  en 108 
+408, o 3 1 n a, en 25  en 30  en 33  en 30 
+409, o 3 1 n t, en 234  en 247  en 257  en 259 
+410, o 3 1 n b, en 63  en 72  en 92  en 87 
+411, o 3 1 n s, en 225  en 230  en 210  en 218 
+412, o 3 1 n c, en 116  en 111  en 145  en 122  en 139 
+413, o 3 1 n l, en 151  en 194  en 162  en 198 
+414, o 3 1 n bk, en 37  en 49  en 60  en 55 
+415, o 3 1 n cl, en 109  en 108  en 110  en 108 
+416, o 3 2 n a, en 16  en 19  en 35  en 17 
+417, o 3 2 n t, en 268  en 237  en 247  en 264 
+418, o 3 2 n b, en 95  en 87  en 89  en 92 
+419, o 3 2 n s, en 225  en 227  en 210  en 219 
+420, o 3 2 n c, en 113  en 145  en 134  en 126  en 141 
+421, o 3 2 n l, en 184  en 194  en 162  en 157 
+422, o 3 2 n bk, en 61  en 60  en 41  en 49 
+423, o 3 2 n cl, en 109  en 108  en 110  en 108 
+424, o 3 3 n a, en 25  en 26  en 19  en 14  en 22 
+425, o 3 3 n t, en 254  en 264  en 237  en 262 
+426, o 3 3 n b, en 82  en 90  en 69  en 92 
+427, o 3 3 n s, en 226  en 218  en 227  en 211 
+428, o 3 3 n c, en 130  en 119  en 112  en 141  en 143 
+429, o 3 3 n l, en 185  en 168  en 172  en 149 
+430, o 3 3 n bk, en 36  en 60  en 55  en 45 
+431, o 3 3 n cl, en 102  en 110  en 108  en 108 
+432, te 1 1 g a, en 25  en 30  en 6  en 16 
+433, te 1 1 g t, en 268  en 259  en 249  en 256  en 251 
+434, te 1 1 g b, en 63  en 72  en 89  en 91  en 88 
+435, te 1 1 g s, en 212  en 219  en 220  en 223  en 217 
+436, te 1 1 g c, en 113  en 140  en 116  en 128 
+437, te 1 1 g l, en 196  en 198  en 194  en 176  en 173 
+438, te 1 1 g bk, en 36  en 60  en 55  en 54  en 42 
+439, te 1 1 g cl, en 103  en 108  en 110  en 106  en 107 
+440, te 1 2 g a, en 20  en 19  en 17  en 35 
+441, te 1 2 g t, en 268  en 257  en 259  en 239  en 241 
+442, te 1 2 g b, en 66  en 79  en 90  en 88  en 76 
+443, te 1 2 g s, en 225  en 218  en 219  en 207  en 223 
+444, te 1 2 g c, en 140  en 116  en 132  en 130 
+445, te 1 2 g l, en 158  en 161  en 194  en 187  en 148 
+446, te 1 2 g bk, en 201  en 60  en 58  en 43  en 42 
+447, te 1 2 g cl, en 105  en 108  en 110  en 106  en 101 
+448, te 1 3 g a, en 6  en 35  en 17  en 12  en 31 
+449, te 1 3 g t, en 234  en 235  en 247  en 242  en 232 
+450, te 1 3 g b, en 99  en 72  en 87  en 81  en 76 
+451, te 1 3 g s, en 214  en 220  en 216  en 207  en 223 
+452, te 1 3 g c, en 129  en 135  en 116  en 132 
+453, te 1 3 g l, en 185  en 172  en 178  en 173  en 166 
+454, te 1 3 g bk, en 47  en 60  en 45  en 50  en 38 
+455, te 1 3 g cl, en 105  en 108  en 110  en 107  en 106 
+456, te 2 1 g a, en 6  en 34  en 30  en 33 
+457, te 2 1 g t, en 255  en 235  en 249  en 232  en 244 
+458, te 2 1 g b, en 99  en 68  en 98  en 86  en 88 
+459, te 2 1 g s, en 226  en 219  en 220  en 207  en 223 
+460, te 2 1 g c, en 146  en 112  en 145  en 119 
+461, te 2 1 g l, en 182  en 171  en 194  en 179  en 173 
+462, te 2 1 g bk, en 204  en 58  en 49  en 42  en 50 
+463, te 2 1 g cl, en 109  en 110  en 108  en 107  en 106 
+464, te 2 2 g a, en 30  en 23  en 19  en 26 
+465, te 2 2 g t, en 254  en 233  en 249  en 251  en 241 
+466, te 2 2 g b, en 63  en 87  en 72  en 70  en 88 
+467, te 2 2 g s, en 222  en 213  en 218  en 207  en 223 
+468, te 2 2 g c, en 117  en 145  en 119  en 112 
+469, te 2 2 g l, en 199  en 200  en 162  en 148  en 150 
+470, te 2 2 g bk, en 47  en 58  en 62  en 51  en 38 
+471, te 2 2 g cl, en 103  en 110  en 108  en 107  en 101 
+472, te 2 3 g a, en 6  en 17  en 26  en 2  en 13 
+473, te 2 3 g t, en 266  en 262  en 257  en 241  en 240 
+474, te 2 3 g b, en 93  en 92  en 98  en 74  en 75 
+475, te 2 3 g s, en 226  en 227  en 218  en 207  en 223 
+476, te 2 3 g c, en 116  en 134  en 145  en 112 
+477, te 2 3 g l, en 170  en 171  en 193  en 190  en 195 
+478, te 2 3 g bk, en 53  en 41  en 58  en 43  en 42 
+479, te 2 3 g cl, en 102  en 110  en 108  en 106  en 107 
+480, te 3 1 g a, en 30  en 28  en 27  en 9 
+481, te 3 1 g t, en 255  en 264  en 250  en 232  en 244 
+482, te 3 1 g b, en 64  en 72  en 92  en 88  en 81 
+483, te 3 1 g s, en 224  en 211  en 213  en 217  en 228 
+484, te 3 1 g c, en 117  en 111  en 133  en 139  en 123 
+485, te 3 1 g l, en 183  en 172  en 192  en 159  en 176 
+486, te 3 1 g bk, en 40  en 49  en 62  en 51  en 50 
+487, te 3 1 g cl, en 109  en 110  en 108  en 106  en 107 
+488, te 3 2 g a, en 27  en 19  en 26  en 17 
+489, te 3 2 g t, en 268  en 250  en 257  en 251  en 232 
+490, te 3 2 g b, en 82  en 92  en 69  en 67  en 91 
+491, te 3 2 g s, en 208  en 230  en 206  en 228  en 207 
+492, te 3 2 g c, en 113  en 133  en 145  en 127  en 114 
+493, te 3 2 g l, en 180  en 162  en 178  en 164  en 190 
+494, te 3 2 g bk, en 40  en 55  en 41  en 51  en 54 
+495, te 3 2 g cl, en 103  en 108  en 110  en 101  en 106 
+496, te 3 3 g a, en 9  en 35  en 17  en 0  en 13 
+497, te 3 3 g t, en 243  en 235  en 250  en 232  en 256 
+498, te 3 3 g b, en 71  en 72  en 79  en 74  en 84 
+499, te 3 3 g s, en 209  en 227  en 210  en 217  en 207 
+500, te 3 3 g c, en 117  en 145  en 134  en 120  en 121 
+501, te 3 3 g l, en 181  en 155  en 171  en 195  en 166 
+502, te 3 3 g bk, en 202  en 55  en 62  en 54  en 43 
+503, te 3 3 g cl, en 102  en 108  en 110  en 107  en 106 
+504, ad 1 1 g a, en 9  en 16  en 34  en 27 
+505, ad 1 1 g t, en 238  en 257  en 237  en 256  en 232 
+506, ad 1 1 g b, en 94  en 68  en 72  en 74  en 83 
+507, ad 1 1 g s, en 221  en 230  en 219  en 228  en 217 
+508, ad 1 1 g c, en 135  en 113  en 130  en 132 
+509, ad 1 1 g l, en 196  en 194  en 198  en 187  en 176 
+510, ad 1 1 g bk, en 57  en 45  en 62  en 50  en 38 
+511, ad 1 1 g cl, en 105  en 108  en 110  en 106  en 101 
+512, ad 1 2 g a, en 25  en 26  en 17  en 23 
+513, ad 1 2 g t, en 255  en 235  en 233  en 232  en 240 
+514, ad 1 2 g b, en 96  en 90  en 98  en 67  en 81 
+515, ad 1 2 g s, en 214  en 210  en 206  en 223  en 217 
+516, ad 1 2 g c, en 140  en 128  en 136  en 129 
+517, ad 1 2 g l, en 158  en 200  en 168  en 179  en 153 
+518, ad 1 2 g bk, en 39  en 60  en 49  en 42  en 50 
+519, ad 1 2 g cl, en 103  en 110  en 108  en 106  en 107 
+520, ad 1 3 g a, en 4  en 19  en 26  en 5  en 15 
+521, ad 1 3 g t, en 258  en 233  en 264  en 251  en 242 
+522, ad 1 3 g b, en 99  en 98  en 80  en 67  en 74 
+523, ad 1 3 g s, en 224  en 210  en 220  en 217  en 228 
+524, ad 1 3 g c, en 130  en 135  en 136  en 147 
+525, ad 1 3 g l, en 158  en 198  en 193  en 187  en 176 
+526, ad 1 3 g bk, en 57  en 55  en 49  en 50  en 43 
+527, ad 1 3 g cl, en 105  en 108  en 110  en 106  en 107 
+528, ad 2 1 g a, en 16  en 20  en 28  en 30 
+529, ad 2 1 g t, en 268  en 262  en 249  en 244  en 242 
+530, ad 2 1 g b, en 66  en 69  en 92  en 70  en 84 
+531, ad 2 1 g s, en 229  en 220  en 206  en 207  en 217 
+532, ad 2 1 g c, en 130  en 112  en 133  en 119 
+533, ad 2 1 g l, en 184  en 157  en 198  en 164  en 159 
+534, ad 2 1 g bk, en 56  en 60  en 58  en 50  en 42 
+535, ad 2 1 g cl, en 109  en 108  en 110  en 101  en 106 
+536, ad 2 2 g a, en 20  en 19  en 17  en 35 
+537, ad 2 2 g t, en 238  en 233  en 264  en 239  en 256 
+538, ad 2 2 g b, en 64  en 68  en 79  en 100  en 81 
+539, ad 2 2 g s, en 231  en 213  en 230  en 228  en 207 
+540, ad 2 2 g c, en 130  en 112  en 119  en 134 
+541, ad 2 2 g l, en 177  en 178  en 188  en 166  en 176 
+542, ad 2 2 g bk, en 57  en 62  en 60  en 42  en 54 
+543, ad 2 2 g cl, en 105  en 108  en 110  en 106  en 101 
+544, ad 2 3 g a, en 16  en 23  en 17  en 32  en 10 
+545, ad 2 3 g t, en 268  en 250  en 236  en 256  en 261 
+546, ad 2 3 g b, en 73  en 89  en 80  en 77  en 91 
+547, ad 2 3 g s, en 221  en 216  en 219  en 207  en 228 
+548, ad 2 3 g c, en 132  en 134  en 133  en 119 
+549, ad 2 3 g l, en 181  en 152  en 198  en 176  en 191 
+550, ad 2 3 g bk, en 61  en 41  en 55  en 42  en 51 
+551, ad 2 3 g cl, en 102  en 110  en 108  en 106  en 107 
+552, ad 3 1 g a, en 34  en 33  en 27  en 25 
+553, ad 3 1 g t, en 253  en 235  en 264  en 251  en 256 
+554, ad 3 1 g b, en 97  en 72  en 90  en 77  en 85 
+555, ad 3 1 g s, en 212  en 216  en 206  en 217  en 215 
+556, ad 3 1 g c, en 116  en 119  en 134  en 126  en 141 
+557, ad 3 1 g l, en 170  en 198  en 188  en 195  en 150 
+558, ad 3 1 g bk, en 204  en 49  en 62  en 50  en 42 
+559, ad 3 1 g cl, en 103  en 108  en 110  en 101  en 107 
+560, ad 3 2 g a, en 20  en 19  en 23  en 35 
+561, ad 3 2 g t, en 265  en 237  en 257  en 251  en 242 
+562, ad 3 2 g b, en 95  en 89  en 87  en 74  en 100 
+563, ad 3 2 g s, en 224  en 227  en 216  en 217  en 228 
+564, ad 3 2 g c, en 117  en 133  en 145  en 124  en 139 
+565, ad 3 2 g l, en 184  en 192  en 197  en 191  en 148 
+566, ad 3 2 g bk, en 39  en 49  en 45  en 51  en 50 
+567, ad 3 2 g cl, en 103  en 108  en 110  en 106  en 107 
+568, ad 3 3 g a, en 30  en 35  en 17  en 24  en 18 
+569, ad 3 3 g t, en 268  en 262  en 236  en 240  en 251 
+570, ad 3 3 g b, en 71  en 72  en 90  en 88  en 85 
+571, ad 3 3 g s, en 212  en 213  en 230  en 207  en 215 
+572, ad 3 3 g c, en 146  en 112  en 134  en 137  en 143 
+573, ad 3 3 g l, en 180  en 198  en 193  en 153  en 187 
+574, ad 3 3 g bk, en 203  en 58  en 62  en 50  en 54 
+575, ad 3 3 g cl, en 109  en 108  en 110  en 101  en 106 
+576, o 1 1 g a, en 4  en 34  en 20  en 28 
+577, o 1 1 g t, en 252  en 237  en 247  en 261  en 241 
+578, o 1 1 g b, en 94  en 90  en 98  en 67  en 85 
+579, o 1 1 g s, en 208  en 218  en 227  en 228  en 223 
+580, o 1 1 g c, en 129  en 136  en 146  en 113 
+581, o 1 1 g l, en 170  en 200  en 193  en 179  en 167 
+582, o 1 1 g bk, en 48  en 41  en 45  en 43  en 51 
+583, o 1 1 g cl, en 105  en 108  en 110  en 106  en 107 
+584, o 1 2 g a, en 33  en 19  en 35  en 23 
+585, o 1 2 g t, en 254  en 236  en 249  en 240  en 256 
+586, o 1 2 g b, en 64  en 72  en 87  en 67  en 81 
+587, o 1 2 g s, en 214  en 213  en 220  en 207  en 217 
+588, o 1 2 g c, en 147  en 140  en 116  en 136 
+589, o 1 2 g l, en 156  en 157  en 188  en 187  en 169 
+590, o 1 2 g bk, en 39  en 58  en 60  en 54  en 51 
+591, o 1 2 g cl, en 109  en 110  en 108  en 101  en 107 
+592, o 1 3 g a, en 25  en 26  en 19  en 13  en 18 
+593, o 1 3 g t, en 243  en 235  en 236  en 241  en 244 
+594, o 1 3 g b, en 66  en 98  en 87  en 76  en 85 
+595, o 1 3 g s, en 226  en 227  en 216  en 223  en 228 
+596, o 1 3 g c, en 147  en 132  en 140  en 135 
+597, o 1 3 g l, en 185  en 178  en 168  en 169  en 166 
+598, o 1 3 g bk, en 46  en 60  en 41  en 42  en 54 
+599, o 1 3 g cl, en 104  en 108  en 110  en 101  en 106 
+600, o 2 1 g a, en 6  en 4  en 20  en 30 
+601, o 2 1 g t, en 245  en 248  en 233  en 240  en 242 
+602, o 2 1 g b, en 82  en 72  en 98  en 91  en 77 
+603, o 2 1 g s, en 229  en 219  en 220  en 215  en 217 
+604, o 2 1 g c, en 130  en 134  en 112  en 133 
+605, o 2 1 g l, en 183  en 152  en 193  en 190  en 150 
+606, o 2 1 g bk, en 205  en 45  en 49  en 38  en 54 
+607, o 2 1 g cl, en 105  en 108  en 110  en 107  en 101 
+608, o 2 2 g a, en 30  en 19  en 35  en 26 
+609, o 2 2 g t, en 258  en 246  en 250  en 244  en 251 
+610, o 2 2 g b, en 94  en 98  en 89  en 70  en 75 
+611, o 2 2 g s, en 221  en 230  en 218  en 228  en 223 
+612, o 2 2 g c, en 136  en 112  en 111  en 145 
+613, o 2 2 g l, en 154  en 161  en 198  en 169  en 160 
+614, o 2 2 g bk, en 36  en 45  en 49  en 50  en 42 
+615, o 2 2 g cl, en 102  en 110  en 108  en 106  en 107 
+616, o 2 3 g a, en 20  en 23  en 35  en 21  en 8 
+617, o 2 3 g t, en 265  en 233  en 257  en 256  en 232 
+618, o 2 3 g b, en 82  en 92  en 68  en 77  en 85 
+619, o 2 3 g s, en 222  en 213  en 230  en 215  en 207 
+620, o 2 3 g c, en 128  en 145  en 133  en 111 
+621, o 2 3 g l, en 151  en 168  en 162  en 164  en 148 
+622, o 2 3 g bk, en 202  en 41  en 62  en 43  en 50 
+623, o 2 3 g cl, en 102  en 110  en 108  en 101  en 107 
+624, o 3 1 g a, en 4  en 34  en 16  en 9 
+625, o 3 1 g t, en 238  en 248  en 235  en 251  en 239 
+626, o 3 1 g b, en 96  en 92  en 79  en 88  en 77 
+627, o 3 1 g s, en 224  en 213  en 211  en 217  en 228 
+628, o 3 1 g c, en 135  en 111  en 119  en 126  en 131 
+629, o 3 1 g l, en 151  en 197  en 172  en 169  en 195 
+630, o 3 1 g bk, en 204  en 49  en 41  en 38  en 54 
+631, o 3 1 g cl, en 109  en 108  en 110  en 107  en 106 
+632, o 3 2 g a, en 20  en 23  en 19  en 17 
+633, o 3 2 g t, en 252  en 248  en 250  en 251  en 240 
+634, o 3 2 g b, en 82  en 80  en 69  en 91  en 75 
+635, o 3 2 g s, en 221  en 210  en 219  en 228  en 207 
+636, o 3 2 g c, en 140  en 119  en 133  en 143  en 144 
+637, o 3 2 g l, en 182  en 161  en 155  en 169  en 195 
+638, o 3 2 g bk, en 201  en 60  en 49  en 38  en 54 
+639, o 3 2 g cl, en 104  en 110  en 108  en 107  en 106 
+640, o 3 3 g a, en 28  en 17  en 23  en 18  en 7 
+641, o 3 3 g t, en 268  en 233  en 235  en 232  en 244 
+642, o 3 3 g b, en 63  en 98  en 89  en 83  en 70 
+643, o 3 3 g s, en 226  en 219  en 220  en 228  en 215 
+644, o 3 3 g c, en 128  en 134  en 112  en 118  en 139 
+645, o 3 3 g l, en 154  en 163  en 198  en 176  en 160 
+646, o 3 3 g bk, en 59  en 41  en 45  en 38  en 43 
+647, o 3 3 g cl, en 109  en 110  en 108  en 106  en 107 

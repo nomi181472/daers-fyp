@@ -6,7 +6,7 @@ interface DietTrackParser {
   totalProteinIntake: number,
   totalCarbohydratesIntake: number,
   totalFatsIntake: number,
-  currentWeight: number,
+  
   
 
 }

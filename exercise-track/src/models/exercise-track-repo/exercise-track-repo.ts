@@ -37,7 +37,7 @@ const exerciseTrackSchema = new mongoose.Schema(
 );
 interface ExerciseTrackAttrs {
   userId: string;
-  currentWeight: number;
+  currentWeight?: number;
   weightCapacity?: {
     
     exerciseName: string,

@@ -8,15 +8,17 @@ var router = express.Router();
 router.post("/api-gateway/current-user/diet-track/add",
 requireAuth, (req: Request, res: Response) => {
   const {
-    userId,
+    
+  
     dietScheduleId,
     dayDate,
     totalCaloriesIntake,
     totalProteinIntake,
     totalCarbohydratesIntake,
     totalFatsIntake,
-    currentWeight } = req.body;
+     } = req.body;
   const obj = new DietTrack();
+  const userId = req.currentUser!.id;
   const result=obj.addNutritions({
     userId,
     dietScheduleId,
@@ -24,12 +26,11 @@ requireAuth, (req: Request, res: Response) => {
     totalCaloriesIntake,
     totalProteinIntake,
     totalCarbohydratesIntake,
-    totalFatsIntake,
-    currentWeight
+    totalFatsIntake
   });
   
  
-  res.send({});
+  res.send({result});
 });
 
 export { router as addDiet };

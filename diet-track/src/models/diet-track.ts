@@ -6,6 +6,14 @@ export class DietTrack{
   constructor() {
   
   }
+  public async makeObject(userId: string,currentWeight:number=0) {
+    var obj = {
+      userId: userId,
+      currentWeight: [currentWeight]
+    }
+    const et = await dietTrackModel.build(obj);
+    await et.save();
+  }
   public async addNutritions(document: DietTrackParser) {
     const isCurrentUser = await dietTrackModel.findOne( {userId:document.userId} );
     console.log(isCurrentUser)
@@ -19,7 +27,7 @@ export class DietTrack{
         totalFatsIntake: [document.totalFatsIntake],
         totalCarbohydratesIntake: [document.totalCarbohydratesIntake],
         totalCaloriesIntake: [document.totalCaloriesIntake],
-        currentWeight: [document.currentWeight]
+        
       });
       await isAdd.save();  
     }
@@ -33,7 +41,7 @@ export class DietTrack{
           isCurrentUser.totalFatsIntake[index] += document.totalFatsIntake;
           isCurrentUser.totalCarbohydratesIntake[index] +=document.totalCarbohydratesIntake;
           isCurrentUser.totalCaloriesIntake[index] +=document.totalCaloriesIntake;
-          isCurrentUser.currentWeight[index] += document.currentWeight;
+         
           isCurrentUser.markModified("totalProteinIntake");
           isCurrentUser.markModified("totalFatsIntake");
           isCurrentUser.markModified("totalCarbohydratesIntake");
@@ -51,7 +59,7 @@ export class DietTrack{
                 dayDate:document.dayDate,
                 totalProteinIntake: document.totalProteinIntake, totalFatsIntake: document.totalFatsIntake,
                 totalCarbohydratesIntake: document.totalCarbohydratesIntake, totalCaloriesIntake: document.totalCaloriesIntake,
-                currentWeight:document.currentWeight
+      
               }
             },
             {new: true, useFindAndModify: false}
