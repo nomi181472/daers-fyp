@@ -1,3 +1,4 @@
+import { BadRequestError } from "../errors/bad-request-error";
 import { UserSchema, UserAttrs } from "./user-repo/user-repo";
 
 
@@ -45,13 +46,13 @@ export class User {
       }
     else
       {
-     
+        new BadRequestError("user id not found")
 
       }
 
     }
     catch (err) {
-      console.log(err);
+      console.log("Error in user-route-adduserinformation: "+err);
     }
   }
   public async updateUser(_user: UserAttrs, userId: String) {

@@ -13,7 +13,7 @@ const start = async () => {
     process.on("SIGNINT", () => natsWrapper.client.close());
   
   process.on("SIGTERM", () => natsWrapper.client.close());
-    new UserCreatedListener(natsWrapper.client).listen()
+   // new UserCreatedListener(natsWrapper.client).listen()
     await mongoose.connect("mongodb://localhost:27017/User", {
       useNewUrlParser: true,
       useUnifiedTopology: true,

@@ -2,6 +2,7 @@ import mongoose from "mongoose";
 import { app } from "./app";
 import { natsWrapper } from "./nats-wrapper";
 import { UserCreatedListener } from './events/listeners/user-created-listener';
+import { UserInformationListener } from "./events/listeners/user-information-listener";
 const start = async () => {
   try {
     await natsWrapper.connect("daers", "daers-schedule", "http://localhost:4222")
@@ -14,6 +15,7 @@ const start = async () => {
   
     process.on("SIGTERM", () => natsWrapper.client.close());
     new UserCreatedListener(natsWrapper.client).listen()
+    new UserInformationListener(natsWrapper.client).listen()
     await mongoose.connect("mongodb://localhost:27017/schedulee", {
       useNewUrlParser: true,
       useUnifiedTopology: true,

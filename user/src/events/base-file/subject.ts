@@ -1,7 +1,9 @@
 export enum Subjects{
   UserCreated = "user:created",
-  UserUpdated = "eschedule:updated",
-  userWeight="user:weight"
+  userWeight = "user:weight",
+  UserInformation = "user:information",
+  UserUpdated="user:updated"
+  
 }
 
 const printSubject = (subject: Subjects) => {

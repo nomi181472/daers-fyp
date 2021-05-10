@@ -11,14 +11,11 @@ const userSchema = new mongoose.Schema(
       required: true,
       
     },
-    bmi: {
-      type: Number,
-      required: true,
-    },
-    
+   
     userInformation: {
-      targetGoal: Number,
-      gene:String
+      targetWeight: Number,
+      waist: Number,
+     wings: Number,
     },
     
   },
@@ -37,7 +34,7 @@ const userSchema = new mongoose.Schema(
 interface UserAttrs {
   _id: mongoose.Types.ObjectId;
   age: number;
-  bmi: number;
+ 
   userInformation?: {
     [targetGoal: string]: string,
     
@@ -52,7 +49,7 @@ interface UserModel extends mongoose.Model<UserDocument> {
 interface UserDocument extends mongoose.Document {
   _id: mongoose.Types.ObjectId;
   age: number;
-  bmi: number;
+ 
   userInformation?: {
     [targetGoal: string]:number
   }

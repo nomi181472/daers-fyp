@@ -5,7 +5,7 @@ import { Subjects } from "../base-file/subject";
 import { EScheduleCreatedEvent } from '../base-file/ESchedule-Created-Event';
 export class UserCreatedListener extends Listener<EScheduleCreatedEvent>{
   queueGroupName = "differentquesgrods";
-  subject: Subjects.UserUpdated = Subjects.UserUpdated ;
+  subject: Subjects.UserUpdated = Subjects.UserUpdated;
   onMessage(data: EScheduleCreatedEvent["data"], msg: Message) {
     console.log(data);
     
