@@ -10,7 +10,7 @@ stan.on("connect", async () => {
   console.log("Publisher connected to NATS");
   const publisher = new EScheduleCreatedPublisher(stan)
   try {
-    var data={age: 12,bmi: 2,weight:2,height:2,userId: "23"}
+    var data={event:"yes",userId: "23"}
     await publisher.publish(data)
   }
   catch (err) {
