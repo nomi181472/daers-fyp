@@ -18,6 +18,7 @@ const nutritionScheduleSchema = new mongoose.Schema(
                   nutritionName: String,
                   calories: Number,
                   fats: Number,
+                  grams: Number,
                   protein: Number,
                   carbohydrates: Number,
                   description: [String],
@@ -47,17 +48,18 @@ interface NutritionFactsScheduleAttrs {
   document: {
     sameDay: string;
     day: {
-      dayTime: String;
+      dayTime: string;
       time: {
         sameNutrition: String;
         nutrition: {
           nutritionName: String;
-          calories: Number;
-          fats: Number;
-          protein: Number;
-          carbohydrates: Number;
-          description: [String];
-          photos: [String];
+          calories: number;
+          fats: number;
+          grams?: number;
+          protein: number;
+          carbohydrates: number;
+          description: [string];
+          photos: [string];
         };
       }[];
     }[];
@@ -78,6 +80,7 @@ interface NutritionFactsScheduleDocument extends mongoose.Document {
           nutritionName: String;
           calories: Number;
           fats: Number;
+          grams?: number;
           protein: Number;
           carbohydrates: Number;
           description: [String];

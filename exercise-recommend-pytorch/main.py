@@ -22,24 +22,21 @@ async def run(loop):
     await nc.connect(io_loop=loop)
     await sc.connect("daers", "muscle-detection-srv", nats=nc)
     subject = "eschedule:created"
-
     async def cb(msg):
         nonlocal sc
-
         print("Subject:" + subject + "Received a message (seq={}): {}".format(msg.seq, msg.data))
         try:
+
             my_json = msg.data.decode('utf8').replace("'", '"')
             data = json.loads(my_json)
-
-            print(data)
-
+            conn = pymongo.MongoClient("localhost", 27017)
+            userId = "609a74331c213d5150acfa2f" #data["userId"]
+            add_schedule(30, conn, userId)
         except Exception as e:
-
             print(e)
 
-    # Subscribe to get all messages from the beginning.
-
-    await sc.subscribe(subject, durable_name="durable", queue="", cb=cb)
+   # await sc.subscribe(subject, manual_acks=True, queue="", cb=cb)
+    await sc.subscribe(subject, durable_name="durable", cb=cb)
 
 
 def get_user_information(conn,id,userId):
@@ -212,11 +209,11 @@ def add_schedule(N, conn,userId):
     #document.append(all_days)
     schedule_collect=conn["schedulee"]["schedulees"]
     myquery = {"userId": userId}
-    data=schedule_collect.find_one(myquery)
+    #data=schedule_collect.find_one(myquery)
 
     newvalues = {"$set": {"document":all_days}}
     data2 = schedule_collect.find_one_and_update(myquery, newvalues)
-    #schedule_collect.update_one(myquery, newvalues)
+
 
 
 
@@ -287,22 +284,8 @@ model.load_state_dict(torch.load('weights/tut4-model (1).pt'))
 
 
 if __name__ == '__main__':
-    # loop = asyncio.get_event_loop()
-    # loop.run_until_complete(run(loop,))
-    # loop.run_forever()
-    #
-    conn = pymongo.MongoClient("localhost", 27017)
-    # db = client.list_database_names()
-    dbdocument = conn["schedulee"]
-    dbcollection = dbdocument["schedulees"]
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(run(loop,))
+    loop.run_forever()
 
-    userId = "609a74331c213d5150acfa2f"
-    # a=db.find_one_and_update({"userId":userId})
-    add_schedule(30, conn,userId)
-    # document: {
-    #     sameDay: string;
-    # day: {
-    #     sameExercise: String;
-    #
-    # }[];
-    # }[];
+

@@ -45,32 +45,12 @@ export class Muscle{
     
   }
   
-  public async list(query: any) {
-    let ex:any;
-    try {
-      const page= query.page||1
-      const  perPage = parseInt(page) || 10
-      
-      var pagination = {
-        limit: perPage ,
-        skip:perPage * (page - 1)
-      }
-      const { exerciseCategory } = query
-      if (typeof exerciseCategory === "undefined") { 
-        ex = await muscleModel.find({});
-      }
-
-      else {
-        ex = await muscleModel.find({ exerciseCategory: exerciseCategory }).exec();
-      }
-      if (!ex) {
-        return "empty";
-      }
-
-      return ex;
-    } catch (err) {
-      console.log("ErrorPosition:muscle list", err);
-      return null;
+  public async list(userId: string) {
+    const mm = await muscleModel.findOne({ userId: userId })
+    if (mm) {
+      return mm.photos;
     }
+    return "";
+
   }
 }
