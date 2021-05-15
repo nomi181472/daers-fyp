@@ -2,14 +2,11 @@ import asyncio
 from nats.aio.client import Client as NATS
 from stan.aio.client import Client as STAN
 import json
-import time
 import pymongo
 import datetime
 from model import Attention, Encoder, Decoder, Seq2Seq, translate_sentence
 import torch
 import torch.nn as nn
-import torch.optim as optim
-import random
 from torchtext.data import Field, TabularDataset, BucketIterator
 import spacy
 import pandas as pd

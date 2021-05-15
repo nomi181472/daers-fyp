@@ -16,6 +16,7 @@ import { deleteObjectRouter } from "./routes/delete-object";
 import { getUserScheduleRouter } from "./routes/getuserschedule";
 import { deleteDay } from "./routes/delete-day";
 import { deleteDayTime } from "./routes/delete-day-time";
+import { generateSchdule } from "./routes/generate-schedule";
 
 const app = express();
 const corsOptions = {
@@ -40,8 +41,8 @@ app.use(updateObjectRouter);
 app.use(deleteRouter);
 app.use(deleteObjectRouter);
 app.use(deleteDay);
-app.use(deleteDayTime)
-
+app.use(deleteDayTime);
+app.use(generateSchdule);
 app.all("*", async () => {
   throw new UnknownRouteError();
 });

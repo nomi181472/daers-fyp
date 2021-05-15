@@ -1,6 +1,36 @@
 import pymongo
 import datetime
 import random
+import asyncio
+from nats.aio.client import Client as NATS
+from stan.aio.client import Client as STAN
+import json
+async def run(loop):
+    # Use borrowed connection for NATS then mount NATS Streaming
+    # client on top.
+    nc = NATS()
+    sc = STAN()
+    await nc.connect(io_loop=loop)
+    await sc.connect("daers", "exercise-recommend-srv", nats=nc)
+    subject = "generate:dietschedule"
+    async def cb(msg):
+        nonlocal sc
+        print("Subject:" + subject + "Received a message (seq={}): {}".format(msg.seq, msg.data))
+        try:
+
+            my_json = msg.data.decode('utf8').replace("'", '"')
+            data = json.loads(my_json)
+            conn = pymongo.MongoClient("localhost", 27017)
+            userId = data["userId"]
+
+            make_shedule(30,userId, conn)
+            print("Done")
+        except Exception as e:
+            print(e)
+
+   # await sc.subscribe(subject, manual_acks=True, queue="", cb=cb)
+    await sc.subscribe(subject, durable_name="durable", queue="diet-recommend-srv",cb=cb)
+
 class TDEE:
     def __init__(self,age,height,weight):
         self.age=age
@@ -36,12 +66,7 @@ def nutrition(nutritionName,protein,calories,fats,grams,carbohydrates,descriptio
              }
 
 
-            # fats: Number;
-            # grams:Number
-            # protein: Number;
-            # carbohydrates: Number;
-            # description: [String];
-            # photos: [String];
+
 def calorieCounter(protein,carbohydrate,fats):
     return (4*(protein+carbohydrate))+(9*fats)
 def balanceMacroNutrients(protein,carbohydrate,fats,ratio_sub,percentage):
@@ -123,9 +148,10 @@ def make_shedule(n,userId,conn):
         data2 = schedule_collect.insert_one(newvalues)
     pass
 if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(run(loop, ))
+    loop.run_forever()
 
-    conn=pymongo.MongoClient("localhost",27017)
-    make_shedule(30,"609e7986cbe27f45e4b684c4",conn)
 
 
 
