@@ -23,7 +23,7 @@ class UserProfile:
     def __init__(self,age,height,currentWeight,targetWeight,activity):
         self.currentTdee=TDEE(age,height,currentWeight).getTDEE(activity)
         self.targetTdee=TDEE(age,height,targetWeight).getTDEE(activity)
-        self.total_difference=self.currentTdee-self.targetTdee
+        self.total_difference=self.targetTdee-self.currentTdee
 def nutrition(nutritionName,protein,calories,fats,grams,carbohydrates,description,photos):
     return { "nutritionName":nutritionName,
              "calories":calories,
@@ -44,8 +44,20 @@ def nutrition(nutritionName,protein,calories,fats,grams,carbohydrates,descriptio
             # photos: [String];
 def calorieCounter(protein,carbohydrate,fats):
     return (4*(protein+carbohydrate))+(9*fats)
+def balanceMacroNutrients(protein,carbohydrate,fats,ratio_sub,percentage):
+    is_neg=1
+    if(ratio_sub<0):
+        is_neg=-1
+    gram=100-100*(percentage)
+    protein=protein+(is_neg*(4+ratio_sub)/17)
+    carbohydrate=carbohydrate+(is_neg*(4+ratio_sub)/17)
+    fats=fats+(is_neg*(9+ratio_sub)/17)
+    return protein,carbohydrate,fats,gram
+
+
+
 def make_shedule(n,userId,conn):
-    up = UserProfile(20, 180, 80, 90, "Moderate_Exercise") # will have to add 10 kg threshold
+    up = UserProfile(20, 180, 100, 90, "Moderate_Exercise") # will have to add 10 kg threshold
     ratio=up.total_difference/n
     time_in_day = ["breakfast", "lunch", "dinner"]
     nutriton_collection = conn["nutritionfacts"]["nutritionfacts"]
@@ -76,16 +88,24 @@ def make_shedule(n,userId,conn):
         day = []
         daily=[]
         index1=random.choice(list(range(0,5)))
+        index2=random.choice(list(range(5,10)))
+        index3=random.choice(list(range(10,15)))
+        indices=[index1, index2, index3]
         for dt in range(3):
-            for sub in range(3): 
-                data=result[0]
-                grams=10
+            time = []
+            ratio_sub=ratio/len(indices)
+            for index in indices:
+                data=result[index]
                 id=str(data["_id"])
                 fats=data["fats"]
-
                 carbohydrates=data["carbohydrates"]
                 protein=data["protein"]
                 calories = calorieCounter(protein, carbohydrates, fats)  # data["calories"]
+                modified_calories=calories+ratio_sub
+                protein, carbohydrates, fats, grams = balanceMacroNutrients(protein, carbohydrates, fats, ratio_sub, (
+                            calories - modified_calories) / calories, )
+                check=calorieCounter(protein,carbohydrates,fats)
+
                 time.append({"sameNutrition":id,"nutrition":nutrition(nutritionName=data["nutritionName"],
                                                                   fats=fats,grams=grams,calories=calories,
                                                                   carbohydrates=carbohydrates,description="",
@@ -102,7 +122,6 @@ def make_shedule(n,userId,conn):
         newvalues = {"userId": userId, "document": all_days, }
         data2 = schedule_collect.insert_one(newvalues)
     pass
-
 if __name__ == '__main__':
 
     conn=pymongo.MongoClient("localhost",27017)
