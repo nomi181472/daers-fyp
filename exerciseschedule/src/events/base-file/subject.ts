@@ -1,5 +1,5 @@
 export enum Subjects{
-  ExerciseScheduleCreated = "eschedule:created",
+  scheduleGenerate = "schedule:generate",
   UserCreated = "user:created",
   UserInformation="user:information"
 }

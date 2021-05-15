@@ -1,6 +1,5 @@
 import { Message } from "node-nats-streaming";
 import { Listener } from "./base-listener";
-import { EScheduleCreatedEvent } from "./ESchedule-Created-Event";
 import { Subjects } from "./subject";
 import mongoose from "mongoose";
 import { userSchema } from "./user-schema";

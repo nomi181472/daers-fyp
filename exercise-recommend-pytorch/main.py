@@ -20,8 +20,8 @@ async def run(loop):
     nc = NATS()
     sc = STAN()
     await nc.connect(io_loop=loop)
-    await sc.connect("daers", "muscle-detection-srv", nats=nc)
-    subject = "eschedule:created"
+    await sc.connect("daers", "exercise-recommend-srv", nats=nc)
+    subject = "schedule:generate"
     async def cb(msg):
         nonlocal sc
         print("Subject:" + subject + "Received a message (seq={}): {}".format(msg.seq, msg.data))
@@ -30,13 +30,14 @@ async def run(loop):
             my_json = msg.data.decode('utf8').replace("'", '"')
             data = json.loads(my_json)
             conn = pymongo.MongoClient("localhost", 27017)
-            userId = "609a74331c213d5150acfa2f" #data["userId"]
+            userId = data["userId"]
             add_schedule(30, conn, userId)
+            print("Done")
         except Exception as e:
             print(e)
 
    # await sc.subscribe(subject, manual_acks=True, queue="", cb=cb)
-    await sc.subscribe(subject, durable_name="durable", cb=cb)
+    await sc.subscribe(subject, durable_name="durable", queue="exercise-recommend-srv",cb=cb)
 
 
 def get_user_information(conn,id,userId):
@@ -213,6 +214,10 @@ def add_schedule(N, conn,userId):
 
     newvalues = {"$set": {"document":all_days}}
     data2 = schedule_collect.find_one_and_update(myquery, newvalues)
+    if data2 is None:
+        newvalues = {"userId": userId, "document": all_days, }
+        data2 = schedule_collect.insert_one(newvalues)
+    pass
 
 
 

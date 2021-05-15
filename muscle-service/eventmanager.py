@@ -25,8 +25,8 @@ def uploadOnCloudinary(n,mycol,userId,levels):
     for i in range(n):
         filename="Maskpredicted"+str(i)+".png"
         #filename=""
-        #url=cloudinary.uploader.upload(filename, folder="Daers/DetectedImages/",public_id="Muscle"+userId,resource_type="image")
-        url={"url":"updated"} #avoiding space
+        url=cloudinary.uploader.upload(filename, folder="Daers/DetectedImages/",public_id="Muscle"+userId,resource_type="image")
+        #url={"url":"updated"} #avoiding space
         where={"userId":userId}
         update={"$set":{"photos.backPose":url["url"]}}
         a=mycol.update_one(where,update)

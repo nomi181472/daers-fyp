@@ -26,4 +26,4 @@ async def run(loop,model,class_name,mycol):
 
     # Subscribe to get all messages from the beginning.
 
-    await sc.subscribe(subject, durable_name="durable", queue="", cb=cb)
+    await sc.subscribe(subject, durable_name="durable", queue="muscle-detection-srv", cb=cb)
