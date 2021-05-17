@@ -15,6 +15,7 @@ const dietTrackSchema = new mongoose.Schema(
     totalCarbohydratesIntake: [Number],
     totalFatsIntake: [Number],
     currentWeight: [Number],
+    expectedWeight:[Number],
     createAt: Date,
     updateAt: Date,
   },
@@ -31,13 +32,14 @@ const dietTrackSchema = new mongoose.Schema(
 );
 interface DietTrackAttrs {
   userId: string;
-  dietScheduleId?: string,
-  dayDate?: string[],
-  totalCaloriesIntake?: number[],
-  totalProteinIntake?: number[],
-  totalCarbohydratesIntake?: number[],
-  totalFatsIntake?: number[],
-  currentWeight?: number[],
+  dietScheduleId?: string;
+  dayDate?: string[];
+  totalCaloriesIntake?: number[];
+  totalProteinIntake?: number[];
+  totalCarbohydratesIntake?: number[];
+  totalFatsIntake?: number[];
+  currentWeight?: number[];
+  expectedWeight?: number[];
   createAt?: Date;
   updateAt?: Date;
 
@@ -45,14 +47,14 @@ interface DietTrackAttrs {
 interface DietTrackDocument extends mongoose.Document {
  
   userId: string;
-  dietScheduleId: string,
-  dayDate: string[],
-  totalCaloriesIntake: number[],
-  totalProteinIntake: number[],
-  totalCarbohydratesIntake: number[],
-  totalFatsIntake: number[],
-  currentWeight: number[],
-  
+  dietScheduleId: string;
+  dayDate: string[];
+  totalCaloriesIntake: number[];
+  totalProteinIntake: number[];
+  totalCarbohydratesIntake: number[];
+  totalFatsIntake: number[];
+  currentWeight: number[];
+  expectedWeight?: number[];
   createAt?: Date;
   updateAt?: Date;
   

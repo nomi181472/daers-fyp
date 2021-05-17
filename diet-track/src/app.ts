@@ -8,6 +8,7 @@ import { UnknownRouteError } from "./errors/unknown-Route-error";
 import { addDiet } from "./routes/addDiet";
 import { currentUser } from "./middlewares/current-user";
 import { listDiet } from "./routes/list";
+import { getExpectedWeight } from "./routes/get-expected-weight";
 
 const app = express();
 const corsOptions = {
@@ -25,6 +26,7 @@ app.use(cookieSession({ signed: false, httpOnly: false }));
 app.use(currentUser);
 app.use(addDiet)
 app.use(listDiet);
+app.use(getExpectedWeight)
 app.all("*", async () => {
   throw new UnknownRouteError();
 });

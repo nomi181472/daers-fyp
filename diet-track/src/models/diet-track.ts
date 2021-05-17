@@ -16,7 +16,7 @@ export class DietTrack{
   }
   public async addNutritions(document: DietTrackParser) {
     const isCurrentUser = await dietTrackModel.findOne( {userId:document.userId} );
-    console.log(isCurrentUser)
+    //console.log(isCurrentUser)
     if (!isCurrentUser) {
       
       const isAdd = await dietTrackModel.build({
@@ -34,19 +34,19 @@ export class DietTrack{
     else {
      const index = isCurrentUser.dayDate.findIndex((e, d) => e == document.dayDate )
       
-      console.log(index);
+      //console.log(index);
         if (index !== -1) {
       
           isCurrentUser.totalProteinIntake[index] += document.totalProteinIntake;
           isCurrentUser.totalFatsIntake[index] += document.totalFatsIntake;
           isCurrentUser.totalCarbohydratesIntake[index] +=document.totalCarbohydratesIntake;
           isCurrentUser.totalCaloriesIntake[index] +=document.totalCaloriesIntake;
-         
+          isCurrentUser.expectedWeight=[40]
           isCurrentUser.markModified("totalProteinIntake");
           isCurrentUser.markModified("totalFatsIntake");
           isCurrentUser.markModified("totalCarbohydratesIntake");
           isCurrentUser.markModified("totalCaloriesIntake");
-          isCurrentUser.markModified("currentWeight");
+          
           isCurrentUser.save();
          
       }
@@ -72,7 +72,7 @@ export class DietTrack{
   }
   public async getAllData(userId:string) {
     const isCurrentUser = await dietTrackModel.find({ userId:userId});
-    console.log("data",isCurrentUser)
+    //console.log("data",isCurrentUser)
     
     return isCurrentUser;
   }
@@ -86,5 +86,14 @@ export class DietTrack{
   public TotalEnergyExpanditure() {
     return (this.BMR(79, 176, 30) * this.PAL());
   }
-  
+  public async getExpectedWeight(userId:string) {
+    const isCurrentUser = await dietTrackModel.findOne({ userId: userId }).select({"expectedWeight":1,"currentWeight":1});
+    
+    if (isCurrentUser != null && isCurrentUser.expectedWeight?.length && isCurrentUser.currentWeight?.length) {
+      const elen = isCurrentUser.expectedWeight.length;
+      const clen=isCurrentUser.currentWeight.length;
+      return { expectedWeight:isCurrentUser.expectedWeight[elen-1],currentWeight:isCurrentUser.currentWeight[clen-1] }
+    }
+  }
+   
 }
