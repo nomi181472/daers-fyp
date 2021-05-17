@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exercise-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exercise
+  template:
+    metadata: 
+      labels:
+        app: exercise
+    spec: 
+      containers:
+        - name: exercise
+          image: noman173652/exercise
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://exercise-mongo-srv:27017/exercise'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exercise-srv
+spec: 
+  selector:
+    app: exercise
+  ports:
+    - name: exercise
+      protocol: TCP
+      port: 3020
+      targetPort: 3020

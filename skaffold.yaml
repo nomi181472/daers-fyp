@@ -3,17 +3,24 @@ kind: Config
 deploy:
   kubectl:
     manifests:
-      - ./infra/k8s/*
+      - ./otherservices/k8s/*
 build:
   local:
     push: false
   artifacts:
-    - image: noman173652/api-gateway
-      context: api-gateway
+    - image: noman173652/user
+      context: user
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: './api-gateway/src/**/*.ts'
+          - src: './src/**/*.ts'
             dest: .
-
+    - image: noman173652/exercise
+      context: exercise
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: './src/**/*.ts'
+            dest: .

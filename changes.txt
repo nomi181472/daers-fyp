@@ -1,0 +1,21 @@
+-------------------------------------------------- user folder----------------------------------------------------------------
+1 user->src->index.ts                   changed localhost                           to user-mongo-srv                       (N)
+2 user->src->app.ts                     changed httponly:false                      to secure: true                         (N) removed
+3 user->src->route->signup.ts           changed /api-gateway/sign-up/user           to daers.dev/api/user/sign-up           (N,A,M)
+4 user->src->route->sign-in.ts          changed /api-gateway/sign-in/user           to daers.dev/api/user/sign-in           (N,A,M)
+5 user->src->route->current-user.ts     changed /api-gateway/current-user/user      to daers.dev/api/user/current-user      (N,A,M)
+6 user->src->route->sign-out.ts         changed /api-gateway/sign-out/user          to daers.dev/api/user/sign-out          (N,A,M)
+7 user->src->route->update.ts           changed /api-gateway/current-user/user/:id  to daers.dev/api/user/current-user/:id  (N,A,M)
+Remaining is still left
+
+
+
+
+-------------------------------------------------- exercise folder----------------------------------------------------------------
+1 exericse->src->index.ts                   changed localhost                           to exercise-mongo-srv                   (N)
+2 exercise->src->app.ts                     changed httponly:false                      to secure: true                         (N) removed
+3 exercise->src->route->list.ts             changed /api-gateway/current-user/exercise  to daers.dev/api/exercise/current-user  (N,A,M)
+4 exercise->src->route->add.ts              changed /api-gateway/current-user/exercise  to daers.dev/api/exercise/current-user  (N,A,M)
+
+
+

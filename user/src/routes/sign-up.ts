@@ -11,7 +11,7 @@ import { UserWeightPublisher } from "../events/publishers/user-weight-publisher"
 
 const router = express.Router();
 router.post(
-  "/api-gateway/sign-up/user",
+  "/api/user/sign-up",
   [
     body("email").isEmail().withMessage("Email is not valid"),
     body("password")

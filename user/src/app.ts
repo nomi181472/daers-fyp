@@ -10,7 +10,6 @@ import { signOutRouter } from "./routes/sign-out";
 import { signUpRouter } from "./routes/sign-up";
 import { errorHandler } from "./middlewares/error-handler";
 import { UnknownRouteError } from "./errors/unknown-Route-error";
-import { addUserRouter } from "./routes/add";
 import { deleteUserRouter } from "./routes/delete";
 import { listUserRouter } from "./routes/list";
 import { detailUserRouter } from "./routes/detail";
@@ -33,7 +32,7 @@ app.use(cors(corsOptions));
 
 app.use(json());
 app.set("trust proxy", true);
-app.use(cookieSession({ signed: false, httpOnly: false }));
+app.use(cookieSession({ signed: false, httpOnly: false}));
 app.use(signInRouter);
 app.use(signOutRouter);
 app.use(signUpRouter);
@@ -45,6 +44,8 @@ app.use(detailUserRouter);
 app.use(updateUserRouter);
 app.use(getHeightAndWeight);
 app.use(addPhotos);
+app.get("/api/users/currentUser", (req, res) => {
+  res.send("hi There!!")})
 app.all("*", async () => {
   throw new UnknownRouteError();
 });

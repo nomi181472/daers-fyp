@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-service
+  name: ingress-servivce
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: 'true'
@@ -10,7 +10,15 @@ spec:
     - host: daers.dev
       http:
         paths:
-          - path: /
+          - path: /api/user/?(.*)
             backend:
-              serviceName: api-gateway-srv
-              servicePort: 3000
+              serviceName: user-srv
+              servicePort: 3010
+          - path: /api/exercise/?(.*)
+            backend:
+              serviceName: exercise-srv
+              servicePort: 3020
+          # - path: /?(.*)
+          #   backend:
+          #     serviceName: client-srv
+          #     servicePort: 3000

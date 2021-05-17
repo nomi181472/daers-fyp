@@ -6,7 +6,7 @@ import { validateRequest } from "../middlewares/validate-request";
 import { Exercise } from "../models/exercise";
 const router = express.Router();
 router.post(
-  "/api-gateway/current-user/exercise",
+  "/api/exercise/current-user",
   requireAuth,
   [body("exerciseCategory")
     .not()

@@ -8,7 +8,7 @@ import { User } from "../models/user";
 
 const router = express.Router();
 router.put(
-  "/api-gateway/current-user/user/:id",
+  "/api/user/current-user/:id",
   currentUser,
   requireAuth,
   param("id")
