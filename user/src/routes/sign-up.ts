@@ -67,12 +67,12 @@ router.post(
     catch (Exception) {
       console.log("UserCreatedPublisher Exception: "+Exception)
     }
-    // try {
-    //   new UserWeightPublisher(natsWrapper.client).publish({ weight ,userId, })
-    // }
-    // catch (Exception) {
-    //   console.log("UserCreatedPublisher Exception: "+Exception)
-    // }
+    try {
+      new UserWeightPublisher(natsWrapper.client).publish({ weight ,userId, })
+    }
+    catch (Exception) {
+      console.log("UserCreatedPublisher Exception: "+Exception)
+    }
 
 
     console.log("Returned");

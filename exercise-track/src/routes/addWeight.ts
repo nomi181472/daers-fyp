@@ -15,7 +15,7 @@ requireAuth, async (req: Request, res: Response) => {
   const obj = new ExerciseTrack();
   
   if (req.currentUser!.id) {
-    const result = await obj.addWeightCapacity(weightCapacity, req.currentUser!.id,req.headers);
+    const result = await obj.addWeightCapacity(weightCapacity, req.currentUser!.id);
     if (!result)
       throw new BadRequestError("error exercise-track");
   }
