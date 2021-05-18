@@ -62,17 +62,17 @@ router.post(
     
     req.session!.jwt = userJWT;
     try {
-      new UserCreatedPublisher(natsWrapper.client).publish({ age, bmi, userId, })
+      new UserCreatedPublisher(natsWrapper.client).publish({ age, bmi, userId,height, weight})
     }
     catch (Exception) {
       console.log("UserCreatedPublisher Exception: "+Exception)
     }
-    try {
-      new UserWeightPublisher(natsWrapper.client).publish({ weight ,userId, })
-    }
-    catch (Exception) {
-      console.log("UserCreatedPublisher Exception: "+Exception)
-    }
+    // try {
+    //   new UserWeightPublisher(natsWrapper.client).publish({ weight ,userId, })
+    // }
+    // catch (Exception) {
+    //   console.log("UserCreatedPublisher Exception: "+Exception)
+    // }
 
 
     console.log("Returned");

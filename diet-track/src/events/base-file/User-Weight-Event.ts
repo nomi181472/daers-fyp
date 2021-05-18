@@ -1,8 +1,10 @@
 import { Subjects } from "./subject";
-export interface UserWeightEvent{
-  subject: Subjects.userWeight;
+export interface UserCreatedEvent{
+  subject: Subjects.UserCreated;
   data: {
     userId: string;
     weight: number;
+    age: number;
+    height: number;
   }
 } 

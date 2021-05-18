@@ -1,7 +1,8 @@
 import mongoose from "mongoose";
 import { app } from "./app";
-import { UserWeightListener } from "./events/listeners/user-weight-listener";
+import { UserCreatedListener } from "./events/listeners/user-created-listener";
 import { natsWrapper } from "./nats-wrapper";
+import { UserInformationListener } from './events/listeners/user-information-listener';
 
 const start = async () => {
   try {
@@ -15,7 +16,8 @@ const start = async () => {
       process.on("SIGNINT", () => natsWrapper.client.close());
     
     process.on("SIGTERM", () => natsWrapper.client.close());
-    new UserWeightListener(natsWrapper.client).listen();
+    new UserCreatedListener(natsWrapper.client).listen();
+    new UserInformationListener(natsWrapper.client).listen();
     await mongoose.connect("mongodb://localhost:27017/diettrack", {
       useNewUrlParser: true,
       useUnifiedTopology: true,

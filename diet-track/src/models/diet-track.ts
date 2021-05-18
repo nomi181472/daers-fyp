@@ -1,5 +1,6 @@
 import { DietTrackParser } from "./argumentParser";
 import { dietTrackModel,DietTrackAttrs } from "./diet-track-repo/diet-track-repo";
+import { UserSchema } from "./diet-track-repo/user-diet-repo";
 
 
 export class DietTrack{
@@ -27,6 +28,7 @@ export class DietTrack{
         totalFatsIntake: [document.totalFatsIntake],
         totalCarbohydratesIntake: [document.totalCarbohydratesIntake],
         totalCaloriesIntake: [document.totalCaloriesIntake],
+        expectedWeight:[0]
         
       });
       await isAdd.save();  
@@ -41,7 +43,7 @@ export class DietTrack{
           isCurrentUser.totalFatsIntake[index] += document.totalFatsIntake;
           isCurrentUser.totalCarbohydratesIntake[index] +=document.totalCarbohydratesIntake;
           isCurrentUser.totalCaloriesIntake[index] +=document.totalCaloriesIntake;
-          isCurrentUser.expectedWeight=[40]
+         
           isCurrentUser.markModified("totalProteinIntake");
           isCurrentUser.markModified("totalFatsIntake");
           isCurrentUser.markModified("totalCarbohydratesIntake");
@@ -51,7 +53,20 @@ export class DietTrack{
          
       }
         else {
-          //console.log("else")
+          // console.log("else")
+          const userinformation = await UserSchema.findById({ _id: document.userId })
+          let ew = 0
+          
+          if (userinformation) {
+           
+           const calories=await this.calculateCalories(document.userId)
+            // console.log(calories)
+            if (calories > 1) {
+              ew = this.CalculateWeight(calories, userinformation.height, userinformation.age,
+                userinformation.userInformation ? userinformation.userInformation.activityLevel : 0)
+            }
+          }
+
           dietTrackModel.findOneAndUpdate(
             { userId: document.userId },
             {
@@ -59,16 +74,39 @@ export class DietTrack{
                 dayDate:document.dayDate,
                 totalProteinIntake: document.totalProteinIntake, totalFatsIntake: document.totalFatsIntake,
                 totalCarbohydratesIntake: document.totalCarbohydratesIntake, totalCaloriesIntake: document.totalCaloriesIntake,
-      
+                expectedWeight:ew
+                
               }
             },
             {new: true, useFindAndModify: false}
           ).exec();
       }
-        console.log(this.TotalEnergyExpanditure())
+     
+       
       return;
     }
     
+  }
+  public async calculateCalories(userId: string) {
+    const document = await dietTrackModel.findOne({ userId: userId })
+    
+    if (document) {
+      const len = document.totalCaloriesIntake.length
+      return document.totalCaloriesIntake[len-1]
+    }
+    return 0
+    //return ((9*fats)+4*(protein+carbohydrates))
+  }
+  public CalculateWeight(tee: number, height: number, age: number, activity: number) {
+    // console.log(tee)
+    // const temp = tee / activity;
+    // console.log(temp)
+    // const ageAndHeight=(6.25 * height) - (5 * age) + 5
+    // console.log(ageAndHeight)
+   
+    // const cal=temp-ageAndHeight
+    // console.log(cal/10)
+    return ((tee/activity)+((6.8*age))-66-(5*height))/13.7
   }
   public async getAllData(userId:string) {
     const isCurrentUser = await dietTrackModel.find({ userId:userId});
@@ -76,16 +114,18 @@ export class DietTrack{
     
     return isCurrentUser;
   }
-  public BMR(weight:number,height:number,age:number) {
-    return ((10 * weight) + (6.25 * height) - (5 * age) + 5);
+  public BMR(weight: number, height: number, age: number) {
+    console.log('weight'+weight)
+    return  66 +(13.7*weight)+(5*height)-(6.8*age)//((10 * weight) + (6.25 * height) - (5 * age) + 5);
   }
-  public PAL() {
-    const pal: number = 1.76;
-    return pal;
-  }
-  public TotalEnergyExpanditure() {
-    return (this.BMR(79, 176, 30) * this.PAL());
-  }
+  // public PAL() {
+  //   const pal: number = 1.76;
+  //   return pal;
+  // }
+  public TotalEnergyExpanditure(weight: number, height: number, age: number, activityLevel: number) {
+      
+    return (this.BMR(weight,height,age) * activityLevel);
+  }//79,176,30
   public async getExpectedWeight(userId:string) {
     const isCurrentUser = await dietTrackModel.findOne({ userId: userId }).select({"expectedWeight":1,"currentWeight":1});
     
