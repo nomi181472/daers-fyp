@@ -21,7 +21,7 @@ backlevel = "backLevel"
 legslevel = "legsLevel"
 shoulderlevel = "shoulderLevel"
 
-async def run(loop):
+async def run(loop,track_seq):
     # region Nats COnfiguration
     nc = NATS()
     sc = STAN()
@@ -34,13 +34,22 @@ async def run(loop):
         nonlocal sc
         print("Subject:" + subject + "Received a message (seq={}): {}".format(msg.seq, msg.data))
         try:
+            flag=False
 
-            my_json = msg.data.decode('utf8').replace("'", '"')
-            data = json.loads(my_json)
-            conn = pymongo.MongoClient("localhost", 27017)
-            userId = data["userId"]
-            add_schedule(30, conn, userId,False)
-            print("Done")
+            if msg.seq not in track_seq:
+                track_seq[msg.seq]="P" # pending
+                flag=True
+            elif track_seq[msg.seq]=="P":
+                flag = True
+            if(flag):
+                my_json = msg.data.decode('utf8').replace("'", '"')
+                data = json.loads(my_json)
+                conn = pymongo.MongoClient("localhost", 27017)
+                userId = data["userId"]
+                add_schedule(30, conn, userId)
+
+                track_seq[msg.seq] = "D"
+                print("Done")
         except Exception as e:
             print(e)
 
@@ -48,22 +57,19 @@ async def run(loop):
     await sc.subscribe(subject, durable_name="durable", queue="exercise-recommend-srv", cb=cb)
 
 
-def get_user_information(conn, id, userId,isPhysicsAvailable):
+def get_user_information(conn, userId):
         exercise = conn["schedulee"]["userexerciseschedules"]
         data = exercise.find_one({"_id": ObjectId(userId)})
         # print(result)
         data = dict(data["userInformation"])
-        muscle = conn["muscle"]["muscles"]
-        m_data=muscle.find_one({"userId":"609f9b690a60d74c30d8c508"},{"abs","chest"})
-
-        if (m_data["chest"]["level"] != 0):
-            data[chestlevel] = m_data["chest"]["level"]
-        if (m_data["abs"]["level"] != 0):
-            data[abslevel] = m_data["abs"]["level"]
-        for level in [legslevel,abslevel,chestlevel,shoulderlevel,backlevel]:
-            if
-
-        return result
+        muscle = conn["muscle"]["muscles"] #userId
+        m_data=muscle.find_one({"userId":userId},{"abs","chest"})
+        if m_data!=None:
+            if (m_data["chest"]["level"] != 0):
+                data[chestlevel] = m_data["chest"]["level"]
+            if (m_data["abs"]["level"] != 0):
+                data[abslevel] = m_data["abs"]["level"]
+        return data
 
 
     # return {"waist": 33, "wings": 44, "age": 24, "chestlevel": 1, "abslevel": 1, "backlevel": 1, "legslevel": 1,
@@ -212,8 +218,8 @@ def getCategory():
     }
 
 
-def add_schedule(N, conn, userId,isPhysicsAvailable):
-    user_data = get_user_information(conn, "", userId,isPhysicsAvailable)  # get from mongodb
+def add_schedule(N, conn, userId):
+    user_data = get_user_information(conn, userId,)  # get from mongodb
     user_data = filter_user_data(user_data)
     source_trans = source_transform()
     exercise_categories = getCategory()
@@ -309,6 +315,7 @@ model.apply(init_weights)
 model.load_state_dict(torch.load('weights/seq2seqCpuwithoutage.pt'))
 
 if __name__ == '__main__':
+    track_seq={}
     loop = asyncio.get_event_loop()
-    loop.run_until_complete(run(loop, ))
+    loop.run_until_complete(run(loop,track_seq ))
     loop.run_forever()
