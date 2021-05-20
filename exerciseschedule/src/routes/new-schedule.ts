@@ -40,6 +40,9 @@ router.post(
     if (!result) {
       throw new BadRequestError("unAble to create schedule");
     }
+    if (result == "schedule-Exist") {
+      throw new BadRequestError("user cannot make more than one schedule please delete previous one");
+    }
     
     // new ScheduleCreatedPublisher(natsWrapper.client).publish({
     //   age:23,

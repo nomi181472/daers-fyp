@@ -8,13 +8,20 @@ export class ExerciseSchedule {
   constructor() {}
   public async addSchedule(exerciseScheduleAttrs: ExerciseScheduleAttrs) {
     try {
-      let result = await exerciseScheduleModel.build(exerciseScheduleAttrs);
-      let user = await UserSchema.modelName
-      console.log(user,exerciseScheduleAttrs.userId)
-      await result.save();
+      const isScheduleExist = await exerciseScheduleModel.findOne({ userId: exerciseScheduleAttrs.userId })
+      console.log(isScheduleExist)
+      if (!isScheduleExist) {
+       
+        let result = await exerciseScheduleModel.build(exerciseScheduleAttrs);
+        let user = await UserSchema.modelName
+        console.log(user, exerciseScheduleAttrs.userId)
+        await result.save();
 
       
-      return result;
+        return result;
+      }
+      else
+        return "schedule-Exist"
     } catch (err) {
       console.log("addschedule Class", err);
       return null;

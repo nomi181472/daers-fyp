@@ -40,8 +40,16 @@ const userSchema = new mongoose.Schema(
     },
     userInformation: {
       targetGoal: Number,
-      gene:String
+      activityLevel: Number,
+      waist: Number,
+      lat:Number,
+      chestLevel: Number,
+      absLevel: Number,
+      backLevel: Number,
+      legsLevel: Number,
+      shoulderLevel:Number
     },
+
     services: {
       customExercise: Boolean,
       customDiet: Boolean,
@@ -87,6 +95,7 @@ interface UserAttrs {
   weight: number;
   height: number;
   userInformation?: {
+    
     [targetGoal: string]: string,
     
   }

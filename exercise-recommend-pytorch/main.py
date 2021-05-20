@@ -9,8 +9,17 @@ import torch
 import torch.nn as nn
 from torchtext.data import Field, TabularDataset, BucketIterator
 import spacy
+from bson.objectid import ObjectId
 import pandas as pd
 
+age = "age"
+chestlevel = "chestLevel"
+abslevel = "absLevel"
+wings = "wings"
+waist = "waist"
+backlevel = "backLevel"
+legslevel = "legsLevel"
+shoulderlevel = "shoulderLevel"
 
 async def run(loop):
     # region Nats COnfiguration
@@ -30,7 +39,7 @@ async def run(loop):
             data = json.loads(my_json)
             conn = pymongo.MongoClient("localhost", 27017)
             userId = data["userId"]
-            add_schedule(30, conn, userId)
+            add_schedule(30, conn, userId,False)
             print("Done")
         except Exception as e:
             print(e)
@@ -39,15 +48,26 @@ async def run(loop):
     await sc.subscribe(subject, durable_name="durable", queue="exercise-recommend-srv", cb=cb)
 
 
-def get_user_information(conn, id, userId):
-    # schedule_user_exercise=conn["schedulee"]["userexerciseschedules"]
-    # s_u_e_data=schedule_user_exercise.find_one({"_id":id})
-    # muscle = conn["muscle"]["muscles"]
-    # m_data=muscle.find_one({"userId":userId},{"abslevel","chestlevel"})
-    #
-    return {"waist": 33, "wings": 44, "age": 24, "chestlevel": 1, "abslevel": 1, "backlevel": 1, "legslevel": 1,
-            "shoulderlevel": 1, }
+def get_user_information(conn, id, userId,isPhysicsAvailable):
+        exercise = conn["schedulee"]["userexerciseschedules"]
+        data = exercise.find_one({"_id": ObjectId(userId)})
+        # print(result)
+        data = dict(data["userInformation"])
+        muscle = conn["muscle"]["muscles"]
+        m_data=muscle.find_one({"userId":"609f9b690a60d74c30d8c508"},{"abs","chest"})
 
+        if (m_data["chest"]["level"] != 0):
+            data[chestlevel] = m_data["chest"]["level"]
+        if (m_data["abs"]["level"] != 0):
+            data[abslevel] = m_data["abs"]["level"]
+        for level in [legslevel,abslevel,chestlevel,shoulderlevel,backlevel]:
+            if
+
+        return result
+
+
+    # return {"waist": 33, "wings": 44, "age": 24, "chestlevel": 1, "abslevel": 1, "backlevel": 1, "legslevel": 1,
+    #         "shoulderlevel": 1, }
 
 def filter_level(level):
     if level == 1:
@@ -77,14 +97,7 @@ def filter_ww(level):
 
 
 def filter_user_data(user_data):
-    age = "age"
-    chestlevel = "chestlevel"
-    abslevel = "abslevel"
-    wings = "wings"
-    waist = "waist"
-    backlevel="backlevel"
-    legslevel="legslevel"
-    shoulderlevel="shoulderlevel"
+
     # if f'{age}' in user_data:
     #     user_data[f'{age}'] = filter_age(user_data[f'{age}'])
     for level in [chestlevel,abslevel,backlevel,legslevel,shoulderlevel]:
@@ -145,12 +158,12 @@ def exercise(exerciseName, sets, reps, description, photos):
 
 def predict_exercise(current_category, user_data, source_trans):
     # strr = user_data['age']
-    strr = user_data["chestlevel"]
+    strr = user_data[f'{chestlevel}']
     #strr += " " + user_data["chestlevel"]
-    strr += " " + user_data["abslevel"]
-    strr += " " + user_data["backlevel"]
-    strr += " " + user_data["legslevel"]
-    strr += " " + user_data["shoulderlevel"]
+    strr += " " + user_data[f'{abslevel}']
+    strr += " " + user_data[f'{backlevel}']
+    strr += " " + user_data[f'{legslevel}']
+    strr += " " + user_data[f'{shoulderlevel}']
     strr += " " + user_data["ww"]
     strr += " " + current_category
     list_str = [" "]
@@ -199,8 +212,8 @@ def getCategory():
     }
 
 
-def add_schedule(N, conn, userId):
-    user_data = get_user_information(conn, "", userId)  # get from mongodb
+def add_schedule(N, conn, userId,isPhysicsAvailable):
+    user_data = get_user_information(conn, "", userId,isPhysicsAvailable)  # get from mongodb
     user_data = filter_user_data(user_data)
     source_trans = source_transform()
     exercise_categories = getCategory()
