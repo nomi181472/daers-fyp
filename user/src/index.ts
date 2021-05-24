@@ -3,6 +3,9 @@ import { app } from "./app";
 import { UserCreatedListener } from "./events/listeners/user-created-listener";
 import { natsWrapper } from "./nats-wrapper";
 const start = async () => {
+  if (!process.env.JWT_KEY) {
+    throw new Error("JWT_KEY is Required..");
+  }
   try {
   //   await natsWrapper.connect("daers", "abc", "http://localhost:4222")
   //   natsWrapper.client.on("close", () => {

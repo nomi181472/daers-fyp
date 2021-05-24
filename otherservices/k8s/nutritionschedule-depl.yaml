@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nutritionschedule-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nutritionschedule
+  template:
+    metadata: 
+      labels:
+        app: nutritionschedule
+    spec: 
+      containers:
+        - name: nutritionschedule
+          image: noman173652/nutritionschedule
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://nutritionschedule-mongo-srv:27017/schedulenf'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nutritionschedule-srv
+spec: 
+  selector:
+    app: nutritionschedule
+  ports:
+    - name: nutritionschedule
+      protocol: TCP
+      port: 3031
+      targetPort: 3031

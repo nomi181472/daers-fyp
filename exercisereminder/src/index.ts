@@ -2,7 +2,11 @@ import mongoose from "mongoose";
 import { app } from "./app";
 const start = async () => {
   try {
-    await mongoose.connect("mongodb://localhost:27017/schedulee", {
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI  Exercise must be defined");
+    }
+    //mongodb://localhost:27017/schedulee",
+    await mongoose.connect(process.env.MONGO_URI ,{
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

@@ -2,7 +2,10 @@ import mongoose from "mongoose";
 import { app } from "./app";
 const start = () => {
   try {
-    mongoose.connect("mongodb://localhost:27017/nutritionfacts", {
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI  Nutrition must be defined");
+      }           //"mongodb://localhost:27017/nutritionfacts"
+    mongoose.connect(process.env.MONGO_URI, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

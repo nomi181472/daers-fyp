@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: #4 changes
+  name: exerciseschedule-mongo-depl
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: exerciseschedule-mongo
+  template: 
+    metadata:
+      labels: 
+        app: exerciseschedule-mongo
+    spec: 
+      containers:
+        - name: exerciseschedule-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service #3 changes
+metadata:
+  name: exerciseschedule-mongo-srv
+spec:
+  selector:
+    app: exerciseschedule-mongo
+  ports: 
+    - name: exerciseschedule-db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+      

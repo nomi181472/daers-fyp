@@ -50,15 +50,17 @@ router.post(
       services
     });
     await createdUser.save();
-
+    if (!process.env.JWT_KEY) {
+      throw new BadRequestError("JWT_KEY is Required..");
+    }
     const userJWT = jwt.sign(
       {
         id: createdUser.id,
         email: createdUser.email,
       },
-      "noman"
+      process.env.JWT_KEY
     );
-    const userId = createdUser.id;
+    const userId = createdUser.id; 
     
     req.session!.jwt = userJWT;
     try {
