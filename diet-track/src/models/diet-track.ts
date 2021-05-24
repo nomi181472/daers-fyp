@@ -10,7 +10,8 @@ export class DietTrack{
   public async makeObject(userId: string,currentWeight:number=0) {
     var obj = {
       userId: userId,
-      currentWeight: [currentWeight]
+      currentWeight: [currentWeight],
+      expectedWeight:[0]
     }
     const et = await dietTrackModel.build(obj);
     await et.save();
@@ -62,8 +63,11 @@ export class DietTrack{
            const calories=await this.calculateCalories(document.userId)
             // console.log(calories)
             if (calories > 1) {
-              ew = this.CalculateWeight(calories, userinformation.height, userinformation.age,
+              ew =await this.CalculateWeight(calories, userinformation.height, userinformation.age,
                 userinformation.userInformation ? userinformation.userInformation.activityLevel : 0)
+              if (ew == NaN){
+                return false;
+              }
             }
           }
 
@@ -103,7 +107,7 @@ export class DietTrack{
     // console.log(temp)
     // const ageAndHeight=(6.25 * height) - (5 * age) + 5
     // console.log(ageAndHeight)
-   
+    console.log(tee,height,age,activity)
     // const cal=temp-ageAndHeight
     // console.log(cal/10)
     return ((tee/activity)+((6.8*age))-66-(5*height))/13.7

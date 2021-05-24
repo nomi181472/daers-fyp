@@ -10,7 +10,7 @@ requireAuth, async (req: Request, res: Response) => {
   const userId = req.currentUser!.id
   const obj = new ExerciseTrack();
   
-  const result=await obj.getAllWeightData(userId,req.params.exerciseName);
+  const result=await obj.getAllWeightData(userId,req.params.exerciseName.replace("-",' '));
   res.send(result);
 });
 

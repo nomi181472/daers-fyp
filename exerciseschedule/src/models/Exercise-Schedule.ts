@@ -30,6 +30,7 @@ export class ExerciseSchedule {
   public async listSchedules() {
     try {
       const schedule = await exerciseScheduleModel.find({});
+     
       return schedule;
     } catch (err) {
       console.log("List Schedule", err);
@@ -188,7 +189,7 @@ export class ExerciseSchedule {
         }
         
       }
-     // console.log("start finding");
+      console.log("start finding",index);
       for (var j = 0; j < schedule.document[index].day.length; j++) {
         if (schedule.document[index].day[j].sameExercise === exerciseId) {
         
@@ -201,7 +202,7 @@ export class ExerciseSchedule {
 
           }
           
-          //console.log("found");
+          console.log("found");
           await schedule.save();
           return true;
         }
@@ -218,6 +219,7 @@ export class ExerciseSchedule {
   }
   public async getUserScheduleId(userId:string) {
     const schedule = await exerciseScheduleModel.find({ userId: userId });
+    
     if (!schedule) {
       return "not-found";
     }

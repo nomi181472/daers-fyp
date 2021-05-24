@@ -46,7 +46,7 @@ async def run(loop,track_seq):
                 data = json.loads(my_json)
                 conn = pymongo.MongoClient("localhost", 27017)
                 userId = data["userId"]
-                add_schedule(30, conn, userId)
+                add_schedule(5, conn, userId)
 
                 track_seq[msg.seq] = "D"
                 print("Done")

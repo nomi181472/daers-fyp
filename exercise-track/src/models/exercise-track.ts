@@ -55,6 +55,7 @@ export class ExerciseTrack{
          
               e.weight.push(addWeightCapacity.weight);
               e.reps.push(addWeightCapacity.reps);
+              e.date.push(addWeightCapacity.date)
               flag = true
          
             }
@@ -65,7 +66,8 @@ export class ExerciseTrack{
           const obj = {
             exerciseName: addWeightCapacity.exerciseName,
             weight: [addWeightCapacity.weight],
-            reps: [addWeightCapacity.reps]
+            reps: [addWeightCapacity.reps],
+            date:[addWeightCapacity.date]
         
           }
         

@@ -11,7 +11,7 @@ async def run(loop):
     nc = NATS()
     sc = STAN()
     await nc.connect(io_loop=loop)
-    await sc.connect("daers", "exercise-recommend-srv", nats=nc)
+    await sc.connect("daers", "Diet-recommend-srv", nats=nc)
     subject = "generate:dietschedule"
     async def cb(msg):
         nonlocal sc
@@ -62,7 +62,7 @@ def nutrition(nutritionName,protein,calories,fats,grams,carbohydrates,descriptio
              "grams":grams,
              "carbohydrates":carbohydrates,
              "description":[description],
-             "photos":[photos]
+             "photos":photos
              }
 
 
