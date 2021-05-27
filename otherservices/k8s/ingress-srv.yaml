@@ -18,6 +18,22 @@ spec:
             backend:
               serviceName: exercise-srv
               servicePort: 3020
+          - path: /api/nutritionfacts/?(.*)
+            backend:
+              serviceName: nutritionfacts-srv
+              servicePort: 3030
+          - path: /api/exerciseschedule/?(.*)
+            backend:
+              serviceName: exerciseschedule-srv
+              servicePort: 3021
+          - path: /api/nutritionschedule/?(.*)
+            backend:
+              serviceName: nutritionschedule-srv
+              servicePort: 3031
+          - path: /api/exercisereminder/?(.*)
+            backend:
+              serviceName: exercisereminder-srv
+              servicePort: 3022
           # - path: /?(.*)
           #   backend:
           #     serviceName: client-srv

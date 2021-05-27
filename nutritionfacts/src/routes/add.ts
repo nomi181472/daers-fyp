@@ -6,7 +6,7 @@ import { validateRequest } from "../middlewares/validate-request";
 import { NutritionFacts } from "../models/nutritionfacts";
 const router = express.Router();
 router.post(
-  "/api-gateway/current-user/nutritionfact",
+  "/api/nutritionfacts",
 
   requireAuth,
   body("nutritionCategory")

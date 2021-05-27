@@ -4,10 +4,11 @@ import '@fortawesome/fontawesome-free/js/solid';
 import '@fortawesome/fontawesome-free/js/regular';
 import '@fortawesome/fontawesome-free/js/brands';
 import "@fortawesome/fontawesome-free/js/all.js";
-import axios from "axios"
+
 import buildClient from "../api/built-client";
 import Headers from "../component/header";
 import fetch from "isomorphic-unfetch"
+import axios from "axios";
 
 const AppComponent = ({ Component, pageProps, currentUser }) => {
 
@@ -27,8 +28,7 @@ AppComponent.getInitialProps = async (appContext) => {
     
    
     
-    const response=await axios.get("/api/user/current-user",{credentials:"include"})
-    console.log(respose)
+    const response=await axios.get("http://localhost:3010/api-gateway/current-user/user")
     const data=await response.json()
     if (appContext.Component.getInitialProps) {
       pageProps = await appContext.Component.getInitialProps(appContext.ctx,buildClient(appContext.ctx),data);
@@ -39,7 +39,7 @@ AppComponent.getInitialProps = async (appContext) => {
   
   else{
    
-      const response=await axios("/api/user/current-user",{credentials:"include"})
+      const response=await fetch("http://localhost:3010/api-gateway/current-user/user",{credentials:"include"})
       const data=await response.json()
       if (appContext.Component.getInitialProps) {
         pageProps = await appContext.Component.getInitialProps(appContext.ctx,buildClient(appContext.ctx),data);

@@ -7,7 +7,7 @@ import { NutritionFactsSchedule } from "../models/NutritionFacts-Schedule";
 
 const router = express.Router();
 router.post(
-  "/api-gateway/current-user/nutritionschedule",
+  "/api/nutritionschedule",
   requireAuth,
   [
     body("document").not().isEmpty().withMessage("document is required"),

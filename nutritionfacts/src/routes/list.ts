@@ -5,8 +5,8 @@ import { NutritionFacts } from "../models/nutritionfacts";
 
 const router = express.Router();
 router.get(
-  "/api-gateway/current-user/nutritionfact",
-  requireAuth,
+  "/api/nutritionfacts",
+  
   async (req: Request, res: Response) => {
     const nt = new NutritionFacts();
     const { query } = req;

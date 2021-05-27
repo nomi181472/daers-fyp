@@ -29,5 +29,5 @@ spec:
   ports:
     - name: exerciseschedule
       protocol: TCP
-      port: 3031
-      targetPort: 3031
+      port: 3021
+      targetPort: 3021

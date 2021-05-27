@@ -29,5 +29,5 @@ spec:
   ports:
     - name: exercisereminder
       protocol: TCP
-      port: 3032
-      targetPort: 3032
+      port: 3022
+      targetPort: 3022

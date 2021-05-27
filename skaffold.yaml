@@ -32,8 +32,8 @@ build:
         manual:
           - src: './src/**/*.ts'
             dest: .
-    - image: noman173652/nutritionreminder
-      context: nutritionreminder
+    - image: noman173652/exerciseschedule
+      context: exerciseschedule
       docker:
         dockerfile: Dockerfile
       sync:
@@ -48,22 +48,6 @@ build:
         manual:
           - src: './src/**/*.ts'
             dest: .
-    - image: noman173652/diettrack
-      context: diettrack
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: './src/**/*.ts'
-            dest: .
-    - image: noman173652/exercisetrack
-      context: exercisetrack
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: './src/**/*.ts'
-            dest: .
     - image: noman173652/exercisereminder
       context: exercisereminder
       docker:
@@ -72,11 +56,29 @@ build:
         manual:
           - src: './src/**/*.ts'
             dest: .
-    - image: noman173652/exerciseschedule
-      context: exerciseschedule
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: './src/**/*.ts'
-            dest: .
+    # - image: noman173652/nutritionreminder
+    #   context: nutritionreminder
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .  
+    # - image: noman173652/diettrack
+    #   context: diettrack
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    # - image: noman173652/exercisetrack
+    #   context: exercisetrack
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    
+    

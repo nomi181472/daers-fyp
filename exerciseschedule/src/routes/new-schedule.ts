@@ -8,7 +8,7 @@ import { ExerciseSchedule } from "../models/Exercise-Schedule";
 import { natsWrapper } from "../nats-wrapper";
 const router = express.Router();
 router.post(
-  "/api-gateway/current-user/exerciseschedule",
+  "/api/exerciseschedule",
  requireAuth,
   [
     body("document").not().isEmpty().withMessage("document is required"),

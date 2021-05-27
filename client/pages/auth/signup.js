@@ -50,7 +50,7 @@ export default () => {
   }
   const { doRequest, errors } = useRequest({
     
-    url: "http://localhost:3010/api-gateway/sign-up/user",
+    url: "api-gateway/sign-up/user",
     method: "post",
     body: {
       email,
