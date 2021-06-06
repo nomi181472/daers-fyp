@@ -1,6 +1,5 @@
 import express, { Response, Request } from "express";
 import { body } from "express-validator";
-
 import jwt from "jsonwebtoken";
 import { validateRequest } from "../middlewares/validate-request";
 import { BadRequestError } from "../errors/bad-request-error";

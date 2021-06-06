@@ -1,12 +1,8 @@
 import pandas as pd
 import random
-
-# Function to do a cartesian
+# Function to do acartesian
 # product of N sets
-
 folder_path = "data"
-
-
 class Data:
     def __init__(self):
         # region All Exercises

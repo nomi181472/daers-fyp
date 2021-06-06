@@ -19,9 +19,6 @@ class NatsWrapper{
         reject(err);
       })
     });
-
-    
-  
   }
  
 }

@@ -20,7 +20,6 @@ try:
 except FileExistsError as e:
     print(e.strerror)
 def get_ax(rows=1, cols=1, size=16):
-  """Return a Matplotlib Axes array to be used in all visualizations in the notebook. Provide a central point to control graph sizes. Adjust the size attribute to control how big to render images"""
   _, ax = plt.subplots(rows, cols, figsize=(size*cols, size*rows))
   return ax
 def setModel():
@@ -48,7 +47,8 @@ def setModel():
     weights_path = WEIGHTS_PATH
     # Load weights
     print("Loading weights ", weights_path)
-    model.load_weights(weights_path, by_name=True)
+
+    model.load_weights(weights_path, by_name=True,)
     # RUN DETECTION
     image_id = random.choice(dataset.image_ids)
     print(image_id)

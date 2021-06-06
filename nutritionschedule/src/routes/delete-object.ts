@@ -13,9 +13,7 @@ router.delete(
   [
     param("id")
       .isLength({ min: 24, max: 24 })
-      .withMessage("Schedule id must be length 24"),
-
-    
+      .withMessage("Schedule id must be length 24"),    
   ],
   validateRequest,
   async (req: Request, res: Response) => {

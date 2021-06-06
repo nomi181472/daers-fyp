@@ -18,7 +18,8 @@ export class UserInformationListener extends Listener<UserInformationEvent>{
 
         const sameKeys = (key: any, ind: any) => {
           console.log("data.object[key]"+data.object[key])
-          if (userDocument.userInformation !== undefined) userDocument.userInformation[key] = data.object[key];
+          if (userDocument.userInformation !== undefined)
+           userDocument.userInformation[key] = data.object[key];
         };
 
         Object.keys(data.object).forEach(sameKeys)
@@ -30,12 +31,9 @@ export class UserInformationListener extends Listener<UserInformationEvent>{
       }
       else {
         console.log("Id not found");
-        msg.ack();
-       
-        
+        msg.ack();        
       }
-     
-    
+
     }
     catch (Exception) {
       console.log("UserInformationListener: " + Exception)

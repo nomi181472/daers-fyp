@@ -2,19 +2,13 @@ import express from "express";
 import "express-async-errors";
 import cors from "cors";
 import { json } from "body-parser";
-
 import cookieSession from "cookie-session";
-
 import { errorHandler } from "./middlewares/error-handler";
 import { UnknownRouteError } from "./errors/unknown-Route-error";
 import { currentUser } from "./middlewares/current-user";
 import { sortRouter } from "./routes/sort";
 import { countRouter } from "./routes/count";
 import { reScheduleRouter } from "./routes/reschedule";
-
-//const route=require("./routing-policy");
-//import axios from "axios";
-
 const app = express();
 const corsOptions = {
   origin:  ["http://localhost:3000","http://localhost:19006"],

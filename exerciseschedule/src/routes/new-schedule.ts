@@ -30,7 +30,6 @@ router.post(
       .isEmpty()
       .withMessage("reps is required"),
   ],
-
   validateRequest,
   async (req: Request, res: Response) => {
     const { document } = req.body;
@@ -44,14 +43,6 @@ router.post(
       throw new BadRequestError("user cannot make more than one schedule please delete previous one");
     }
     
-    // new ScheduleCreatedPublisher(natsWrapper.client).publish({
-    //   age:23,
-    //   bmi: 23,
-    // weight: 23,
-    //   height: 23,
-    //   userId: "23",
-    // })
-   
     res.status(201).send({ result });
 
   }

@@ -14,12 +14,6 @@ router.put(
   param("id")
     .isLength({ min: 24, max: 24 })
     .withMessage("Schedule id must be length 24"),
-  // body("exerciseCategory")
-  //   .not()
-  //   .isEmpty()
-  //   .withMessage("exerciseCategory is required"),
- 
-
   validateRequest,
   async (req: Request, res: Response) => {
     const ex = new User();

@@ -12,7 +12,6 @@ router.post(
     .not()
     .isEmpty()
     .withMessage("exerciseCategory is required"),
-
   body("exerciseName").not().isEmpty().withMessage("exerciseName is required"),
   body("level").not().isEmpty().withMessage("level is required"),
   body("type").not().isEmpty().withMessage("type is required"),

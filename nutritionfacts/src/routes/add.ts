@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { body, param } from "express-validator";
+import { body } from "express-validator";
 import { BadRequestError } from "../errors/bad-request-error";
 import { requireAuth } from "../middlewares/require-auth";
 import { validateRequest } from "../middlewares/validate-request";

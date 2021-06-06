@@ -25,10 +25,7 @@ router.delete(
       req.params.id,
       day,
       time
-    );
-   
-    
-    
+    ); 
     if (!schedule) {
       throw new BadRequestError("Can't delete");
     }

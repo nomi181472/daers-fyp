@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { exerciseScheduleModel } from "../models/exercise-schedule-repo/exercise-schedule-repo";
+
 import { ExerciseSchedule } from "../models/Exercise-Schedule";
 import { BadRequestError } from "../errors/bad-request-error";
 

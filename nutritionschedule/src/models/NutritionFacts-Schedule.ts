@@ -272,7 +272,9 @@ export class NutritionFactsSchedule {
     }
   }
   public async getUserScheduleId(userId:string) {
+    console.log("run2");
     const schedule = await nutritionScheduleModel.find({ userId: userId });
+    console.log("run3");
     if (!schedule) {
       return "not-found";
     }
@@ -294,29 +296,20 @@ export class NutritionFactsSchedule {
           schedule.document.splice(index, 1);
           await schedule.save();
          // console.log(schedule);
-          return true;
-          
+          return true;          
         }
-        
       }
       return false
-      
-      
-    
-      
-     
+
     }
     else {
       return false;
-    }
-   
-    
+    }   
   }
 
   public async deleteDayTime(id: string,day:string,time:string)
   {
-    //console.log(day)
-    
+    //console.log(day
     const schedule = await nutritionScheduleModel.findById(id);
     console.log(schedule)
     if (schedule) {
@@ -352,15 +345,8 @@ export class NutritionFactsSchedule {
     }
        else { 
          return false
-      }
-
-
+       }
       return false
-      
-      
-    
-      
-     
     }
     else {
       console.log("id")

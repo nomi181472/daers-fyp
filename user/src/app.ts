@@ -2,7 +2,6 @@ import express from "express";
 import "express-async-errors";
 import cors from "cors";
 import { json } from "body-parser";
-
 import cookieSession from "cookie-session";
 import { currentUserRouter } from "./routes/current-user";
 import { signInRouter } from "./routes/sign-in";
@@ -28,9 +27,7 @@ const corsOptions = {
   credentials: true,
   exposedHeaders: "*",
 };
-
 app.use(cors(corsOptions));
-
 app.use(json());
 app.set("trust proxy", true);
 app.use(cookieSession({ signed: false, httpOnly: false }));

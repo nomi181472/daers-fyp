@@ -4,14 +4,13 @@ from stan.aio.client import Client as STAN
 import json
 import pymongo
 import datetime
-from model import Attention, Encoder, Decoder, Seq2Seq, translate_sentence
+from model import Attention, Encoder, Decoder, Seq2Seq, translate_Souce_To_Target
 import torch
 import torch.nn as nn
 from torchtext.data import Field, TabularDataset, BucketIterator
 import spacy
 from bson.objectid import ObjectId
 import pandas as pd
-
 age = "age"
 chestlevel = "chestLevel"
 abslevel = "absLevel"
@@ -46,7 +45,7 @@ async def run(loop,track_seq):
                 data = json.loads(my_json)
                 conn = pymongo.MongoClient("localhost", 27017)
                 userId = data["userId"]
-                add_schedule(5, conn, userId)
+                add_schedule(30, conn, userId)
 
                 track_seq[msg.seq] = "D"
                 print("Done")
@@ -178,7 +177,7 @@ def predict_exercise(current_category, user_data, source_trans):
 
     for i in strr.split(" "):
         list_str.append(source_trans[i])
-    trg, attention = translate_sentence(list_str, source_lang, target_lang, model, device)
+    trg, attention = translate_Souce_To_Target(list_str, source_lang, target_lang, model, device)
     # trg = [' ', 'en', '130', 'en', '113', 'en', '135', 'en', '140']
     trg.pop(0)
     collect_exercises = []
@@ -237,7 +236,7 @@ def add_schedule(N, conn, userId):
                                                       {"exerciseCategory", "exerciseName", "photos", "_id"})
             sameExercise = str(details["_id"])
             photos = details['photos']["photosUrl"]
-            ex = exercise(details["exerciseName"], 3, [10, 10, 10], " ", photos)
+            ex = exercise(details["exerciseName"], 3, [10, 10, 10], [" "], photos)
             all_exercises.append({"exercise": ex, "sameExercise": sameExercise})
         all_days.append({"sameDay": str(nextdate), "day": all_exercises})
     document = []

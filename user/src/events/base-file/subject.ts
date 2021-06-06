@@ -3,10 +3,9 @@ export enum Subjects{
   userWeight = "user:weight",
   UserInformation = "user:information",
   UserUpdated="user:updated"
-  
 }
 
-const printSubject = (subject: Subjects) => {
+// const printSubject = (subject: Subjects) => {
    
   
-}
+// }

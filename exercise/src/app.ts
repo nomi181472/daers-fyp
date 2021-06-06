@@ -2,9 +2,7 @@ import express from "express";
 import "express-async-errors";
 import cors from "cors";
 import { json } from "body-parser";
-
 import cookieSession from "cookie-session";
-
 import { errorHandler } from "./middlewares/error-handler";
 import { UnknownRouteError } from "./errors/unknown-Route-error";
 import { currentUser } from "./middlewares/current-user";

@@ -1,4 +1,5 @@
-import { ExerciseAttrs, exerciseModel } from "./exercise-repo/exercise-repo";
+import { ExerciseAttrs, exerciseModel } 
+from "./exercise-repo/exercise-repo";
 
 export class Exercise {
   constructor() {}
@@ -9,7 +10,7 @@ export class Exercise {
 
       return ex;
     } catch (err) {
-      console.log("ErrorPosition:addExercise", err);
+      console.log("exercise:addExercise:error:\n"+err);
       return null;
     }
   }
@@ -24,7 +25,7 @@ export class Exercise {
       await ex.save();
       return ex;
     } catch (err) {
-      console.log("ErrorPosition:updateExercise", err);
+      console.log("exercise:updateExercise:error:\n"+err);
       return null;
     }
   }
@@ -40,7 +41,7 @@ export class Exercise {
 
       return true;
     } catch (err) {
-      console.log("ErrorPosition:deleteExercise", err);
+      console.log("exercise:deleteExercise:error:\n"+err);
       return null;
     }
   }
@@ -53,7 +54,7 @@ export class Exercise {
 
       return ex;
     } catch (err) {
-      console.log("ErrorPosition:detailExercise", err);
+      console.log("exercise:detailExercise:error:\n"+err);
       return null;
     }
   }
@@ -73,7 +74,8 @@ export class Exercise {
       }
 
       else {
-        ex = await exerciseModel.find({ exerciseCategory: exerciseCategory }).exec();
+        ex = await exerciseModel.
+        find({ exerciseCategory: exerciseCategory }).exec();
       }
       if (!ex) {
         return "empty";
@@ -81,7 +83,7 @@ export class Exercise {
 
       return ex;
     } catch (err) {
-      console.log("ErrorPosition:listExercise", err);
+      console.log("exercise:listExercise:error:\n"+err);
       return null;
     }
   }

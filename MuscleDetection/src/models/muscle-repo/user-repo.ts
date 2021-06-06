@@ -11,7 +11,6 @@ const userSchema = new mongoose.Schema(
       required: true,
       
     },
-   
     userInformation: {
       targetGoal: Number,
       activityLevel: Number,

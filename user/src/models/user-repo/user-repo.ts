@@ -164,31 +164,4 @@ userSchema.statics.build = (user: UserAttrs) => {
   return new UserSchema(user);
 };
 const UserSchema = mongoose.model<UserDocument, UserModel>("User", userSchema);
-/*
-const user=User.build({
-  email: "",
-  firstName: "",
-  lastName: "",
-  password: "",
-  age: 23,
-  bmi: 2.3,
-  weight: 23.4,
-  height: 2.3,
-});
-user.email;
-user.unemai*/
-/*
-const build = (user: UserAttrs) => {
-  return new User(user);
-};
-build({
-  email: "",
-  firstName: "",
-  lastName: "",
-  password: "",
-  age: 23,
-  bmi: 2.3,
-  weight: 23.4,
-  height: 2.3,
-});*/
 export { UserSchema, UserAttrs, UserDocument };

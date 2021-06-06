@@ -4,7 +4,5 @@ export interface UserInformationEvent {
   data: {
     object:any,
     userId: string;
-    
-  
   }
 } 

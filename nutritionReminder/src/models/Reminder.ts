@@ -10,16 +10,12 @@ export class Reminder {
     if (aa >= datt) {
       return aa
     }
-
-
     return 0;
   }
   public async sortDates(id: any) {
-
-    const data = await nutritionScheduleModel.findById(id).select("document.sameDay");
-    
+    const data = await nutritionScheduleModel
+    .findById(id).select("document.sameDay");
     if (data) {
-
       var dat = data!.document.sort(this.byDate)
       var datt2 = dat.filter(this.filterDate)
       if (datt2.length)
@@ -41,7 +37,8 @@ export class Reminder {
   public async countRemaining(id: any)
   {
     //console.log("run")
-    const data = await nutritionScheduleModel.findById(id).select("document.sameDay");
+    const data = await nutritionScheduleModel
+    .findById(id).select("document.sameDay");
     //console.log(data);
     return 30 - data!.document.length;
   } 

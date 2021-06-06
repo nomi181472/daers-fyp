@@ -16,7 +16,6 @@ import { deleteObjectRouter } from "./routes/delete-object";
 import { getUserScheduleRouter } from "./routes/getuserschedule";
 import { deleteDay } from "./routes/delete-day";
 import { generateSchedule } from "./routes/generate-schedule";
-
 const app = express();
 const corsOptions = {
   origin:  ["http://localhost:3000","http://localhost:19006"],
@@ -24,9 +23,7 @@ const corsOptions = {
   credentials: true,
   exposedHeaders: "*",
 };
-
-app.use(cors(corsOptions));;
-
+app.use(cors(corsOptions));
 app.use(json());
 app.set("trust proxy", true);
 app.use(cookieSession({ signed: false, httpOnly: false }));

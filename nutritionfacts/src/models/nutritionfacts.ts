@@ -12,7 +12,7 @@ export class NutritionFacts {
 
       return nt;
     } catch (err) {
-      console.log("ErrorPosition:addNutritionFacts", err);
+      console.log("nutrition:addNutritionFacts:Error:\n"+ err);
       return null;
     }
   }
@@ -30,7 +30,7 @@ export class NutritionFacts {
       await nt.save();
       return nt;
     } catch (err) {
-      console.log("ErrorPosition:updateNutritionFacts", err);
+      console.log("nutrition:updateNutritionFacts:Error:\n"+ err);
       return null;
     }
   }
@@ -46,7 +46,7 @@ export class NutritionFacts {
 
       return true;
     } catch (err) {
-      console.log("ErrorPosition:deleteNutritionFacts", err);
+      console.log("nutrition:deleteNutritionFacts:Error:\n"+ err);
       return null;
     }
   }
@@ -59,7 +59,7 @@ export class NutritionFacts {
 
       return nt;
     } catch (err) {
-      console.log("ErrorPosition:detailNutrition", err);
+      console.log("nutrition:detailNutrition:Error:\n"+ err);
       return null;
     }
   }
@@ -73,7 +73,8 @@ export class NutritionFacts {
       } 
      
       else {
-        nt = await nutritionFactModel.find({ nutritionCategory: nutritionCategory }).exec();
+        nt = await nutritionFactModel.
+        find({ nutritionCategory: nutritionCategory }).exec();
       }
 
       if (!nt) {
@@ -82,7 +83,7 @@ export class NutritionFacts {
       //console.log(nt);
       return nt;
     } catch (err) {
-      console.log("ErrorPosition:listNutritionFacts", err);
+      console.log("nutrition:listNutritionFacts:Error:\n"+ err);
       return null;
     }
   }

@@ -20,8 +20,6 @@ const exerciseTrackSchema = new mongoose.Schema(
       running:Number,
       caloriesBurned: Number
     }],
-
-  
     createAt: Date,
     updateAt: Date,
   },

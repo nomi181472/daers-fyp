@@ -7,9 +7,5 @@ route.get("/api-gateway/current-user/nutrition-schedule/reminder/:id",requireAut
   const {id}=req.params
   const reminderE=await reminder.sortDates(id);
   res.send(reminderE);
-
-
 });
-
-
 export { route as sortRouter };

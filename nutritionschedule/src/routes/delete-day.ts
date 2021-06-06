@@ -1,7 +1,7 @@
 import express, { Request, Response } from "express";
 import { requireAuth } from "../middlewares/require-auth";
 import { param } from "express-validator";
-import { UnAuthorizedError } from "../errors/unAuthorized-errors";
+
 import { validateRequest } from "../middlewares/validate-request";
 import { BadRequestError } from "../errors/bad-request-error";
 import { NutritionFactsSchedule } from "../models/NutritionFacts-Schedule";
@@ -19,20 +19,17 @@ router.delete(
   async (req: Request, res: Response) => {
     const sch = new NutritionFactsSchedule();
 
-    const day = req.params.day.slice(0, 4) + "-" + req.params.day.slice(4, 6) + "-" + req.params.day.slice(6);
+    const day = req.params.day.slice(0, 4) +
+     "-" + req.params.day.slice(4, 6) +
+      "-" + req.params.day.slice(6);
     
     const schedule = await sch.deleteDay(
       req.params.id,
       day
     );
-   
-    
-    
     if (!schedule) {
       throw new BadRequestError("Can't delete");
     }
-
-    
     res.send(schedule);
   }
 );

@@ -30,7 +30,7 @@ def uploadOnCloudinary(n,mycol,userId,levels):
         where={"userId":userId}
         update={"$set":{"photos.backPose":url["url"]}}
         a=mycol.update_one(where,update)
-        if ("chest" in levels):
+        if "chest" in levels:
             update_levels("chest", levels, where, mycol)
         if ("abs" in levels):
             update_levels("abs", levels, where, mycol)

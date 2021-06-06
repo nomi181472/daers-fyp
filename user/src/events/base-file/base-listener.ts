@@ -4,10 +4,7 @@ import { Subjects } from './subject';
 interface Event{
   subject: Subjects;
   data: any;
-
-  
 }
-
 export abstract class Listener<T extends Event>{
   abstract subject: T["subject"];
   abstract queueGroupName: string;
@@ -32,17 +29,18 @@ export abstract class Listener<T extends Event>{
       this.subscriptionOptions());
     subscription.on("message", (msg: Message) => {
       console.log(
-        `Message:recieved:   ${this.subject}/${this.queueGroupName}`
+        `Message:recieved:
+           ${this.subject}/${this.queueGroupName}`
       );
       const parsedData = this.parseMessage(msg);
       this.onMessage(parsedData,msg)
       
     });
-    
-
   }
   parseMessage(msg:Message) {
     const data = msg.getData();
-    return typeof data ==="string" ? JSON.parse(data):JSON.parse(data.toString("utf8"))
+    return typeof data ==="string" ?
+     JSON.parse(data):
+     JSON.parse(data.toString("utf8"))
   }
 }

@@ -16,7 +16,6 @@ router.put(
     .not()
     .isEmpty()
     .withMessage("nutritionCategory is required"),
-
   body("nutritionName")
     .not()
     .isEmpty()

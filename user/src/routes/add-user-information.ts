@@ -1,6 +1,4 @@
 import express, { Request, Response } from "express";
-import { body, param } from "express-validator";
-import { BadRequestError } from "../errors/bad-request-error";
 import { UnAuthorizedError } from "../errors/unAuthorized-errors";
 import { UserInformtionPublisher } from "../events/publishers/user-information-publisher";
 import { currentUser } from "../middlewares/current-user";
@@ -31,8 +29,6 @@ router.post(
     catch (Exception) {
       console.log("UserInformationPublisher Exception: " + Exception);
     }
-    
-   
     res.status(201).send();
   }
 );

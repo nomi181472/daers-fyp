@@ -17,20 +17,16 @@ async def run(loop):
         nonlocal sc
         print("Subject:" + subject + "Received a message (seq={}): {}".format(msg.seq, msg.data))
         try:
-
             my_json = msg.data.decode('utf8').replace("'", '"')
             data = json.loads(my_json)
             conn = pymongo.MongoClient("localhost", 27017)
             userId = data["userId"]
-
             make_shedule(30,userId, conn)
             print("Done")
         except Exception as e:
             print(e)
-
    # await sc.subscribe(subject, manual_acks=True, queue="", cb=cb)
     await sc.subscribe(subject, durable_name="durable", queue="diet-recommend-srv",cb=cb)
-
 class TDEE:
     def __init__(self,age,height,weight):
         self.age=age
@@ -64,9 +60,6 @@ def nutrition(nutritionName,protein,calories,fats,grams,carbohydrates,descriptio
              "description":[description],
              "photos":photos
              }
-
-
-
 def calorieCounter(protein,carbohydrate,fats):
     return (4*(protein+carbohydrate))+(9*fats)
 def balanceMacroNutrients(protein,carbohydrate,fats,ratio_sub,percentage):
@@ -78,9 +71,6 @@ def balanceMacroNutrients(protein,carbohydrate,fats,ratio_sub,percentage):
     carbohydrate=carbohydrate+(is_neg*(4+ratio_sub)/17)
     fats=fats+(is_neg*(9+ratio_sub)/17)
     return protein,carbohydrate,fats,gram
-
-
-
 def make_shedule(n,userId,conn):
     up = UserProfile(20, 180, 100, 90, "Moderate_Exercise") # will have to add 10 kg threshold
     ratio=up.total_difference/n

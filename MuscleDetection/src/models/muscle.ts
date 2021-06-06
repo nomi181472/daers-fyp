@@ -28,7 +28,7 @@ export class Muscle{
           isValid: false,
           level: 0
         },
-        thighs: {
+        legs: {
           isValid: false,
           level: 0
         },

@@ -3,27 +3,24 @@ import {
   ExerciseScheduleAttrs,
 } from "./exercise-schedule-repo/exercise-schedule-repo";
 import { UserSchema } from "./exercise-schedule-repo/user-repo"
-import mongoose from "mongoose"
 export class ExerciseSchedule {
   constructor() {}
   public async addSchedule(exerciseScheduleAttrs: ExerciseScheduleAttrs) {
     try {
-      const isScheduleExist = await exerciseScheduleModel.findOne({ userId: exerciseScheduleAttrs.userId })
+      const isScheduleExist = await exerciseScheduleModel.
+      findOne({ userId: exerciseScheduleAttrs.userId })
       console.log(isScheduleExist)
       if (!isScheduleExist) {
-       
         let result = await exerciseScheduleModel.build(exerciseScheduleAttrs);
         let user = await UserSchema.modelName
-        console.log(user, exerciseScheduleAttrs.userId)
+        // console.log(user, exerciseScheduleAttrs.userId)
         await result.save();
-
-      
         return result;
       }
       else
         return "schedule-Exist"
     } catch (err) {
-      console.log("addschedule Class", err);
+      console.log("exerciseschedule:addSchedule:error\n", err);
       return null;
     }
   }
@@ -33,7 +30,7 @@ export class ExerciseSchedule {
      
       return schedule;
     } catch (err) {
-      console.log("List Schedule", err);
+      console.log("exerciseschedule:listSchedules:error\n", err);
       return null;
     }
   }
@@ -42,7 +39,7 @@ export class ExerciseSchedule {
       const schedulee = await exerciseScheduleModel.findById(id);
       return schedulee;
     } catch (err) {
-      console.log("getSchduleId", err);
+      console.log("exerciseschedule:getScheduleId:error\n", err);
       return 0;
     }
   }
@@ -52,7 +49,6 @@ export class ExerciseSchedule {
       document[i].sameDay;
       if (dayR === document[i].sameDay) {
         index = i;
-
         break;
       }
     }
@@ -73,14 +69,7 @@ export class ExerciseSchedule {
       const { document } = schedule;
      
       let index: number = this.findSameDay(document, dayR);
-      // for (var i = 0; i < document.length; i++) {
-      //   document[i].sameDay;
-      //   if (dayR === document[i].sameDay) {
-      //     index = i;
-
-      //     break;
-      //   }
-      // }
+    
       if (index >= 0) {
         document[index].day.push(body.document[0].day[0]);
       } else {
@@ -91,7 +80,7 @@ export class ExerciseSchedule {
       await schedule.save();
       return schedule;
     } catch (err) {
-      console.log("updateschedule", err);
+      console.log("exerciseschedule:updatechedule:error\n", err);
       return null;
     }
   }
@@ -114,7 +103,6 @@ export class ExerciseSchedule {
     try {
       const schedule = await exerciseScheduleModel.findById(scheduleId);
       const dayR = body.document[0].sameDay;
-      //console.log(req.params.exerciseId);
       const document = schedule!.document;
 
       if (!schedule) {
@@ -141,7 +129,7 @@ export class ExerciseSchedule {
       await schedule.save();
       return schedule.document[index].day[index2];
     } catch (err) {
-      console.log("updating Object", err);
+      console.log("exerciseschedule:updateScheduleObject:error\n", err);
       return null;
     }
   }
@@ -160,7 +148,7 @@ export class ExerciseSchedule {
       });
       return { n, ok, deletedCount };
     } catch (err) {
-      console.log("deleting schedule ", err);
+      console.log("exerciseschedule:deleteSchedule:error\n", err);
       return null;
     }
   }
@@ -189,45 +177,54 @@ export class ExerciseSchedule {
         }
         
       }
-      console.log("start finding",index);
+     
       for (var j = 0; j < schedule.document[index].day.length; j++) {
         if (schedule.document[index].day[j].sameExercise === exerciseId) {
         
           schedule.document[index].day.splice(j, 1);
-     
-       
           if (!schedule.document[index].day.length) {
            
             schedule.document.splice(index, 1);
-
-          }
-          
+          }  
           console.log("found");
           await schedule.save();
           return true;
         }
       }
-      //console.log("not found");
-      
-        return "exerciseId-notFound";
-        
-      
+      return "exerciseId-notFound";
     } catch (err) {
-      console.log("updating Object", err);
+      console.log("exerciseschedule:deleteScheduleObject:error:\n", err);
       return null;
     }
   }
   public async getUserScheduleId(userId:string) {
-    const schedule = await exerciseScheduleModel.find({ userId: userId });
-    
-    if (!schedule) {
-      return "not-found";
-    }
+   //const schedule = await exerciseScheduleModel.find({ userId: userId })
+   try{
+   const schedule = await exerciseScheduleModel.aggregate(
+    [
+      { $match: { userId:userId }},
+      
+      { $unwind: '$document' },
+      
+      { $sort: { 'document.sameDay': 1}},
+      
+      { $group: { _id: '$_id', document: { $push: '$document'}}}
+
+    ])
     return schedule;
+  }
+  catch(err){
+    console.log("exerciseschedule:getUserScheduleId:error:\n", err)
+    return "fetching user schedule error"
+  }
+
+   
+   // console.log(schedule)
+    
   }
   public async deleteDay(id: string,day:string)
   {
-    //console.log(day)
+    try{
     const schedule = await exerciseScheduleModel.findById(id);
     if (schedule) {
      
@@ -235,26 +232,21 @@ export class ExerciseSchedule {
         
         if (schedule.document[i].sameDay === day) {
           const index = i
-          //console.log(index);
           schedule.document.splice(index, 1);
-          await schedule.save();
-         // console.log(schedule);
-          return true;
-          
+          await schedule.save();         
+          return true;          
         }
         
       }
       return false
-      
-      
-    
-      
-     
     }
     else {
       return false;
-    }
-   
-    
+    } 
   }
+  catch(err){
+    console.log("exerciseschedule:deleteDay:error:\n", err);
+    return false;
+  }
+}
 }

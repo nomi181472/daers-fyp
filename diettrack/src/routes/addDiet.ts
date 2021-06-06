@@ -3,14 +3,9 @@ import { BadRequestError } from "../errors/bad-request-error";
 import { requireAuth } from "../middlewares/require-auth";
 import {DietTrack} from "../models/diet-track";
 var router = express.Router();
-
-
-
 router.post("/api-gateway/current-user/diet-track/add",
 requireAuth, async (req: Request, res: Response) => {
   const {
-    
-  
     dietScheduleId,
     dayDate,
     totalCaloriesIntake,
@@ -33,9 +28,7 @@ requireAuth, async (req: Request, res: Response) => {
     throw new BadRequestError("please update your information section")
     
   }
-  
- 
+
   res.send({result});
 });
-
 export { router as addDiet };

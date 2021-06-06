@@ -22,7 +22,6 @@ router.put(
   body("modality").not().isEmpty().withMessage("modality is required"),
   body("joint").not().isEmpty().withMessage("joint is required"),
   body("direction").not().isEmpty().withMessage("direction is required"),
-
   validateRequest,
   async (req: Request, res: Response) => {
     const ex = new Exercise();

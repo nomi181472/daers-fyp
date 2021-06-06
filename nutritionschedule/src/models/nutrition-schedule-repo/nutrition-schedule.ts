@@ -68,7 +68,8 @@ interface NutritionFactsScheduleAttrs {
   createAt?: Date;
   updateAt?: Date;
 }
-interface NutritionFactsScheduleDocument extends mongoose.Document {
+interface NutritionFactsScheduleDocument extends
+ mongoose.Document {
   userId: string;
   document: {
     sameDay: string;
@@ -96,7 +97,8 @@ interface NutritionFactsScheduleDocument extends mongoose.Document {
 
 interface NutritionFactsScheduleModel
   extends mongoose.Model<NutritionFactsScheduleDocument> {
-  build(nutrition: NutritionFactsScheduleAttrs): NutritionFactsScheduleDocument;
+  build(nutrition: NutritionFactsScheduleAttrs):
+   NutritionFactsScheduleDocument;
 }
 nutritionScheduleSchema.statics.build = (
   nutritionSchedule: NutritionFactsScheduleAttrs
