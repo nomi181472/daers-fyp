@@ -10,7 +10,7 @@ class CustomConfig(Config):
     # Adjust down if you use a smaller GPU.
     IMAGES_PER_GPU = 2
     # Number of classes (including background)
-    NUM_CLASSES = 1 + 2  # Background + (chest and abs)
+    NUM_CLASSES = 1 + 8  # Background + (chest and abs)
     # Number of training steps per epoch
     STEPS_PER_EPOCH = 100
     # Skip detections with < 90% confidence

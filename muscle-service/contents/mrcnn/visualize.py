@@ -133,7 +133,6 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             p = patches.Rectangle((x1, y1), x2 - x1, y2 - y1, linewidth=2,
                                 alpha=0.7, linestyle="dashed",
                                 edgecolor=color, facecolor='none')
-
             ax.add_patch(p)
 
         # Label
@@ -142,14 +141,14 @@ def display_instances(image, boxes, masks, class_ids, class_names,
             score = scores[i] if scores is not None else None
             label = class_names[class_id]
             caption = "{} {:.3f}".format(label, score) if score else label
-            strr=" Level: " +str(level[class_names[class_ids[i]]])
-            print(strr)
-            caption =caption +strr
+            if class_names[class_ids[i]] in level:
+                strr = " Level: " + str(level[class_names[class_ids[i]]])
+                caption += strr
         else:
             caption = captions[i]
         ax.text(x1, y1 + 8, caption,
                 color='w', size=11, backgroundcolor="none")
-        print("done")
+
         # Mask
         mask = masks[:, :, i]
         if show_mask:

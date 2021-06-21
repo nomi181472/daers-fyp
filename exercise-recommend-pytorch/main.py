@@ -14,11 +14,13 @@ import pandas as pd
 age = "age"
 chestlevel = "chestLevel"
 abslevel = "absLevel"
-wings = "wings"
+wings = "lat"
 waist = "waist"
 backlevel = "backLevel"
 legslevel = "legsLevel"
 shoulderlevel = "shoulderLevel"
+tricepslevel="tricepsLevel"
+bicepslevel="bicepsLevel"
 
 async def run(loop,track_seq):
     # region Nats COnfiguration
@@ -50,7 +52,7 @@ async def run(loop,track_seq):
                 track_seq[msg.seq] = "D"
                 print("Done")
         except Exception as e:
-            print(e)
+            print("Error",e)
 
     # await sc.subscribe(subject, manual_acks=True, queue="", cb=cb)
     await sc.subscribe(subject, durable_name="durable", queue="exercise-recommend-srv", cb=cb)
@@ -62,12 +64,16 @@ def get_user_information(conn, userId):
         # print(result)
         data = dict(data["userInformation"])
         muscle = conn["muscle"]["muscles"] #userId
-        m_data=muscle.find_one({"userId":userId},{"abs","chest"})
+        m_data=muscle.find_one({"userId":userId},{"abs","chest","legs","shoulder"})
         if m_data!=None:
             if (m_data["chest"]["level"] != 0):
                 data[chestlevel] = m_data["chest"]["level"]
             if (m_data["abs"]["level"] != 0):
                 data[abslevel] = m_data["abs"]["level"]
+            if (m_data["legs"]["level"] != 0):
+                data[legslevel] = m_data["legs"]["level"]
+            if (m_data["shoulder"]["level"] != 0):
+                data[shoulderlevel] = m_data["shoulder"]["level"]
         return data
 
 

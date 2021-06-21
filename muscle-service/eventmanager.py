@@ -7,9 +7,9 @@ import urllib.request
 from datetime import date
 
 today = date.today()
-def update_levels(key,levels,where,mycol):
+def update_levels(key,value,where,mycol):
     update = {
-        "$set": {f'{key}.isValid': True, f'{key}.level': levels[key]}
+        "$set": {f'{key}.isValid': True, f'{key}.level': value}
     }
     a=mycol.update_one(where, update)
 
@@ -21,21 +21,38 @@ def uploadOnCloudinary(n,mycol,userId,levels):
         api_key="699873113773439",
         api_secret="remNMRZNIirzsLNu6Tibe7O65Cg"
     )
-    public_urls=[]
+
     for i in range(n):
-        filename="Maskpredicted"+str(i)+".png"
+        filename="Maskpredicted.png"
         #filename=""
         url=cloudinary.uploader.upload(filename, folder="Daers/DetectedImages/",public_id="Muscle"+userId,resource_type="image")
         #url={"url":"updated"} #avoiding space
         where={"userId":userId}
         update={"$set":{"photos.backPose":url["url"]}}
         a=mycol.update_one(where,update)
+        value = 1
         if "chest" in levels:
-            update_levels("chest", levels, where, mycol)
+            update_levels("chest", levels["chest"], where, mycol)
         if ("abs" in levels):
-            update_levels("abs", levels, where, mycol)
-
-
+            update_levels("abs", levels["abs"], where, mycol)
+        if ("shoulderl" in levels or "shoulderr" in levels):
+            if (levels["shoulderl"] > levels["shoulderr"]):
+                value = levels["shoulderl"]
+            else:
+                value = levels["shoulderr"]
+            update_levels("shoulder", value, where, mycol)
+        if ("thighr" in levels or "thighl" in levels):
+            if (levels["thighr"] > levels["thighl"]):
+                value = levels["thighr"]
+            else:
+                value = levels["thighl"]
+            update_levels("legs", value, where, mycol)
+        if ("bicepsl" in levels or "bicepsr" in levels):
+            if (levels["bicepsl"] > levels["bicepsr"]):
+                value = levels["bicepsl"]
+            else:
+                value = levels["bicepsr"]
+            update_levels("biceps", value, where, mycol)
         print(url["url"])
     return True
 def url_to_image(url):
@@ -56,7 +73,8 @@ def eventmanage(userId,model,class_name,mycol):
         frontPose=x["photos"]["frontPose"]
         imagerray=url_to_image(frontPose)
         images=[imagerray]
-        levels=predict(model,class_name,images)
+        levels = predict(model, class_name, images,)
+
         publicurls=uploadOnCloudinary(len(images),mycol,userId,levels)
         print(publicurls)
     except Exception as E:

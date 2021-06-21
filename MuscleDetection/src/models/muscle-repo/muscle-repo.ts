@@ -27,6 +27,14 @@ const muscleSchema = new mongoose.Schema(
       isValid: Boolean,
       level:Number,
     },
+    biceps: {
+      isValid: Boolean,
+      level:Number,
+    },
+    triceps: {
+      isValid: Boolean,
+      level:Number,
+    },
     photos: {
       frontPose: String,
      
@@ -72,6 +80,14 @@ interface MuscleAttrs {
     isValid: Boolean;
     level: Number;
   };
+  triceps: {
+    isValid: Boolean;
+    level:Number;
+  },
+  biceps: {
+    isValid: Boolean;
+    level:Number;
+  },
   shoulder: {
     isValid: Boolean;
     level: Number;
@@ -103,6 +119,14 @@ interface MuscleDocument extends mongoose.Document {
     isValid: Boolean;
     level: Number;
   };
+  triceps: {
+    isValid: Boolean;
+    level:Number;
+  },
+  biceps: {
+    isValid: Boolean;
+    level:Number;
+  },
   legs: {
     isValid: Boolean;
     level: Number;
