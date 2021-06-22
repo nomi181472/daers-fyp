@@ -3,17 +3,82 @@ kind: Config
 deploy:
   kubectl:
     manifests:
-      - ./infra/k8s/*
+      - ./otherservices/k8s/*
 build:
   local:
     push: false
   artifacts:
-    - image: noman173652/api-gateway
-      context: api-gateway
+    - image: noman173652/user
+      context: user
       docker:
         dockerfile: Dockerfile
       sync:
         manual:
-          - src: './api-gateway/src/**/*.ts'
+          - src: './src/**/*.ts'
             dest: .
-
+    # - image: noman173652/exercise
+    #   context: exercise
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    # - image: noman173652/nutritionfacts
+    #   context: nutritionfacts
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    # - image: noman173652/exerciseschedule
+    #   context: exerciseschedule
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    # - image: noman173652/nutritionschedule
+    #   context: nutritionschedule
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    # - image: noman173652/exercisereminder
+    #   context: exercisereminder
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    # - image: noman173652/nutritionreminder
+    #   context: nutritionreminder
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .  
+    # - image: noman173652/diettrack
+    #   context: diettrack
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    # - image: noman173652/exercisetrack
+    #   context: exercisetrack
+    #   docker:
+    #     dockerfile: Dockerfile
+    #   sync:
+    #     manual:
+    #       - src: './src/**/*.ts'
+    #         dest: .
+    
+    # 

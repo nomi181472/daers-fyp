@@ -10,7 +10,7 @@ import { UserWeightPublisher } from "../events/publishers/user-weight-publisher"
 
 const router = express.Router();
 router.post(
-  "/api-gateway/sign-up/user",
+  "/api/user/signup",
   [
     body("email").isEmail().withMessage("Email is not valid"),
     body("password")
@@ -31,6 +31,7 @@ router.post(
       bmi,
       services
     } = req.body;
+  
 
     const existingUser = await UserSchema.findOne({ email });
     if (existingUser) {
