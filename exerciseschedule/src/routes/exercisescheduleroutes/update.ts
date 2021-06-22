@@ -1,11 +1,11 @@
 import express, { Request, Response } from "express";
-import { UnknownRouteError } from "../errors/unknown-Route-error";
-import { UnAuthorizedError } from "../errors/unAuthorized-errors";
 import { body, param } from "express-validator";
-import { requireAuth } from "../middlewares/require-auth";
-import { ExerciseSchedule } from "../models/Exercise-Schedule";
-import { BadRequestError } from "../errors/bad-request-error";
-import { validateRequest } from "../middlewares/validate-request";
+import { BadRequestError } from "../../errors/bad-request-error";
+import { UnAuthorizedError } from "../../errors/unAuthorized-errors";
+import { UnknownRouteError } from "../../errors/unknown-Route-error";
+import { requireAuth } from "../../middlewares/require-auth";
+import { validateRequest } from "../../middlewares/validate-request";
+import { ExerciseSchedule } from "../../models/Exercise-Schedule";
 const router = express.Router();
 router.put(
   "/api-gateway/current-user/schedulee/:id",

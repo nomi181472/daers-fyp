@@ -1,8 +1,13 @@
 import express, { Request, Response } from "express";
-import { requireAuth } from "../middlewares/require-auth";
-import { BadRequestError } from "../errors/bad-request-error";
-import { natsWrapper } from "../nats-wrapper";
-import { ScheduleCreatedPublisher } from "../events/publishers/schedule-generate-publisher";
+import { body, param } from "express-validator";
+import { BadRequestError } from "../../errors/bad-request-error";
+import { UnAuthorizedError } from "../../errors/unAuthorized-errors";
+import { UnknownRouteError } from "../../errors/unknown-Route-error";
+import { ScheduleCreatedPublisher } from "../../events/publishers/schedule-generate-publisher";
+import { requireAuth } from "../../middlewares/require-auth";
+import { validateRequest } from "../../middlewares/validate-request";
+import { ExerciseSchedule } from "../../models/Exercise-Schedule";
+import { natsWrapper } from "../../nats-wrapper";
 
 const router = express.Router();
 router.get(

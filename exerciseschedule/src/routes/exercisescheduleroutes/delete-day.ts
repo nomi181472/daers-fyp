@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
-import { requireAuth } from "../middlewares/require-auth";
+import { requireAuth } from "../../middlewares/require-auth";
 import { param } from "express-validator";
-import { validateRequest } from "../middlewares/validate-request";
-import { BadRequestError } from "../errors/bad-request-error";
-import { ExerciseSchedule } from "../models/Exercise-Schedule";
+import { validateRequest } from "../../middlewares/validate-request";
+import { BadRequestError } from "../../errors/bad-request-error";
+import { ExerciseSchedule } from "../../models/Exercise-Schedule";
 const router = express.Router();
 router.delete(
   "/api-gateway/current-user/schedulee/day/:id/:day",
