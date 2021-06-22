@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: #4 changes
+  name: exercisetrack-mongo-depl
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: exercisetrack-mongo
+  template: 
+    metadata:
+      labels: 
+        app: exercisetrack-mongo
+    spec: 
+      containers:
+        - name: exercisetrack-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service #3 changes
+metadata:
+  name: exercisetrack-mongo-srv
+spec:
+  selector:
+    app: exercisetrack-mongo
+  ports: 
+    - name: exercisetrack-db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+      

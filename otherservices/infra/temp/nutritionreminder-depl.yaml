@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nutritionreminder-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nutritionreminder
+  template:
+    metadata: 
+      labels:
+        app: nutritionreminder
+    spec: 
+      containers:
+        - name: nutritionreminder
+          image: noman173652/nutritionreminder
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://nutritionschedule-mongo-srv:27017/schedulenf'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nutritionreminder-srv
+spec: 
+  selector:
+    app: nutritionreminder
+  ports:
+    - name: nutritionreminder
+      protocol: TCP
+      port: 3032
+      targetPort: 3032

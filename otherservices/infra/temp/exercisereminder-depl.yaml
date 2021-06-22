@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: exercisereminder-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: exercisereminder
+  template:
+    metadata: 
+      labels:
+        app: exercisereminder
+    spec: 
+      containers:
+        - name: exercisereminder
+          image: noman173652/exercisereminder
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://exerciseschedule-mongo-srv:27017/schedulee'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: exercisereminder-srv
+spec: 
+  selector:
+    app: exercisereminder
+  ports:
+    - name: exercisereminder
+      protocol: TCP
+      port: 3022
+      targetPort: 3022

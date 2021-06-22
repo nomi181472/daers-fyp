@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: #4 changes
+  name: nutritionfacts-mongo-depl
+spec:
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: nutritionfacts-mongo
+  template: 
+    metadata:
+      labels: 
+        app: nutritionfacts-mongo
+    spec: 
+      containers:
+        - name: nutritionfacts-mongo
+          image: mongo
+---
+apiVersion: v1
+kind: Service #3 changes
+metadata:
+  name: nutritionfacts-mongo-srv
+spec:
+  selector:
+    app: nutritionfacts-mongo
+  ports: 
+    - name: nutritionfacts-db
+      protocol: TCP
+      port: 27017
+      targetPort: 27017
+      

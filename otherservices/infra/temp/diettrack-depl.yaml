@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: diettrack-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: diettrack
+  template:
+    metadata: 
+      labels:
+        app: diettrack
+    spec: 
+      containers:
+        - name: diettrack
+          image: noman173652/diettrack
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://diettrack-mongo-srv:27017/diettrack'
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: diettrack-srv
+spec: 
+  selector:
+    app: diettrack
+  ports:
+    - name: diettrack
+      protocol: TCP
+      port: 3033
+      targetPort: 3033
