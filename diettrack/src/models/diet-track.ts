@@ -102,14 +102,9 @@ export class DietTrack{
     //return ((9*fats)+4*(protein+carbohydrates))
   }
   public CalculateWeight(tee: number, height: number, age: number, activity: number) {
-    // console.log(tee)
-    // const temp = tee / activity;
-    // console.log(temp)
-    // const ageAndHeight=(6.25 * height) - (5 * age) + 5
-    // console.log(ageAndHeight)
+    
     console.log(tee,height,age,activity)
-    // const cal=temp-ageAndHeight
-    // console.log(cal/10)
+   
     return ((tee/activity)+((6.8*age))-66-(5*height))/13.7
   }
   public async getAllData(userId:string) {
