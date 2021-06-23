@@ -1,11 +1,14 @@
 import { Message } from "node-nats-streaming";
 import { DietTrack } from "../../models/diet-track";
-import { UserSchema } from "../../models/diet-track-repo/user-diet-repo";
+
 
 import { Listener } from "../base-file/base-listener";
 import { Subjects } from "../base-file/subject";
-import { UserCreatedEvent } from '../base-file/user-created-event';
+
 import mongoose from 'mongoose';
+
+import { UserSchema } from "../../models/exercise-track-repo/user-diet-repo";
+import { UserCreatedEvent } from "../base-file/user-created-event";
 export class UserCreatedListener extends Listener<UserCreatedEvent>{
   queueGroupName = "user--diet-track-created";
   subject: Subjects.UserCreated = Subjects.UserCreated ;

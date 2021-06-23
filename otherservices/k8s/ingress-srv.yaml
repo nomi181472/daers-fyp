@@ -22,8 +22,7 @@ spec:
             backend:
               serviceName: nutritionschedule-srv
               servicePort: 3031
-          # W
-          # - path: /?(.*)
-          #   backend:
-          #     serviceName: client-srv
-          #     servicePort: 3000W
+          - path: /api/track/?(.*)
+            backend:
+              serviceName: track-srv
+              servicePort: 3033

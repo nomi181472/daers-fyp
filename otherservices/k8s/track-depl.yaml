@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: exercisetrack-depl
+  name: track-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: exercisetrack
+      app: track
   template:
     metadata: 
       labels:
-        app: exercisetrack
+        app: track
     spec: 
       containers:
-        - name: exercisetrack
-          image: noman173652/exercisetrack
+        - name: track
+          image: noman173652/track
           env:
             - name: MONGO_URI
               value: 'mongodb://exercisetrack-mongo-srv:27017/exercisetrack'
@@ -22,12 +22,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: exercisetrack-srv
+  name: track-srv
 spec: 
   selector:
-    app: exercisetrack
+    app: track
   ports:
-    - name: exercisetrack
+    - name: track
       protocol: TCP
       port: 3033
       targetPort: 3033

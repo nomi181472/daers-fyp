@@ -10,6 +10,9 @@ import { currentUser } from "./middlewares/current-user";
 import { listExercise } from "./routes/list";
 import { addRunning } from "./routes/addrunning";
 import { listRunningData } from "./routes/listrunning";
+import { addDiet } from "./routes/diettrackroutes/addDiet";
+import { listDiet } from "./routes/diettrackroutes/list";
+import { getExpectedWeight } from "./routes/diettrackroutes/get-expected-weight";
 const app = express();
 const corsOptions = {
   origin:  ["http://localhost:3000","http://localhost:19006","http://localhost:3023"],
@@ -26,6 +29,9 @@ app.use(addRunning);
 app.use(listRunningData)
 app.use(addWeightCapacity)
 app.use(listExercise)
+app.use(addDiet)
+app.use(listDiet);
+app.use(getExpectedWeight)
 app.all("*", async () => {
   throw new UnknownRouteError();
 });

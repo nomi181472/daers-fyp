@@ -32,14 +32,14 @@ build:
         manual:
           - src: './src/**/*.ts'
             dest: .
-    # - image: noman173652/nutritionrecommend
-    #   context: nutritionrecommend
-    #   docker:
-    #     dockerfile: Dockerfile
-    #   sync:
-    #     manual:
-    #       - src: './**.py'
-    #         dest: .
+    - image: noman173652/track
+      context: track
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: './**.py'
+            dest: .
     # - image: noman173652/exercisereminder
     #   context: exercisereminder
     #   docker:

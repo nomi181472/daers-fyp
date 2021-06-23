@@ -3,7 +3,7 @@ import { BadRequestError } from "../errors/bad-request-error";
 import { requireAuth } from "../middlewares/require-auth";
 import {ExerciseTrack} from "../models/exercise-track";
 var router = express.Router();
-router.post("/api-gateway/current-user/exercise-track/addRunning",
+router.post("/api/track/exercise-track/addRunning",
 requireAuth, (req: Request, res: Response) => {
   const {
     date,
