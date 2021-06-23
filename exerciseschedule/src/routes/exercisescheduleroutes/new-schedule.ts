@@ -7,7 +7,7 @@ import { ExerciseSchedule } from "../../models/Exercise-Schedule";
 
 const router = express.Router();
 router.post(
-  "/api-gateway/current-user/exerciseschedule",
+  "/api/exerciseschedule/newschedule",
  requireAuth,
   [
     body("document").not().isEmpty().withMessage("document is required"),

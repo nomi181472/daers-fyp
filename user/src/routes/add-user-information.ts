@@ -8,7 +8,7 @@ import { User } from "../models/user";
 import { natsWrapper } from "../nats-wrapper";
 const router = express.Router();
 router.post(
-  "/api-gateway/current-user/addUserInformation",
+  "/api/user/addUserInformation",
   currentUser,
   requireAuth,
   async (req: Request, res: Response) => {

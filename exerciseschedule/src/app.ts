@@ -21,6 +21,11 @@ import { deleteObjectRouter } from "./routes/exercisescheduleroutes/delete-objec
 import { getUserScheduleRouter } from "./routes/exercisescheduleroutes/getuserschedule";
 import { deleteDay } from "./routes/exercisescheduleroutes/delete-day";
 import { generateSchedule } from "./routes/exercisescheduleroutes/generate-schedule";
+import { sortRouter } from "./routes/exercisereminderroutes/sort";
+import { countRouter } from "./routes/exercisereminderroutes/count";
+import { reScheduleRouter } from "./routes/exercisereminderroutes/reschedule";
+import { addPhotos } from "./routes/muscleroutes/addPhotos";
+import { listMuscleRouter } from "./routes/muscleroutes/list";
 const app = express();
 const corsOptions = {
   origin:  ["http://localhost:3000","http://localhost:19006"],
@@ -48,6 +53,11 @@ app.use(updateExerciseRouter);
 app.use(detailExerciseRouter);
 app.use(deleteExerciseRouter);
 app.use(listExerciseRouter);
+app.use(sortRouter);
+app.use(countRouter);
+app.use(reScheduleRouter);
+app.use(addPhotos);
+app.use(listMuscleRouter);
 app.all("*", async () => {
   throw new UnknownRouteError();
 });

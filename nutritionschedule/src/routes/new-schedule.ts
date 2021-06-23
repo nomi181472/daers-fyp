@@ -7,7 +7,7 @@ import { NutritionFactsSchedule } from "../models/NutritionFacts-Schedule";
 
 const router = express.Router();
 router.post(
-  "/api-gateway/current-user/nutritionschedule",
+  "/api/nutritionschedule/newschedule",
   requireAuth,
   [
     body("document").not().isEmpty().withMessage("document is required"),
@@ -39,7 +39,7 @@ router.post(
     if (!result) {
       throw new BadRequestError("unAble to create schedule");
     }
-    // let result = await exerciseScheduleModel.build({ document, userId });
+  
 
     res.status(201).send({ result });
   }

@@ -16,37 +16,29 @@ build:
         manual:
           - src: './src/**/*.ts'
             dest: .
-    # - image: noman173652/exercise
-    #   context: exercise
+    - image: noman173652/exerciseschedule
+      context: exerciseschedule
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: './src/**/*.ts'
+            dest: .
+    - image: noman173652/nutritionschedule
+      context: nutritionschedule
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: './src/**/*.ts'
+            dest: .
+    # - image: noman173652/nutritionrecommend
+    #   context: nutritionrecommend
     #   docker:
     #     dockerfile: Dockerfile
     #   sync:
     #     manual:
-    #       - src: './src/**/*.ts'
-    #         dest: .
-    # - image: noman173652/nutritionfacts
-    #   context: nutritionfacts
-    #   docker:
-    #     dockerfile: Dockerfile
-    #   sync:
-    #     manual:
-    #       - src: './src/**/*.ts'
-    #         dest: .
-    # - image: noman173652/exerciseschedule
-    #   context: exerciseschedule
-    #   docker:
-    #     dockerfile: Dockerfile
-    #   sync:
-    #     manual:
-    #       - src: './src/**/*.ts'
-    #         dest: .
-    # - image: noman173652/nutritionschedule
-    #   context: nutritionschedule
-    #   docker:
-    #     dockerfile: Dockerfile
-    #   sync:
-    #     manual:
-    #       - src: './src/**/*.ts'
+    #       - src: './**.py'
     #         dest: .
     # - image: noman173652/exercisereminder
     #   context: exercisereminder

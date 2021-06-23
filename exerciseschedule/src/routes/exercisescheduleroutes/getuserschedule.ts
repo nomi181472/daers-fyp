@@ -8,7 +8,7 @@ import { validateRequest } from "../../middlewares/validate-request";
 import { ExerciseSchedule } from "../../models/Exercise-Schedule";
 const router = express.Router();
 router.get(
-  "/api-gateway/current-user/schedulee-user/getschedule",
+  "/api/exerciseschedule/getschedule",
   requireAuth,
   async (req: Request, res: Response) => {
     const sch = new ExerciseSchedule();

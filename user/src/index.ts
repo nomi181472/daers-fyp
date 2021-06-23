@@ -4,16 +4,16 @@ import { UserCreatedListener } from "./events/listeners/user-created-listener";
 import { natsWrapper } from "./nats-wrapper";
 const start = async () => {
   try {
-  //   await natsWrapper.connect("daers", "abc", "http://localhost:4222")
-  //   natsWrapper.client.on("close", () => {
-  //     console.log("NATS connection closed!");
-  //     process.exit();
+    await natsWrapper.connect("daers", "abc", "http://nats-srv:4222")
+    natsWrapper.client.on("close", () => {
+      console.log("NATS connection closed!");
+      process.exit();
      
-  //   });
-  //   process.on("SIGNINT", () => natsWrapper.client.close());
+    });
+    process.on("SIGNINT", () => natsWrapper.client.close());
   
-  // process.on("SIGTERM", () => natsWrapper.client.close());
-  //  new UserCreatedListener(natsWrapper.client).listen()
+  process.on("SIGTERM", () => natsWrapper.client.close());
+   new UserCreatedListener(natsWrapper.client).listen()
     await mongoose.connect("mongodb://user-mongo-srv:27017/User", {
       useNewUrlParser: true,
       useUnifiedTopology: true,

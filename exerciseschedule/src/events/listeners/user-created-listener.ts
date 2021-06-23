@@ -12,7 +12,7 @@ export class UserCreatedListener extends Listener<UserCreatedEvent>{
   async onMessage(data: UserCreatedEvent["data"], msg: Message) {
     
     try {
-      const user = await await UserSchema.build(
+      const user =  await UserSchema.build(
         {
           _id: mongoose.Types.ObjectId(data.userId),
           age: data.age,
@@ -21,11 +21,11 @@ export class UserCreatedListener extends Listener<UserCreatedEvent>{
       )
       console.log(data.userId)
       await user.save()
-      console.log(user)
+      console.log("created:"+user)
       msg.ack();
     }
     catch (Exception) {
-      console.log("UserCreatedListener: " + Exception)
+     // console.log("UserCreatedListener: " + Exception)
       msg.ack();
     }
   }

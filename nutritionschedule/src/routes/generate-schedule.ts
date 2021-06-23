@@ -6,7 +6,7 @@ import { GenerateSchedulePublisher } from "../events/publishers/generate-schedul
 import { natsWrapper } from "../nats-wrapper";
 const router = express.Router();
 router.get(
-  "/api-gateway/current-user/schedulenf-user/generateSchedule",
+  "/api/nutritionschedule/generateSchedule",
   requireAuth,
   async (req: Request, res: Response) => {
     const sch = new NutritionFactsSchedule();

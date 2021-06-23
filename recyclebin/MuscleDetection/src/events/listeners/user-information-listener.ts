@@ -1,5 +1,5 @@
 import { Message } from "node-nats-streaming";
-import { UserSchema } from "../../models/muscle-repo/user-repo";
+import { UserSchema } from "../../models/muscle-repo/user-muscle-repo";
 
 import { Listener } from "../base-file/base-listener";
 import { Subjects } from "../base-file/subject";

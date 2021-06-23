@@ -8,7 +8,7 @@ import { BadRequestError } from "../errors/bad-request-error";
 import { currentUser } from "../middlewares/current-user";
 const router = express.Router();
 router.post(
-  "/api-gateway/sign-in/user",
+  "/api/user/signin",
   [
     body("email").isEmail().withMessage("email must be valid"),
     body("password").trim().notEmpty().withMessage("password must enter"),

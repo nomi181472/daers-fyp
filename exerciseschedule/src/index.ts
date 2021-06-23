@@ -5,7 +5,7 @@ import { UserCreatedListener } from './events/listeners/user-created-listener';
 import { UserInformationListener } from "./events/listeners/user-information-listener";
 const start = async () => {
   try {
-    await natsWrapper.connect("daers", "daers-schedule", "http://localhost:4222")
+    await natsWrapper.connect("daers", "daers-schedule", "http://nats-srv:4222")
     natsWrapper.client.on("close", () => {
       console.log("NATS connection closed!");
       process.exit();
@@ -16,7 +16,7 @@ const start = async () => {
     process.on("SIGTERM", () => natsWrapper.client.close());
     new UserCreatedListener(natsWrapper.client).listen()
     new UserInformationListener(natsWrapper.client).listen()
-    await mongoose.connect("mongodb://localhost:27017/schedulee", {
+    await mongoose.connect("mongodb://exerciseschedule-mongo-srv:27017/schedulee", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

@@ -10,7 +10,7 @@ async def run(loop):
     # client on top.
     nc = NATS()
     sc = STAN()
-    await nc.connect(io_loop=loop)
+    await nc.connect("nats://nats-srv:4222",io_loop=loop)
     await sc.connect("daers", "Diet-recommend-srv", nats=nc)
     subject = "generate:dietschedule"
     async def cb(msg):

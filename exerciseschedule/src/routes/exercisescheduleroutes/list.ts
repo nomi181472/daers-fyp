@@ -10,7 +10,7 @@ import { ExerciseSchedule } from "../../models/Exercise-Schedule";
 
 const router = express.Router();
 router.get(
-  "/api-gateway/current-user/schedulee",
+  "/api/exerciseschedule/listschedule",
   async (req: Request, res: Response) => {
     const sch = new ExerciseSchedule();
     const schedule = await sch.listSchedules();

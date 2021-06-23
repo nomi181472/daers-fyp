@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nutritionrecommend-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nutritionrecommend
+  template:
+    metadata: 
+      labels:
+        app: nutritionrecommend
+    spec: 
+      containers:
+        - name: nutritionrecommend
+          image: noman173652/nutritionrecommend
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nutritionrecommend-srv
+spec: 
+  selector:
+    app: nutritionrecommend
+  ports:
+    - name: nutritionrecommend
+      protocol: TCP
+      port: 3035
+      targetPort: 3035
