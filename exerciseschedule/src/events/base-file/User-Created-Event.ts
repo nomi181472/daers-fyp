@@ -4,7 +4,8 @@ export interface UserCreatedEvent{
   data: {
     age: number;
     bmi: number;
-  
+    weight:number;
+    height:number;
     userId: string;
     
   

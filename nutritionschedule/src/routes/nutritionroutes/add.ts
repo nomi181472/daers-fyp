@@ -7,7 +7,7 @@ import { NutritionFacts } from "../../models/nutritionfacts";
 
 const router = express.Router();
 router.post(
-  "/api-gateway/current-user/nutritionfact",
+  "/api/nutritionschedule/nutrition/add",
 
   requireAuth,
   body("nutritionCategory")

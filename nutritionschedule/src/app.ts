@@ -17,6 +17,14 @@ import { getUserScheduleRouter } from "./routes/getuserschedule";
 import { deleteDay } from "./routes/delete-day";
 import { deleteDayTime } from "./routes/delete-day-time";
 import { generateSchdule } from "./routes/generate-schedule";
+import { addNutritionFactseRouter } from "./routes/nutritionroutes/add";
+import { updateNutritionRouter } from "./routes/nutritionroutes/update";
+import { detailNutritionFactRouter } from "./routes/nutritionroutes/detail";
+import { deleteNutritionFactsRouter } from "./routes/nutritionroutes/delete";
+import { listNutritionFactsRouter } from "./routes/nutritionroutes/list";
+import { sortRouter } from "./routes/nutritionreminderroutes/sort";
+import { countRouter } from "./routes/nutritionreminderroutes/count";
+import { reScheduleRouter } from "./routes/nutritionreminderroutes/reschedule";
 
 const app = express();
 const corsOptions = {
@@ -43,6 +51,14 @@ app.use(deleteObjectRouter);
 app.use(deleteDay);
 app.use(deleteDayTime);
 app.use(generateSchdule);
+app.use(addNutritionFactseRouter);
+app.use(updateNutritionRouter);
+app.use(detailNutritionFactRouter);
+app.use(deleteNutritionFactsRouter);
+app.use(listNutritionFactsRouter);
+app.use(sortRouter);
+app.use(countRouter)
+app.use(reScheduleRouter);
 app.all("*", async () => {
   throw new UnknownRouteError();
 });

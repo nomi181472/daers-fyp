@@ -16,7 +16,7 @@ const start = async () => {
     process.on("SIGTERM", () => natsWrapper.client.close());
     new UserCreatedListener(natsWrapper.client).listen()
     new UserInformationListener(natsWrapper.client).listen()
-    await mongoose.connect("mongodb://exerciseschedule-mongo-srv:27017/schedulee", {
+    await mongoose.connect("mongodb://exerciseschedule-mongo-srv:27015/schedulee", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,

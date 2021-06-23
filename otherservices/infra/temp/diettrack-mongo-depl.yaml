@@ -26,6 +26,6 @@ spec:
   ports: 
     - name: diettrack-db
       protocol: TCP
-      port: 27017
+      port: 27016
       targetPort: 27017
       

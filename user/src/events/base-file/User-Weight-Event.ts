@@ -4,5 +4,6 @@ export interface UserWeightEvent{
   data: {
     userId: string;
     weight: number;
+    
   }
 } 

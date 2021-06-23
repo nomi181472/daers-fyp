@@ -5,12 +5,13 @@ import asyncio
 from nats.aio.client import Client as NATS
 from stan.aio.client import Client as STAN
 import json
+from bson.objectid import ObjectId
 async def run(loop):
     # Use borrowed connection for NATS then mount NATS Streaming
     # client on top.
     nc = NATS()
     sc = STAN()
-    await nc.connect("nats://nats-srv:4222",io_loop=loop)
+    await nc.connect(io_loop=loop)
     await sc.connect("daers", "Diet-recommend-srv", nats=nc)
     subject = "generate:dietschedule"
     async def cb(msg):
@@ -19,7 +20,7 @@ async def run(loop):
         try:
             my_json = msg.data.decode('utf8').replace("'", '"')
             data = json.loads(my_json)
-            conn = pymongo.MongoClient("localhost", 27017)
+            conn = pymongo.MongoClient("localhost", 27016)
             userId = data["userId"]
             make_shedule(30,userId, conn)
             print("Done")
@@ -32,12 +33,21 @@ class TDEE:
         self.age=age
         self.height=height
         self.weight=weight
+        # self.activity_levels_dict = {
+        #     "Little_Or_No_Exercise": 1.2,
+        #     "Light_Exercise": 1.375,
+        #     "Moderate_Exercise": 1.55,
+        #     "Very_Active": 1.725,
+        #     "Extra_Active": 1.9
+        # }
+       # 1.5, 1.6, 1.8, 2, 2.1
         self.activity_levels_dict = {
-            "Little_Or_No_Exercise": 1.2,
-            "Light_Exercise": 1.375,
-            "Moderate_Exercise": 1.55,
-            "Very_Active": 1.725,
-            "Extra_Active": 1.9
+            1.5: 1.5,
+            1.6: 1.6,
+            1.8: 1.8,
+            2: 2.1,
+            2:2
+
         }
     def get_bmr(self):
         bmr=66.47 + (13.75 * self.weight ) + (5.003 * self.height) - (6.755 * self.age )
@@ -47,6 +57,7 @@ class TDEE:
 
 class UserProfile:
     def __init__(self,age,height,currentWeight,targetWeight,activity):
+
         self.currentTdee=TDEE(age,height,currentWeight).getTDEE(activity)
         self.targetTdee=TDEE(age,height,targetWeight).getTDEE(activity)
         self.total_difference=self.targetTdee-self.currentTdee
@@ -72,10 +83,30 @@ def balanceMacroNutrients(protein,carbohydrate,fats,ratio_sub,percentage):
     fats=fats+(is_neg*(9+ratio_sub)/17)
     return protein,carbohydrate,fats,gram
 def make_shedule(n,userId,conn):
-    up = UserProfile(20, 180, 100, 90, "Moderate_Exercise") # will have to add 10 kg threshold
+    userdata=conn["schedulenf"]["usernutritionschedules"]
+
+    result=userdata.find_one({"_id": ObjectId(userId)})
+    age=0
+
+    height=0
+    currentWeight=0
+    targetWeight=0
+    activityLevel=0
+    if(result!= None):
+        age=result["age"]
+        currentWeight=result["weight"]
+        height=result["height"]
+        userinformation= dict(result["userInformation"])
+        targetWeight = userinformation["targetGoal"]
+        activityLevel = userinformation["activityLevel"]
+    else:
+        print('not done')
+        return
+
+    up = UserProfile(age,height,currentWeight,targetWeight,activityLevel) # will have to add 10 kg threshold
     ratio=up.total_difference/n
     time_in_day = ["breakfast", "lunch", "dinner"]
-    nutriton_collection = conn["nutritionfacts"]["nutritionfacts"]
+    nutriton_collection = conn["schedulenf"]["nutritionfacts"]
     result=[]
     if(ratio<0):
         result=nutriton_collection.find().sort("protein",pymongo.DESCENDING)

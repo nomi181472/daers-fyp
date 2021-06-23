@@ -26,6 +26,6 @@ spec:
   ports: 
     - name: exerciseschedule-db
       protocol: TCP
-      port: 27017
+      port: 27015
       targetPort: 27017
       

@@ -17,6 +17,8 @@ export class UserCreatedListener extends Listener<UserCreatedEvent>{
           _id: mongoose.Types.ObjectId(data.userId),
           age: data.age,
           bmi: data.bmi,
+          height:data.height,
+          weight:data.weight
         }
       )
       console.log(data.userId)
