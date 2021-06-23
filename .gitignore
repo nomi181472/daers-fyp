@@ -2,3 +2,5 @@
 node_modules
 *.h5
 *.pt
+client
+Diet-Recommend
